@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlitzBoat — 作戦盤</title>
+    <meta name="description" content="BlitzBoat AI統計ベース競艇戦略システム">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Auth Overlay -->
+    <div id="auth-overlay" class="auth-overlay">
+        <div class="auth-card">
+            <div class="auth-logo">⚡</div>
+            <h1 class="auth-title">BlitzBoat</h1>
+            <p class="auth-subtitle">作戦盤へのアクセス</p>
+            <form id="auth-form">
+                <input type="password" id="auth-password" placeholder="パスワードを入力"
+                       class="auth-input" autocomplete="off" autofocus>
+                <button type="submit" class="auth-btn">認証</button>
+                <p id="auth-error" class="auth-error"></p>
+            </form>
+            <p class="auth-hint">日替わりパスワードを入力してください</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <span class="logo-icon">⚡</span>
+                <h1 class="header-title">BlitzBoat</h1>
+                <span class="header-badge">STRATEGY BOARD</span>
+            </div>
+            <div class="header-right">
+                <span id="header-date" class="header-date"></span>
+                <span id="header-status" class="status-badge">LIVE</span>
+            </div>
+        </header>
+
+        <!-- Alert Banner -->
+        <div id="alert-banner" class="alert-banner hidden">
+            <span class="alert-icon">🔥</span>
+            <span id="alert-text" class="alert-text">本日のチャンスレース: 0件</span>
+        </div>
+
+        <!-- Stats Overview -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">チャンスレース</div>
+                <div id="stat-chance" class="stat-value glow-red">0</div>
+                <div class="stat-sub">検出数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">分析レース</div>
+                <div id="stat-total" class="stat-value">0</div>
+                <div class="stat-sub">全レース</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">最低1号艇勝率</div>
+                <div id="stat-lowest" class="stat-value glow-green">--%</div>
+                <div class="stat-sub">最大チャンス</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">推奨点数</div>
+                <div id="stat-tickets" class="stat-value">0</div>
+                <div class="stat-sub">買い目数</div>
+            </div>
+        </section>
+
+        <!-- Chance Races -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">🎯</span>
+                チャンスレース
+            </h2>
+            <div id="chance-races" class="race-list">
+                <div class="empty-state">データを読み込み中...</div>
+            </div>
+        </section>
+
+        <!-- Venue Rankings -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">📊</span>
+                出目ランキング (差し除外 / 97%累積)
+            </h2>
+            <div class="venue-selector">
+                <select id="venue-select" class="venue-select">
+                    <option value="">会場を選択</option>
+                </select>
+            </div>
+            <div id="ranking-table" class="ranking-container">
+                <div class="empty-state">会場を選択してください</div>
+            </div>
+        </section>
+
+        <!-- Recommended Tickets -->
+        <section class="section">
+            <h2 class="section-title">
+                <span class="section-icon">🎫</span>
+                推奨舟券 (¥30,000配分)
+            </h2>
+            <div id="ticket-list" class="ticket-container">
+                <div class="empty-state">チャンスレースを選択してください</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by BlitzBoat AI — 統計ベース自律予想システム</p>
+            <p class="footer-disclaimer">※ 投資は自己責任で行ってください</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

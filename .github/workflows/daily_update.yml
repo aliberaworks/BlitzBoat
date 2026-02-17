@@ -1,0 +1,73 @@
+name: BlitzBoat Daily Update
+
+on:
+  schedule:
+    # JST 03:00 = UTC 18:00 (前日)
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+env:
+  PYTHONIOENCODING: utf-8
+
+jobs:
+  daily-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install playwright
+          playwright install chromium
+          playwright install-deps
+
+      - name: Install system dependencies
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg fonts-noto-cjk
+
+      - name: Run daily update
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+          X_USERNAME: ${{ secrets.X_USERNAME }}
+          X_PASSWORD: ${{ secrets.X_PASSWORD }}
+          NOTE_EMAIL: ${{ secrets.NOTE_EMAIL }}
+          NOTE_PASSWORD: ${{ secrets.NOTE_PASSWORD }}
+          AFFILIATE_URL: ${{ secrets.AFFILIATE_URL }}
+        run: python main.py daily
+
+      - name: Upload analysis artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: daily-analysis-${{ github.run_id }}
+          path: |
+            data/daily/
+            assets/
+          retention-days: 30
+
+      - name: Copy daily data to web
+        run: |
+          mkdir -p web/data/daily
+          cp -r data/daily/* web/data/daily/ 2>/dev/null || true
+          # latest.json のシンボリックリンク生成
+          cd web/data/daily
+          ls -t daily_*.json 2>/dev/null | head -1 | xargs -I {} cp {} ../latest.json || true
+
+      - name: Commit updated data
+        run: |
+          git config user.name "BlitzBoat Bot"
+          git config user.email "bot@blitzboat.dev"
+          git add data/ assets/ web/data/ || true
+          git diff --staged --quiet || git commit -m "Daily update $(date +%Y%m%d)"
+          git push || true
