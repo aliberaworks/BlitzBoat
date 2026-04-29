@@ -1,0 +1,1664 @@
+{
+  "feature_names": [
+    "b1_avg_st",
+    "b2_avg_st",
+    "b3_avg_st",
+    "b4_avg_st",
+    "b5_avg_st",
+    "b6_avg_st",
+    "b1_motor_2rate",
+    "b2_motor_2rate",
+    "b3_motor_2rate",
+    "b4_motor_2rate",
+    "b5_motor_2rate",
+    "b6_motor_2rate",
+    "b1_national_rate",
+    "b2_national_rate",
+    "b3_national_rate",
+    "b4_national_rate",
+    "b5_national_rate",
+    "b6_national_rate",
+    "b1_local_rate",
+    "b2_local_rate",
+    "b3_local_rate",
+    "b4_local_rate",
+    "b5_local_rate",
+    "b6_local_rate",
+    "b1_avg_st_rank",
+    "b2_avg_st_rank",
+    "b3_avg_st_rank",
+    "b4_avg_st_rank",
+    "b5_avg_st_rank",
+    "b6_avg_st_rank",
+    "b1_motor_2rate_rank",
+    "b2_motor_2rate_rank",
+    "b3_motor_2rate_rank",
+    "b4_motor_2rate_rank",
+    "b5_motor_2rate_rank",
+    "b6_motor_2rate_rank",
+    "b1_national_rate_rank",
+    "b2_national_rate_rank",
+    "b3_national_rate_rank",
+    "b4_national_rate_rank",
+    "b5_national_rate_rank",
+    "b6_national_rate_rank",
+    "venue_01",
+    "venue_02",
+    "venue_03",
+    "venue_04",
+    "venue_05",
+    "venue_06",
+    "venue_07",
+    "venue_08",
+    "venue_09",
+    "venue_10",
+    "venue_11",
+    "venue_12",
+    "venue_13",
+    "venue_14",
+    "venue_15",
+    "venue_16",
+    "venue_17",
+    "venue_18",
+    "venue_19",
+    "venue_20",
+    "venue_21",
+    "venue_22",
+    "venue_23",
+    "venue_24",
+    "day_from_start",
+    "is_final_day",
+    "series_progress",
+    "b1_qualify",
+    "b2_qualify",
+    "b3_qualify",
+    "b4_qualify",
+    "b5_qualify",
+    "b6_qualify",
+    "b1_bubble",
+    "b2_bubble",
+    "b3_bubble",
+    "b4_bubble",
+    "b5_bubble",
+    "b6_bubble",
+    "b1_points_before",
+    "b2_points_before",
+    "b3_points_before",
+    "b4_points_before",
+    "b5_points_before",
+    "b6_points_before",
+    "b1_grade_num",
+    "b2_grade_num",
+    "b3_grade_num",
+    "b4_grade_num",
+    "b5_grade_num",
+    "b6_grade_num",
+    "a1_count",
+    "a1_in_boat1"
+  ],
+  "boat_classes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "km_classes": [
+    "まくり",
+    "まくり差し",
+    "差し",
+    "恵まれ",
+    "抜き",
+    "逃げ"
+  ],
+  "boat_eval": {
+    "accuracy": 0.3973,
+    "top3_accuracy": 0.7971,
+    "baseline": 0.5551
+  },
+  "km_eval": {
+    "accuracy": 0.5434,
+    "top3_accuracy": 0.8452,
+    "baseline": 0.5415
+  },
+  "boat_importance": [
+    {
+      "feature": "b6_national_rate",
+      "importance": 0.0437
+    },
+    {
+      "feature": "b5_national_rate",
+      "importance": 0.0435
+    },
+    {
+      "feature": "b3_national_rate",
+      "importance": 0.0359
+    },
+    {
+      "feature": "b2_national_rate",
+      "importance": 0.0338
+    },
+    {
+      "feature": "b1_national_rate",
+      "importance": 0.0325
+    },
+    {
+      "feature": "b4_national_rate",
+      "importance": 0.0319
+    },
+    {
+      "feature": "b5_local_rate",
+      "importance": 0.0301
+    },
+    {
+      "feature": "b6_national_rate_rank",
+      "importance": 0.0295
+    },
+    {
+      "feature": "b6_local_rate",
+      "importance": 0.0276
+    },
+    {
+      "feature": "b5_national_rate_rank",
+      "importance": 0.0271
+    }
+  ],
+  "km_importance": [
+    {
+      "feature": "b1_national_rate",
+      "importance": 0.1013
+    },
+    {
+      "feature": "b1_national_rate_rank",
+      "importance": 0.0641
+    },
+    {
+      "feature": "b1_local_rate",
+      "importance": 0.0548
+    },
+    {
+      "feature": "b1_grade_num",
+      "importance": 0.0483
+    },
+    {
+      "feature": "b1_points_before",
+      "importance": 0.0383
+    },
+    {
+      "feature": "a1_in_boat1",
+      "importance": 0.0295
+    },
+    {
+      "feature": "b2_national_rate",
+      "importance": 0.0244
+    },
+    {
+      "feature": "b2_local_rate",
+      "importance": 0.0235
+    },
+    {
+      "feature": "b1_avg_st",
+      "importance": 0.023
+    },
+    {
+      "feature": "b5_national_rate",
+      "importance": 0.0213
+    }
+  ],
+  "n_train": 21444,
+  "n_test": 5361,
+  "km_by_boat": {
+    "1": {
+      "逃げ": 0.9577,
+      "差し": 0.0005,
+      "まくり": 0.0017,
+      "まくり差し": 0.0,
+      "抜き": 0.0384,
+      "恵まれ": 0.0017,
+      "_modal": "逃げ"
+    },
+    "2": {
+      "逃げ": 0.03,
+      "差し": 0.5646,
+      "まくり": 0.2871,
+      "まくり差し": 0.0154,
+      "抜き": 0.088,
+      "恵まれ": 0.0149,
+      "_modal": "差し"
+    },
+    "3": {
+      "逃げ": 0.0076,
+      "差し": 0.1224,
+      "まくり": 0.4021,
+      "まくり差し": 0.3642,
+      "抜き": 0.0924,
+      "恵まれ": 0.0112,
+      "_modal": "まくり"
+    },
+    "4": {
+      "逃げ": 0.0052,
+      "差し": 0.1811,
+      "まくり": 0.4813,
+      "まくり差し": 0.2508,
+      "抜き": 0.0664,
+      "恵まれ": 0.0152,
+      "_modal": "まくり"
+    },
+    "5": {
+      "逃げ": 0.0119,
+      "差し": 0.1042,
+      "まくり": 0.2411,
+      "まくり差し": 0.5166,
+      "抜き": 0.1073,
+      "恵まれ": 0.0188,
+      "_modal": "まくり差し"
+    },
+    "6": {
+      "逃げ": 0.0217,
+      "差し": 0.1071,
+      "まくり": 0.3032,
+      "まくり差し": 0.4212,
+      "抜き": 0.1203,
+      "恵まれ": 0.0265,
+      "_modal": "まくり差し"
+    }
+  },
+  "trifecta_stats": {
+    "1_逃げ": [
+      {
+        "combo": "2.0-3.0",
+        "count": 1828,
+        "pct": 0.1314
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 1460,
+        "pct": 0.105
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 1278,
+        "pct": 0.0919
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 1046,
+        "pct": 0.0752
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 941,
+        "pct": 0.0677
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 872,
+        "pct": 0.0627
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 760,
+        "pct": 0.0546
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 659,
+        "pct": 0.0474
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 648,
+        "pct": 0.0466
+      },
+      {
+        "combo": "6.0-2.0",
+        "count": 629,
+        "pct": 0.0452
+      }
+    ],
+    "2_恵まれ": [
+      {
+        "combo": "1.0-2.0",
+        "count": 18,
+        "pct": 0.4091
+      },
+      {
+        "combo": "1.0-4.0",
+        "count": 13,
+        "pct": 0.2955
+      },
+      {
+        "combo": "1.0-3.0",
+        "count": 11,
+        "pct": 0.25
+      },
+      {
+        "combo": "1.0-5.0",
+        "count": 2,
+        "pct": 0.0455
+      }
+    ],
+    "4_まくり": [
+      {
+        "combo": "5.0-6.0",
+        "count": 123,
+        "pct": 0.0979
+      },
+      {
+        "combo": "6.0-5.0",
+        "count": 81,
+        "pct": 0.0645
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 79,
+        "pct": 0.0629
+      },
+      {
+        "combo": "3.0-6.0",
+        "count": 76,
+        "pct": 0.0605
+      },
+      {
+        "combo": "6.0-4.0",
+        "count": 76,
+        "pct": 0.0605
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 72,
+        "pct": 0.0573
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 72,
+        "pct": 0.0573
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 71,
+        "pct": 0.0565
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 67,
+        "pct": 0.0533
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 64,
+        "pct": 0.051
+      }
+    ],
+    "3_まくり差し": [
+      {
+        "combo": "5.0-1.0",
+        "count": 279,
+        "pct": 0.2347
+      },
+      {
+        "combo": "4.0-1.0",
+        "count": 247,
+        "pct": 0.2077
+      },
+      {
+        "combo": "6.0-1.0",
+        "count": 233,
+        "pct": 0.196
+      },
+      {
+        "combo": "2.0-1.0",
+        "count": 216,
+        "pct": 0.1817
+      },
+      {
+        "combo": "3.0-1.0",
+        "count": 214,
+        "pct": 0.18
+      }
+    ],
+    "5_まくり差し": [
+      {
+        "combo": "3.0-4.0",
+        "count": 68,
+        "pct": 0.0865
+      },
+      {
+        "combo": "5.0-6.0",
+        "count": 63,
+        "pct": 0.0802
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 53,
+        "pct": 0.0674
+      },
+      {
+        "combo": "6.0-5.0",
+        "count": 53,
+        "pct": 0.0674
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 46,
+        "pct": 0.0585
+      },
+      {
+        "combo": "3.0-6.0",
+        "count": 44,
+        "pct": 0.056
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 44,
+        "pct": 0.056
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 41,
+        "pct": 0.0522
+      },
+      {
+        "combo": "6.0-4.0",
+        "count": 39,
+        "pct": 0.0496
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 37,
+        "pct": 0.0471
+      }
+    ],
+    "3_抜き": [
+      {
+        "combo": "2.0-1.0",
+        "count": 82,
+        "pct": 0.2733
+      },
+      {
+        "combo": "3.0-1.0",
+        "count": 73,
+        "pct": 0.2433
+      },
+      {
+        "combo": "4.0-1.0",
+        "count": 59,
+        "pct": 0.1967
+      },
+      {
+        "combo": "5.0-1.0",
+        "count": 52,
+        "pct": 0.1733
+      },
+      {
+        "combo": "6.0-1.0",
+        "count": 34,
+        "pct": 0.1133
+      }
+    ],
+    "2_抜き": [
+      {
+        "combo": "1.0-3.0",
+        "count": 85,
+        "pct": 0.2852
+      },
+      {
+        "combo": "1.0-4.0",
+        "count": 75,
+        "pct": 0.2517
+      },
+      {
+        "combo": "1.0-5.0",
+        "count": 59,
+        "pct": 0.198
+      },
+      {
+        "combo": "1.0-2.0",
+        "count": 47,
+        "pct": 0.1577
+      },
+      {
+        "combo": "1.0-6.0",
+        "count": 32,
+        "pct": 0.1074
+      }
+    ],
+    "3_まくり": [
+      {
+        "combo": "2.0-1.0",
+        "count": 296,
+        "pct": 0.2266
+      },
+      {
+        "combo": "3.0-1.0",
+        "count": 278,
+        "pct": 0.2129
+      },
+      {
+        "combo": "4.0-1.0",
+        "count": 268,
+        "pct": 0.2052
+      },
+      {
+        "combo": "5.0-1.0",
+        "count": 246,
+        "pct": 0.1884
+      },
+      {
+        "combo": "6.0-1.0",
+        "count": 218,
+        "pct": 0.1669
+      }
+    ],
+    "4_差し": [
+      {
+        "combo": "2.0-5.0",
+        "count": 40,
+        "pct": 0.0835
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 39,
+        "pct": 0.0814
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 37,
+        "pct": 0.0772
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 35,
+        "pct": 0.0731
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 30,
+        "pct": 0.0626
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 30,
+        "pct": 0.0626
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 27,
+        "pct": 0.0564
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 26,
+        "pct": 0.0543
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 23,
+        "pct": 0.048
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 23,
+        "pct": 0.048
+      }
+    ],
+    "1_抜き": [
+      {
+        "combo": "2.0-3.0",
+        "count": 79,
+        "pct": 0.1426
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 74,
+        "pct": 0.1336
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 44,
+        "pct": 0.0794
+      },
+      {
+        "combo": "6.0-2.0",
+        "count": 37,
+        "pct": 0.0668
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 36,
+        "pct": 0.065
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 32,
+        "pct": 0.0578
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 27,
+        "pct": 0.0487
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 27,
+        "pct": 0.0487
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 24,
+        "pct": 0.0433
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 21,
+        "pct": 0.0379
+      }
+    ],
+    "2_差し": [
+      {
+        "combo": "1.0-3.0",
+        "count": 516,
+        "pct": 0.2652
+      },
+      {
+        "combo": "1.0-4.0",
+        "count": 422,
+        "pct": 0.2169
+      },
+      {
+        "combo": "1.0-5.0",
+        "count": 379,
+        "pct": 0.1948
+      },
+      {
+        "combo": "1.0-2.0",
+        "count": 337,
+        "pct": 0.1732
+      },
+      {
+        "combo": "1.0-6.0",
+        "count": 292,
+        "pct": 0.1501
+      }
+    ],
+    "2_まくり": [
+      {
+        "combo": "1.0-2.0",
+        "count": 351,
+        "pct": 0.3563
+      },
+      {
+        "combo": "1.0-3.0",
+        "count": 227,
+        "pct": 0.2305
+      },
+      {
+        "combo": "1.0-4.0",
+        "count": 177,
+        "pct": 0.1797
+      },
+      {
+        "combo": "1.0-5.0",
+        "count": 125,
+        "pct": 0.1269
+      },
+      {
+        "combo": "1.0-6.0",
+        "count": 105,
+        "pct": 0.1066
+      }
+    ],
+    "5_抜き": [
+      {
+        "combo": "2.0-4.0",
+        "count": 16,
+        "pct": 0.097
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 16,
+        "pct": 0.097
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 13,
+        "pct": 0.0788
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 12,
+        "pct": 0.0727
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 11,
+        "pct": 0.0667
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 10,
+        "pct": 0.0606
+      },
+      {
+        "combo": "6.0-4.0",
+        "count": 10,
+        "pct": 0.0606
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 9,
+        "pct": 0.0545
+      },
+      {
+        "combo": "6.0-2.0",
+        "count": 9,
+        "pct": 0.0545
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 9,
+        "pct": 0.0545
+      }
+    ],
+    "6_抜き": [
+      {
+        "combo": "5.0-4.0",
+        "count": 11,
+        "pct": 0.1222
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 8,
+        "pct": 0.0889
+      },
+      {
+        "combo": "3.0-6.0",
+        "count": 8,
+        "pct": 0.0889
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 7,
+        "pct": 0.0778
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 7,
+        "pct": 0.0778
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 6,
+        "pct": 0.0667
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 6,
+        "pct": 0.0667
+      },
+      {
+        "combo": "5.0-6.0",
+        "count": 6,
+        "pct": 0.0667
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 5,
+        "pct": 0.0556
+      },
+      {
+        "combo": "6.0-5.0",
+        "count": 4,
+        "pct": 0.0444
+      }
+    ],
+    "4_逃げ": [
+      {
+        "combo": "4.0-6.0",
+        "count": 4,
+        "pct": 0.2857
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 3,
+        "pct": 0.2143
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 3,
+        "pct": 0.2143
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 2,
+        "pct": 0.1429
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 2,
+        "pct": 0.1429
+      }
+    ],
+    "4_まくり差し": [
+      {
+        "combo": "6.0-5.0",
+        "count": 53,
+        "pct": 0.0805
+      },
+      {
+        "combo": "6.0-2.0",
+        "count": 45,
+        "pct": 0.0684
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 42,
+        "pct": 0.0638
+      },
+      {
+        "combo": "3.0-6.0",
+        "count": 36,
+        "pct": 0.0547
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 36,
+        "pct": 0.0547
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 35,
+        "pct": 0.0532
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 35,
+        "pct": 0.0532
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 34,
+        "pct": 0.0517
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 34,
+        "pct": 0.0517
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 33,
+        "pct": 0.0502
+      }
+    ],
+    "2_逃げ": [
+      {
+        "combo": "1.0-2.0",
+        "count": 42,
+        "pct": 0.4078
+      },
+      {
+        "combo": "1.0-3.0",
+        "count": 27,
+        "pct": 0.2621
+      },
+      {
+        "combo": "1.0-5.0",
+        "count": 19,
+        "pct": 0.1845
+      },
+      {
+        "combo": "1.0-4.0",
+        "count": 12,
+        "pct": 0.1165
+      },
+      {
+        "combo": "1.0-6.0",
+        "count": 3,
+        "pct": 0.0291
+      }
+    ],
+    "4_抜き": [
+      {
+        "combo": "4.0-3.0",
+        "count": 15,
+        "pct": 0.0867
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 14,
+        "pct": 0.0809
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 13,
+        "pct": 0.0751
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 13,
+        "pct": 0.0751
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 11,
+        "pct": 0.0636
+      },
+      {
+        "combo": "6.0-4.0",
+        "count": 11,
+        "pct": 0.0636
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 10,
+        "pct": 0.0578
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 10,
+        "pct": 0.0578
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 9,
+        "pct": 0.052
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 8,
+        "pct": 0.0462
+      }
+    ],
+    "5_まくり": [
+      {
+        "combo": "3.0-5.0",
+        "count": 38,
+        "pct": 0.1011
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 28,
+        "pct": 0.0745
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 26,
+        "pct": 0.0691
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 25,
+        "pct": 0.0665
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 24,
+        "pct": 0.0638
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 23,
+        "pct": 0.0612
+      },
+      {
+        "combo": "5.0-6.0",
+        "count": 21,
+        "pct": 0.0559
+      },
+      {
+        "combo": "6.0-4.0",
+        "count": 20,
+        "pct": 0.0532
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 19,
+        "pct": 0.0505
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 19,
+        "pct": 0.0505
+      }
+    ],
+    "6_まくり": [
+      {
+        "combo": "2.0-4.0",
+        "count": 24,
+        "pct": 0.0996
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 20,
+        "pct": 0.083
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 19,
+        "pct": 0.0788
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 16,
+        "pct": 0.0664
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 15,
+        "pct": 0.0622
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 15,
+        "pct": 0.0622
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 15,
+        "pct": 0.0622
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 13,
+        "pct": 0.0539
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 12,
+        "pct": 0.0498
+      },
+      {
+        "combo": "6.0-2.0",
+        "count": 12,
+        "pct": 0.0498
+      }
+    ],
+    "6_まくり差し": [
+      {
+        "combo": "5.0-4.0",
+        "count": 28,
+        "pct": 0.0846
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 27,
+        "pct": 0.0816
+      },
+      {
+        "combo": "3.0-6.0",
+        "count": 23,
+        "pct": 0.0695
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 21,
+        "pct": 0.0634
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 20,
+        "pct": 0.0604
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 19,
+        "pct": 0.0574
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 19,
+        "pct": 0.0574
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 19,
+        "pct": 0.0574
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 18,
+        "pct": 0.0544
+      },
+      {
+        "combo": "6.0-3.0",
+        "count": 17,
+        "pct": 0.0514
+      }
+    ],
+    "6_差し": [
+      {
+        "combo": "6.0-2.0",
+        "count": 10,
+        "pct": 0.1136
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 9,
+        "pct": 0.1023
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 8,
+        "pct": 0.0909
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 8,
+        "pct": 0.0909
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 7,
+        "pct": 0.0795
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 7,
+        "pct": 0.0795
+      },
+      {
+        "combo": "5.0-6.0",
+        "count": 6,
+        "pct": 0.0682
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 6,
+        "pct": 0.0682
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 5,
+        "pct": 0.0568
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 4,
+        "pct": 0.0455
+      }
+    ],
+    "3_差し": [
+      {
+        "combo": "2.0-1.0",
+        "count": 140,
+        "pct": 0.3636
+      },
+      {
+        "combo": "3.0-1.0",
+        "count": 76,
+        "pct": 0.1974
+      },
+      {
+        "combo": "4.0-1.0",
+        "count": 66,
+        "pct": 0.1714
+      },
+      {
+        "combo": "5.0-1.0",
+        "count": 56,
+        "pct": 0.1455
+      },
+      {
+        "combo": "6.0-1.0",
+        "count": 47,
+        "pct": 0.1221
+      }
+    ],
+    "5_差し": [
+      {
+        "combo": "2.0-3.0",
+        "count": 14,
+        "pct": 0.0881
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 12,
+        "pct": 0.0755
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 11,
+        "pct": 0.0692
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 11,
+        "pct": 0.0692
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 10,
+        "pct": 0.0629
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 10,
+        "pct": 0.0629
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 8,
+        "pct": 0.0503
+      },
+      {
+        "combo": "6.0-4.0",
+        "count": 8,
+        "pct": 0.0503
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 8,
+        "pct": 0.0503
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 7,
+        "pct": 0.044
+      }
+    ],
+    "4_恵まれ": [
+      {
+        "combo": "3.0-2.0",
+        "count": 6,
+        "pct": 0.2609
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 4,
+        "pct": 0.1739
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 4,
+        "pct": 0.1739
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 3,
+        "pct": 0.1304
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 2,
+        "pct": 0.087
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 2,
+        "pct": 0.087
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 1,
+        "pct": 0.0435
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 1,
+        "pct": 0.0435
+      }
+    ],
+    "3_恵まれ": [
+      {
+        "combo": "3.0-1.0",
+        "count": 9,
+        "pct": 0.36
+      },
+      {
+        "combo": "4.0-1.0",
+        "count": 7,
+        "pct": 0.28
+      },
+      {
+        "combo": "2.0-1.0",
+        "count": 6,
+        "pct": 0.24
+      },
+      {
+        "combo": "5.0-1.0",
+        "count": 3,
+        "pct": 0.12
+      }
+    ],
+    "2_まくり差し": [
+      {
+        "combo": "1.0-3.0",
+        "count": 19,
+        "pct": 0.3519
+      },
+      {
+        "combo": "1.0-6.0",
+        "count": 13,
+        "pct": 0.2407
+      },
+      {
+        "combo": "1.0-2.0",
+        "count": 9,
+        "pct": 0.1667
+      },
+      {
+        "combo": "1.0-4.0",
+        "count": 9,
+        "pct": 0.1667
+      },
+      {
+        "combo": "1.0-5.0",
+        "count": 4,
+        "pct": 0.0741
+      }
+    ],
+    "1_恵まれ": [
+      {
+        "combo": "2.0-4.0",
+        "count": 4,
+        "pct": 0.3333
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 3,
+        "pct": 0.25
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 2,
+        "pct": 0.1667
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 1,
+        "pct": 0.0833
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 1,
+        "pct": 0.0833
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 1,
+        "pct": 0.0833
+      }
+    ],
+    "5_恵まれ": [
+      {
+        "combo": "4.0-3.0",
+        "count": 5,
+        "pct": 0.2381
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 3,
+        "pct": 0.1429
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 3,
+        "pct": 0.1429
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 2,
+        "pct": 0.0952
+      },
+      {
+        "combo": "2.0-5.0",
+        "count": 2,
+        "pct": 0.0952
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 2,
+        "pct": 0.0952
+      },
+      {
+        "combo": "5.0-3.0",
+        "count": 2,
+        "pct": 0.0952
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 1,
+        "pct": 0.0476
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 1,
+        "pct": 0.0476
+      }
+    ],
+    "6_恵まれ": [
+      {
+        "combo": "3.0-2.0",
+        "count": 3,
+        "pct": 0.25
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 2,
+        "pct": 0.1667
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 2,
+        "pct": 0.1667
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 2,
+        "pct": 0.1667
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 2,
+        "pct": 0.1667
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 1,
+        "pct": 0.0833
+      }
+    ],
+    "3_逃げ": [
+      {
+        "combo": "3.0-1.0",
+        "count": 8,
+        "pct": 0.32
+      },
+      {
+        "combo": "5.0-1.0",
+        "count": 6,
+        "pct": 0.24
+      },
+      {
+        "combo": "4.0-1.0",
+        "count": 5,
+        "pct": 0.2
+      },
+      {
+        "combo": "2.0-1.0",
+        "count": 4,
+        "pct": 0.16
+      },
+      {
+        "combo": "6.0-1.0",
+        "count": 2,
+        "pct": 0.08
+      }
+    ],
+    "1_差し": [
+      {
+        "combo": "2.0-3.0",
+        "count": 2,
+        "pct": 0.2857
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 2,
+        "pct": 0.2857
+      },
+      {
+        "combo": "2.0-4.0",
+        "count": 1,
+        "pct": 0.1429
+      },
+      {
+        "combo": "6.0-2.0",
+        "count": 1,
+        "pct": 0.1429
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 1,
+        "pct": 0.1429
+      }
+    ],
+    "6_逃げ": [
+      {
+        "combo": "3.0-4.0",
+        "count": 4,
+        "pct": 0.25
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 3,
+        "pct": 0.1875
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 3,
+        "pct": 0.1875
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 1,
+        "pct": 0.0625
+      },
+      {
+        "combo": "4.0-6.0",
+        "count": 1,
+        "pct": 0.0625
+      },
+      {
+        "combo": "3.0-6.0",
+        "count": 1,
+        "pct": 0.0625
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 1,
+        "pct": 0.0625
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 1,
+        "pct": 0.0625
+      },
+      {
+        "combo": "6.0-4.0",
+        "count": 1,
+        "pct": 0.0625
+      }
+    ],
+    "5_逃げ": [
+      {
+        "combo": "5.0-4.0",
+        "count": 3,
+        "pct": 0.1579
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 3,
+        "pct": 0.1579
+      },
+      {
+        "combo": "3.0-6.0",
+        "count": 2,
+        "pct": 0.1053
+      },
+      {
+        "combo": "3.0-4.0",
+        "count": 2,
+        "pct": 0.1053
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 2,
+        "pct": 0.1053
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 2,
+        "pct": 0.1053
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 2,
+        "pct": 0.1053
+      },
+      {
+        "combo": "5.0-6.0",
+        "count": 2,
+        "pct": 0.1053
+      },
+      {
+        "combo": "4.0-5.0",
+        "count": 1,
+        "pct": 0.0526
+      }
+    ],
+    "1_まくり": [
+      {
+        "combo": "2.0-5.0",
+        "count": 5,
+        "pct": 0.2
+      },
+      {
+        "combo": "4.0-2.0",
+        "count": 3,
+        "pct": 0.12
+      },
+      {
+        "combo": "4.0-3.0",
+        "count": 2,
+        "pct": 0.08
+      },
+      {
+        "combo": "2.0-3.0",
+        "count": 2,
+        "pct": 0.08
+      },
+      {
+        "combo": "3.0-6.0",
+        "count": 2,
+        "pct": 0.08
+      },
+      {
+        "combo": "5.0-2.0",
+        "count": 2,
+        "pct": 0.08
+      },
+      {
+        "combo": "5.0-4.0",
+        "count": 2,
+        "pct": 0.08
+      },
+      {
+        "combo": "3.0-5.0",
+        "count": 2,
+        "pct": 0.08
+      },
+      {
+        "combo": "2.0-6.0",
+        "count": 2,
+        "pct": 0.08
+      },
+      {
+        "combo": "3.0-2.0",
+        "count": 1,
+        "pct": 0.04
+      }
+    ]
+  }
+}

@@ -1,9 +1,22 @@
 .env
 __pycache__/
 *.pyc
-data/
-output/
 node_modules/
 .next/
 .vercel/
 *.mp4
+
+# dataフォルダ：モデルファイルのみ含め、CSVや学習データは除外
+data/*.csv
+data/grade_cache.json
+data/backtest_log.txt
+data/backtest_result.txt
+data/bubble_enrich_log.txt
+data/debug_racelist.html
+data/bubble_today_*.json
+data/today_*.json
+data/progress_*.json
+data/prediction_model.json
+data/verify_*.txt
+data/daily/
+data/web_data.json

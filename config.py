@@ -26,10 +26,12 @@ URL_RACE_RESULT  = f"{BASE_URL}/raceresult?rno={{rno}}&jcd={{jcd}}&hd={{hd}}"
 URL_ODDS_3T      = f"{BASE_URL}/odds3t?rno={{rno}}&jcd={{jcd}}&hd={{hd}}"
 
 # ── 分析閾値 ──
-# Condition 1: 1号艇負け判定
+# ── 分析閾値 ──
+# Condition 1: 1号艇負け判定 (Tier分類に使用)
 NATIONAL_RATE_THRESHOLD = 4.5        # 全国勝率 < この値
-RATE_DIFF_THRESHOLD     = 1.5        # 全国勝率 - 当地勝率 > この値
-BOAT1_WIN_RATE_CEILING  = 0.40       # 1号艇勝率40%以下
+RATE_DIFF_THRESHOLD     = 1.5        # 全国勝率 - 当地勝率 >= この値 (Tier 3)
+BOAT1_WIN_RATE_TIER1    = 0.40       # Tier 1: 勝率40%以下 (大幅に低い)
+BOAT1_WIN_RATE_TIER2    = 0.50       # Tier 2: 勝率50%以下 (低い)
 
 # Condition 2: ST凹み判定
 ST_SLOW_THRESHOLD = 0.18             # motor_avg_st + st_std > この値
@@ -38,7 +40,7 @@ ST_SLOW_THRESHOLD = 0.18             # motor_avg_st + st_std > この値
 CUMULATIVE_PROB_CUTOFF = 0.97        # 上位97%まで選定
 
 # ── 資金配分 ──
-TOTAL_BUDGET     = 30_000            # 合計金額
+TOTAL_BUDGET     = 50_000            # 合計金額
 MIN_BET_UNIT     = 100               # 最小単位
 
 # ── スクレイピング設定 ──
@@ -70,26 +72,35 @@ AUTH_SECRET = os.getenv("AUTH_SECRET", "blitzboat2026")
 X_USERNAME = os.getenv("X_USERNAME", "")
 X_PASSWORD = os.getenv("X_PASSWORD", "")
 
-# ── note.com 下書き ──
-NOTE_EMAIL = os.getenv("NOTE_EMAIL", "")
-NOTE_PASSWORD = os.getenv("NOTE_PASSWORD", "")
+# ── Gumroad API & Passwords ──
+GUMROAD_ACCESS_TOKEN = os.getenv("GUMROAD_ACCESS_TOKEN", "")
+GUMROAD_PRODUCT_ID   = os.getenv("GUMROAD_PRODUCT_ID", "")
+
+# ── Email Notification (SMTP) ──
+OWNER_EMAIL = os.getenv("OWNER_EMAIL", "")
+SMTP_HOST   = os.getenv("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT   = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER   = os.getenv("SMTP_USER", "")
+SMTP_PASS   = os.getenv("SMTP_PASS", "")
 
 # ── アフィリエイト ──
 AFFILIATE_URL = os.getenv("AFFILIATE_URL", "")
 
-# 対象決まり手 (差し除外)
+# 対象決まり手 (基本定義)
+# 実際のフィルタリングは statistics_engine.py で動的に行う
 ALLOWED_KIMARITE = [
     "まくり",      # 2号艇+
     "まくり差し",   # 3号艇+
+    "差し",        # 状況により除外
 ]
 
 # 対象決まり手×艇番の組み合わせ
 ALLOWED_KIMARITE_BOATS = {
-    2: ["まくり"],
-    3: ["まくり", "まくり差し"],
-    4: ["まくり", "まくり差し"],
-    5: ["まくり", "まくり差し"],
-    6: ["まくり", "まくり差し"],
+    2: ["まくり", "差し"],
+    3: ["まくり", "まくり差し", "差し"],
+    4: ["まくり", "まくり差し", "差し"],
+    5: ["まくり", "まくり差し", "差し"],
+    6: ["まくり", "まくり差し", "差し"],
 }
 
 # 過去データ収集期間(日数)

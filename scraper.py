@@ -3,9 +3,10 @@ BlitzBoat Scraper — boatrace.jp データ収集モジュール
 中断再開対応 (progress.json)、レート制限、リトライ付き
 """
 import json
-import time
-import re
 import os
+import re
+import threading
+import time
 from datetime import datetime, timedelta
 from typing import Optional
 
@@ -17,20 +18,27 @@ warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 import config
 
-# ── セッション初期化 ──
-_session = requests.Session()
-_session.headers.update({
-    "User-Agent": config.USER_AGENT,
-    "Accept-Language": "ja,en;q=0.9",
-})
+# ── セッション（スレッドごとに1つ＝接続の使い回し） ──
+_local = threading.local()
+
+
+def _get_session() -> requests.Session:
+    if not getattr(_local, "session", None):
+        _local.session = requests.Session()
+        _local.session.headers.update({
+            "User-Agent": config.USER_AGENT,
+            "Accept-Language": "ja,en;q=0.9",
+        })
+    return _local.session
 
 
 def _fetch(url: str) -> Optional[BeautifulSoup]:
-    """URL取得 → BeautifulSoup。リトライ付き。"""
+    """URL取得 → BeautifulSoup。リトライ付き。スレッドごとにSessionを使い回す。"""
+    session = _get_session()
     for attempt in range(config.MAX_RETRIES):
         try:
             time.sleep(config.REQUEST_DELAY)
-            resp = _session.get(url, timeout=config.REQUEST_TIMEOUT)
+            resp = session.get(url, timeout=config.REQUEST_TIMEOUT)
             resp.raise_for_status()
             resp.encoding = resp.apparent_encoding or "utf-8"
             return BeautifulSoup(resp.text, "html.parser")
@@ -84,6 +92,31 @@ def scrape_today_venues(hd: str) -> list[dict]:
 
 
 # ═══════════════════════════════════════════
+#  1b. 発走時刻一覧（raceindex）
+# ═══════════════════════════════════════════
+def scrape_race_times(jcd: str, hd: str) -> dict[int, str]:
+    """
+    raceindex ページから全レースの発走時刻を取得。
+    Returns: {1: "10:22", 2: "10:48", ..., 12: "16:00"}
+    """
+    url = config.URL_RACE_INDEX.format(jcd=jcd, hd=hd)
+    soup = _fetch(url)
+    if not soup:
+        return {}
+
+    times: dict[int, str] = {}
+    rno = 0
+    for td in soup.find_all("td"):
+        text = td.get_text(strip=True)
+        if re.match(r"^\d{1,2}:\d{2}$", text):
+            rno += 1
+            times[rno] = text
+            if rno >= 12:
+                break
+    return times
+
+
+# ═══════════════════════════════════════════
 #  2. 出走表スクレイピング
 # ═══════════════════════════════════════════
 def scrape_racelist(jcd: str, hd: str, rno: int) -> list[dict]:
@@ -122,14 +155,26 @@ def scrape_racelist(jcd: str, hd: str, rno: int) -> list[dict]:
         main_row = rows[0]
         cells = main_row.find_all("td")
         
-        # 選手名と登録番号
+        # 選手名・登録番号・グレード
         name_link = tbody.find("a", href=re.compile(r"racersearch/profile"))
         name = ""
         toban = ""
+        grade = ""
         if name_link:
             name = name_link.get_text(strip=True)
             toban_match = re.search(r"toban=(\d+)", name_link.get("href", ""))
             toban = toban_match.group(1) if toban_match else ""
+            # グレードは名前リンクの親td、またはtbody全体から探す
+            parent_td = name_link.find_parent("td")
+            search_target = parent_td if parent_td else tbody
+            grade_m = re.search(r'\b(A[12]|B[12])\b', search_target.get_text(separator=" "))
+            if grade_m:
+                grade = grade_m.group(1)
+        if not grade:
+            # フォールバック: tbody全体から A1/A2/B1/B2 を探す
+            grade_m = re.search(r'\b(A[12]|B[12])\b', tbody.get_text(separator=" "))
+            if grade_m:
+                grade = grade_m.group(1)
         
         # is-lineH2 クラスのセルにデータが格納されている
         data_cells = main_row.find_all("td", class_="is-lineH2")
@@ -200,6 +245,7 @@ def scrape_racelist(jcd: str, hd: str, rno: int) -> list[dict]:
             "boat": boat_num,
             "name": name,
             "toban": toban,
+            "grade": grade,
             "national_rate": national_rate,
             "local_rate": local_rate,
             "motor_no": motor_no,
@@ -211,11 +257,82 @@ def scrape_racelist(jcd: str, hd: str, rno: int) -> list[dict]:
 
 
 # ═══════════════════════════════════════════
-#  3. 直前情報スクレイピング (展示ST)
+#  3. 3連単オッズスクレイピング
+# ═══════════════════════════════════════════
+def scrape_odds_3t(jcd: str, hd: str, rno: int) -> dict:
+    """
+    3連単オッズを取得。レース開始前のみデータあり。
+
+    HTML構造:
+      表2列目のテーブルに1着×6グループ、計21行のデータ。
+      - 18セル行: [2着, 3着, オッズ] × 6グループ（新しい2着指定行）
+      - 12セル行: [3着, オッズ] × 6グループ（同じ2着で3着のみ変化）
+      この4行セット（1×18セル + 3×12セル）を5回繰り返す = 20行 + 1ヘッダー
+
+    Returns:
+      {(r1, r2, r3): float} — r1/r2/r3は艇番(1-6)、値は払戻倍率
+      データ未公開の場合は空dict
+    """
+    url = config.URL_ODDS_3T.format(jcd=jcd, hd=hd, rno=rno)
+    soup = _fetch(url)
+    if not soup:
+        return {}
+
+    # "データがありません" チェック
+    if "データがありません" in soup.get_text():
+        return {}
+
+    # 2つ目のtableがオッズテーブル
+    tables = soup.find_all("table")
+    if len(tables) < 2:
+        return {}
+
+    odds_table = tables[1]
+    data_rows = [r for r in odds_table.find_all("tr") if r.find("td")]
+
+    result: dict[tuple, float] = {}
+    current_2nds = [None] * 6  # 各1着艇の現在の2着艇
+
+    for row in data_rows:
+        cells = row.find_all("td")
+        n = len(cells)
+
+        if n == 18:  # 新2着指定行: [2着, 3着, オッズ] × 6
+            for b1_idx in range(6):
+                b1 = b1_idx + 1
+                try:
+                    b2 = int(cells[b1_idx * 3].get_text(strip=True))
+                    b3 = int(cells[b1_idx * 3 + 1].get_text(strip=True))
+                    odds_val = float(cells[b1_idx * 3 + 2].get_text(strip=True))
+                    current_2nds[b1_idx] = b2
+                    result[(b1, b2, b3)] = odds_val
+                except (ValueError, IndexError):
+                    pass
+
+        elif n == 12:  # 3着のみ変化: [3着, オッズ] × 6
+            for b1_idx in range(6):
+                b1 = b1_idx + 1
+                b2 = current_2nds[b1_idx]
+                if b2 is None:
+                    continue
+                try:
+                    b3 = int(cells[b1_idx * 2].get_text(strip=True))
+                    odds_val = float(cells[b1_idx * 2 + 1].get_text(strip=True))
+                    result[(b1, b2, b3)] = odds_val
+                except (ValueError, IndexError):
+                    pass
+
+    return result
+
+
+# ═══════════════════════════════════════════
+#  4. 直前情報スクレイピング (展示ST)
 # ═══════════════════════════════════════════
 def scrape_beforeinfo(jcd: str, hd: str, rno: int) -> list[dict]:
     """
     直前情報ページから展示STを取得。
+    スタート展示テーブル（headers: コース / 並び / ST）のST列のみを対象とする。
+    データ未公開（レース30分前以前）の場合は空リストを返す。
     Returns: [{"boat": 1, "exhibit_st": 0.15}, ...]
     """
     url = config.URL_BEFOREINFO.format(jcd=jcd, hd=hd, rno=rno)
@@ -223,43 +340,34 @@ def scrape_beforeinfo(jcd: str, hd: str, rno: int) -> list[dict]:
     if not soup:
         return []
 
-    results = []
-    # 展示タイムのテーブルを探す
-    # boatrace.jpでは直前情報ページに展示タイムとスタート展示の表がある
-    tables = soup.find_all("table")
+    # スタート展示テーブルを特定（header に "ST" が含まれる table）
+    for table in soup.find_all("table"):
+        ths = [th.get_text(strip=True) for th in table.find_all("th")]
+        if "ST" not in ths or "コース" not in ths:
+            continue
 
-    for table in tables:
-        rows = table.find_all("tr")
-        for row in rows:
-            cells = row.find_all("td")
-            if not cells:
-                continue
-
-            # STの値を探す (0.XX形式)
-            for cell in cells:
-                text = cell.get_text(strip=True)
-                st_match = re.match(r'^(0\.\d{2})$', text)
-                if st_match:
-                    boat = len(results) + 1
-                    if boat <= 6:
-                        results.append({
-                            "boat": boat,
-                            "exhibit_st": float(st_match.group(1)),
-                        })
-
-    # スタート展示テーブルからSTを取得する別パターン
-    if len(results) < 6:
+        st_idx = ths.index("ST")
         results = []
-        all_st = re.findall(r'(?<!\d)(0\.\d{2})(?!\d)', soup.get_text())
-        # STは通常0.10~0.30の範囲
-        st_values = [float(v) for v in all_st if 0.05 <= float(v) <= 0.40]
-        for i, st in enumerate(st_values[:6]):
-            results.append({
-                "boat": i + 1,
-                "exhibit_st": st,
-            })
+        for row in table.find_all("tr"):
+            tds = row.find_all("td")
+            if len(tds) <= st_idx:
+                continue
+            text = tds[st_idx].get_text(strip=True)
+            if re.match(r"^[FLK]?0?\.\d{2}$|^0\.\d{2}$", text):
+                # F/L/K スタートも考慮。数値部分を抽出
+                num = re.search(r"(\d\.\d{2})", text)
+                if num and len(results) < 6:
+                    results.append({
+                        "boat": len(results) + 1,
+                        "exhibit_st": float(num.group(1)),
+                    })
 
-    return results
+        if results:
+            return results
+        # テーブルは見つかったがデータが空 → 未公開
+        return []
+
+    return []
 
 
 # ═══════════════════════════════════════════
@@ -299,6 +407,7 @@ def scrape_race_result(jcd: str, hd: str, rno: int) -> dict:
         "winning_boat": 0,
         "start_times": [],
         "trifecta": "",
+        "payouts": {},  # 3連単, 3連複, 2連単, 2連複, 拡連複, 単勝, 複勝 の払戻金(円)
     }
 
     # ── 全テーブルを分類 ──
@@ -373,15 +482,33 @@ def scrape_race_result(jcd: str, hd: str, rno: int) -> dict:
                     continue
                 bet_type = cells[0].get_text(strip=True)
                 combo = cells[1].get_text(strip=True)
-                
-                # 3連単の出目を取得 (最も正確)
+                pay_text = cells[2].get_text(strip=True) if len(cells) > 2 else ""
+                # 払戻金を整数に (例: "1,230" → 1230)
+                pay_val = 0
+                if pay_text:
+                    try:
+                        pay_val = int(re.sub(r"[,¥\s]", "", pay_text))
+                    except ValueError:
+                        pass
+                payouts = result_data["payouts"]
                 if "3連単" in bet_type:
-                    # combo = "6-4-2" or "6−4−2" (全角ハイフン)
+                    payouts["3連単"] = pay_val
                     trifecta = combo.replace("−", "-").replace("ー", "-")
                     if re.match(r'^[1-6]-[1-6]-[1-6]$', trifecta):
                         result_data["trifecta"] = trifecta
-                        boats = trifecta.split("-")
-                        result_data["winning_boat"] = int(boats[0])
+                        result_data["winning_boat"] = int(trifecta.split("-")[0])
+                elif "3連複" in bet_type:
+                    payouts["3連複"] = pay_val
+                elif "2連単" in bet_type:
+                    payouts["2連単"] = pay_val
+                elif "2連複" in bet_type:
+                    payouts["2連複"] = pay_val
+                elif "拡連複" in bet_type:
+                    payouts["拡連複"] = pay_val
+                elif "単勝" in bet_type:
+                    payouts["単勝"] = pay_val
+                elif "複勝" in bet_type:
+                    payouts["複勝"] = pay_val
 
         # --- スタート情報表 ---
         elif "スタート" in header_text or "コース" in header_text:
