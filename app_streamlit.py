@@ -18,10 +18,18 @@ import pandas as pd
 import streamlit as st
 
 import config
-from bubble_today import (
-    compute_bubble_status, save_bubble_today,
-    load_bubble_today, get_race_bubble_today,
-)
+try:
+    from bubble_today import (
+        compute_bubble_status, save_bubble_today,
+        load_bubble_today, get_race_bubble_today,
+    )
+    _BUBBLE_TODAY_AVAILABLE = True
+except ImportError:
+    _BUBBLE_TODAY_AVAILABLE = False
+    def compute_bubble_status(*a, **kw): return None
+    def save_bubble_today(*a, **kw): return None
+    def load_bubble_today(*a, **kw): return None
+    def get_race_bubble_today(*a, **kw): return None
 import importlib.util as _ilu
 _scraper_spec = _ilu.spec_from_file_location("scraper", os.path.join(_HERE, "scraper.py"))
 _scraper_mod  = _ilu.module_from_spec(_scraper_spec)
