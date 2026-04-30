@@ -368,6 +368,56 @@ def _run_morning_batch(hd: str, resume: bool = False):
     st.rerun()
 
 
+# ── EV計算ユーティリティ ──────────────────────────────────────────────────────
+def compute_ev_combos(boat_prob: dict, odds_3t: dict, meta: dict) -> list:
+    """全3連単コンボのEVを計算して [{r1,r2,r3,p_r1,p_combo,odds,ev}] で返す"""
+    from itertools import permutations as _perm
+    trifecta_stats_all = meta.get("trifecta_stats_all", meta.get("trifecta_stats", {}))
+    km_by_boat_all = meta.get("km_by_boat", {})
+    ev_rows = []
+    for r1 in BOATS:
+        p_r1 = boat_prob.get(r1, 0.0)
+        km_cond = km_by_boat_all.get(str(r1), {})
+        all_combos = list(_perm([b for b in BOATS if b != r1], 2))
+        p_cond: dict = {c: 0.0 for c in all_combos}
+        for km in KIMARITE:
+            p_km = km_cond.get(km, 0.0)
+            if p_km <= 0:
+                continue
+            tri_key = f"{r1}_{km}"
+            tri_data = trifecta_stats_all.get(tri_key, [])
+            km_cond_map: dict = {}
+            km_known = 0.0
+            for entry in tri_data:
+                try:
+                    parts = entry["combo"].split("-")
+                    c = (int(float(parts[0])), int(float(parts[1])))
+                    km_cond_map[c] = entry["pct"]
+                    km_known += entry["pct"]
+                except (ValueError, KeyError):
+                    pass
+            km_unknown = [c for c in all_combos if c not in km_cond_map]
+            remain = max(0.0, 1.0 - km_known)
+            unif_km = remain / len(km_unknown) if km_unknown else 0.0
+            for c in km_unknown:
+                km_cond_map[c] = unif_km
+            for c in all_combos:
+                p_cond[c] += p_km * km_cond_map.get(c, unif_km)
+        for r2, r3 in all_combos:
+            odds_val = odds_3t.get((r1, r2, r3))
+            if odds_val is None or odds_val <= 0:
+                continue
+            p_combo = p_r1 * p_cond.get((r2, r3), 1.0 / len(all_combos))
+            ev = p_combo * odds_val - 1.0
+            ev_rows.append({
+                "r1": r1, "r2": r2, "r3": r3,
+                "buy": f"{r1}-{r2}-{r3}",
+                "p_r1": p_r1, "p_combo": p_combo,
+                "odds": odds_val, "ev": ev,
+            })
+    return ev_rows
+
+
 # ── 朝バッチ ダッシュボードタブ ───────────────────────────────────────────────
 def tab_morning_batch():
     st.subheader("朝バッチ 予測ランキング")
@@ -529,6 +579,139 @@ def tab_review():
         row[7].markdown("✅" if hit else "❌")
 
 
+# ── EV買い目一覧タブ ──────────────────────────────────────────────────────────
+def tab_ev_picks():
+    st.subheader("💰 今日のEV推薦買い目")
+
+    hd_input = st.date_input("対象日", value=date.today(), key="ev_date")
+    hd = hd_input.strftime("%Y%m%d")
+
+    data = load_batch_json(hd)
+    if not data:
+        st.warning("朝バッチデータがありません。先に「📋 朝バッチ」タブで実行してください。")
+        return
+
+    preds = data["predictions"]
+    clf_boat, clf_km, meta, calibrators = load_models()
+
+    col1, col2, col3, col4 = st.columns([1.5, 1.5, 1.5, 2.0])
+    with col1:
+        ev_thresh = st.slider("EVしきい値", -1.0, 5.0, 0.5, step=0.1, key="ev_thresh")
+    with col2:
+        top_n = st.slider("表示件数", 5, 50, 20, key="ev_top_n")
+    with col3:
+        min_conf = st.slider("最低モデル信頼度 +%", 0, 30, 0, key="ev_min_conf") / 100
+    with col4:
+        venue_filter = st.multiselect(
+            "会場絞り込み",
+            sorted({p["venue_name"] for p in preds}),
+            default=[],
+            key="ev_venue",
+        )
+
+    odds_cache_key = f"ev_odds_{hd}"
+    if odds_cache_key not in st.session_state:
+        st.session_state[odds_cache_key] = {}
+
+    races_filtered = [
+        p for p in preds
+        if p["confidence"] >= min_conf
+        and (not venue_filter or p["venue_name"] in venue_filter)
+    ]
+    cached_count = sum(
+        1 for p in races_filtered
+        if f"{p['jcd']}_{p['race_no']}" in st.session_state[odds_cache_key]
+    )
+
+    col_fetch, col_status = st.columns([2, 4])
+    with col_fetch:
+        if st.button("🔄 全レースオッズを一括取得", key="ev_fetch"):
+            total = len(races_filtered)
+            bar = st.progress(0)
+            status_txt = st.empty()
+            for i, p in enumerate(races_filtered):
+                ck = f"{p['jcd']}_{p['race_no']}"
+                if ck not in st.session_state[odds_cache_key]:
+                    odds = scrape_odds_3t(p["jcd"], hd, p["race_no"])
+                    st.session_state[odds_cache_key][ck] = odds
+                bar.progress((i + 1) / total)
+                status_txt.text(f"{p['venue_name']} {p['race_no']}R ... ({i+1}/{total})")
+            bar.empty()
+            status_txt.success(f"✅ {total}レース分のオッズを取得しました")
+    with col_status:
+        st.caption(
+            f"キャッシュ済み: {cached_count} / {len(races_filtered)} レース　"
+            "※ 発走30分前〜直前に取得するとオッズが確定します"
+        )
+
+    if cached_count == 0:
+        st.info("「全レースオッズを一括取得」を押してください。")
+        return
+
+    all_ev = []
+    for p in races_filtered:
+        ck = f"{p['jcd']}_{p['race_no']}"
+        odds_3t = st.session_state[odds_cache_key].get(ck)
+        if not odds_3t:
+            continue
+        boat_prob_int = {int(k): v for k, v in p["boat_prob"].items()}
+        for row in compute_ev_combos(boat_prob_int, odds_3t, meta):
+            if row["ev"] >= ev_thresh:
+                all_ev.append({
+                    **row,
+                    "venue_name": p["venue_name"],
+                    "jcd": p["jcd"],
+                    "race_no": p["race_no"],
+                    "race_time": p.get("race_time", ""),
+                    "confidence": p["confidence"],
+                })
+
+    if not all_ev:
+        st.warning(f"EV≥{ev_thresh:.1f}の買い目が見つかりません。しきい値を下げてみてください。")
+        return
+
+    all_ev.sort(key=lambda x: x["ev"], reverse=True)
+    display = all_ev[:top_n]
+
+    st.success(f"EV≥{ev_thresh:.1f}の買い目: 全{len(all_ev)}件 → 上位{len(display)}件表示")
+
+    hdr = st.columns([1.1, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.1])
+    for col, lbl in zip(hdr, ["会場", "R", "時刻", "買い目", "1着", "2着", "3着", "オッズ", "EV"]):
+        col.markdown(f"**{lbl}**")
+
+    for row in display:
+        r1, r2, r3 = row["r1"], row["r2"], row["r3"]
+        ev = row["ev"]
+        if ev >= 1.0:
+            bg = "#e8f5e9"; ev_color = "#1b5e20"
+        elif ev >= 0:
+            bg = "#fff9c4"; ev_color = "#e65100"
+        else:
+            bg = ""; ev_color = "#999"
+        cols = st.columns([1.1, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.1])
+        cols[0].write(row["venue_name"])
+        cols[1].write(f"{row['race_no']}R")
+        cols[2].write(row.get("race_time", ""))
+        cols[3].markdown(
+            f'<span style="background:{bg};padding:2px 5px;border-radius:3px;'
+            f'font-weight:bold;">{r1}-{r2}-{r3}</span>',
+            unsafe_allow_html=True,
+        )
+        for col, b in zip(cols[4:7], [r1, r2, r3]):
+            col.markdown(
+                f'<span style="background:{BOAT_COLORS[b-1]};color:{BOAT_TEXT[b-1]};'
+                f'padding:1px 5px;border-radius:3px;font-size:12px;font-weight:bold;">{b}</span>',
+                unsafe_allow_html=True,
+            )
+        cols[7].write(f"{row['odds']:.1f}倍")
+        cols[8].markdown(
+            f'<span style="color:{ev_color};font-weight:bold;">EV {ev:+.2f}</span>',
+            unsafe_allow_html=True,
+        )
+
+    st.caption("⚠️ EV = 統計確率×市場オッズ−1。過去データに基づく参考値です。賭けは自己責任で。")
+
+
 # ── メイン ───────────────────────────────────────────────────────────────────
 def main():
     init_state()
@@ -566,12 +749,15 @@ def main():
     clf_boat, clf_km, meta, calibrators = load_models()
     km_by_boat = meta.get("km_by_boat", {})
 
-    tab1, tab2, tab3 = st.tabs(["🔍 レース予測", "📋 朝バッチ", "📊 前日比較"])
+    tab1, tab2, tab3, tab4 = st.tabs(["🔍 レース予測", "📋 朝バッチ", "💰 EV買い目", "📊 前日比較"])
 
     with tab2:
         tab_morning_batch()
 
     with tab3:
+        tab_ev_picks()
+
+    with tab4:
         tab_review()
 
     with tab1:
@@ -843,62 +1029,8 @@ def main():
             st.info("オッズデータが取得できませんでした（レース開始後 or ページ未公開）。")
         else:
             st.caption(f"オッズ取得済み: {len(odds_3t)}通り  ※EV>0が理論上プラス期待値（控除率25%込み）")
-
-            trifecta_stats_all = meta.get("trifecta_stats", {})
-            km_by_boat_all     = meta.get("km_by_boat", {})
-            from itertools import permutations as _perm
-
-            ev_rows = []
-            for r1 in BOATS:
-                p_r1 = boat_prob.get(r1, 0.0)
-                km_cond = km_by_boat_all.get(str(r1), {})
-
-                # P(r2,r3|r1) = Σ_km P(km|r1) × P(r2,r3|r1,km)  全決まり手で重み付け平均
-                all_combos = list(_perm([b for b in BOATS if b != r1], 2))
-                p_cond: dict[tuple, float] = {c: 0.0 for c in all_combos}
-                for km in KIMARITE:
-                    p_km = km_cond.get(km, 0.0)
-                    if p_km <= 0:
-                        continue
-                    tri_key  = f"{r1}_{km}"
-                    tri_data = trifecta_stats_all.get(tri_key, [])
-                    # このkmでの既知分布
-                    km_cond_map: dict[tuple, float] = {}
-                    km_known = 0.0
-                    for entry in tri_data:
-                        try:
-                            parts = entry["combo"].split("-")
-                            c = (int(float(parts[0])), int(float(parts[1])))
-                            km_cond_map[c] = entry["pct"]
-                            km_known += entry["pct"]
-                        except (ValueError, KeyError):
-                            pass
-                    # 残りのコンボに均等配分
-                    km_unknown = [c for c in all_combos if c not in km_cond_map]
-                    remain = max(0.0, 1.0 - km_known)
-                    unif_km = remain / len(km_unknown) if km_unknown else 0.0
-                    for c in km_unknown:
-                        km_cond_map[c] = unif_km
-                    # 重み付け加算
-                    for c in all_combos:
-                        p_cond[c] += p_km * km_cond_map.get(c, unif_km)
-
-                for r2, r3 in all_combos:
-                    odds_val = odds_3t.get((r1, r2, r3))
-                    if odds_val is None or odds_val <= 0:
-                        continue
-                    p_combo = p_r1 * p_cond.get((r2, r3), 1.0 / len(all_combos))
-                    ev = p_combo * odds_val - 1.0
-                    ev_rows.append({
-                        "buy": f"{r1}-{r2}-{r3}",
-                        "r1": r1, "r2": r2, "r3": r3,
-                        "p_r1": p_r1,
-                        "p_combo": p_combo,
-                        "odds": odds_val,
-                        "ev": ev,
-                    })
-
-            ev_rows.sort(key=lambda x: x["ev"], reverse=True)
+            ev_rows = sorted(compute_ev_combos(boat_prob, odds_3t, meta),
+                             key=lambda x: x["ev"], reverse=True)
             positive_ev = [row for row in ev_rows if row["ev"] > 0]
 
             if positive_ev:
@@ -918,18 +1050,17 @@ def main():
                         )
                     cols[4].write(f"{row['p_r1']*100:.1f}%")
                     cols[5].write(f"{row['odds']:.1f}倍")
-                    ev_pct = row["ev"] * 100
+                    ev = row["ev"]
+                    ev_color = "#1b5e20" if ev >= 1.0 else "#e65100"
                     cols[6].markdown(
-                        f'<span style="color:{"#e53935" if ev_pct>10 else "#388e3c"};font-weight:bold;">'
-                        f'+{ev_pct:.1f}%</span>',
+                        f'<span style="color:{ev_color};font-weight:bold;">EV {ev:+.2f}</span>',
                         unsafe_allow_html=True,
                     )
             else:
                 st.warning("現在のオッズではEV>0の買い目がありません（全買い目が期待値マイナス）。")
-                # 上位5件を参考表示
                 st.caption("参考: EV上位5件")
                 for row in ev_rows[:5]:
-                    st.write(f"{row['buy']}  オッズ{row['odds']:.1f}倍  EV{row['ev']*100:+.1f}%")
+                    st.write(f"{row['buy']}  オッズ{row['odds']:.1f}倍  EV{row['ev']:+.2f}")
 
 
 if __name__ == "__main__":
