@@ -7,7 +7,7 @@ import json
 import os
 import sys
 import pickle
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 # BlitzBoat ディレクトリを sys.path の先頭に固定（boatrace-tool/scripts/scraper.py 混入防止）
 _HERE = os.path.dirname(os.path.abspath(__file__))
@@ -271,6 +271,28 @@ def load_batch_json(hd: str) -> dict | None:
         return None
     with open(path, encoding="utf-8") as f:
         return json.load(f)
+
+
+@st.cache_data(ttl=60)
+def load_prerace_json(hd: str) -> dict:
+    path = os.path.join(config.DATA_DIR, f"prerace_{hd}.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def _auto_pilot_update(hd: str):
+    """自動パイロット: 発走60分以内のレースのオッズ・展示タイムを更新"""
+    import importlib.util as _ilu2
+    _spec2 = _ilu2.spec_from_file_location("prerace_updater",
+                                            os.path.join(_HERE, "prerace_updater.py"))
+    _m2 = _ilu2.module_from_spec(_spec2)
+    _spec2.loader.exec_module(_m2)
+    updated = _m2.run(hd, window_min=65, force=False, verbose=False)
+    if updated > 0:
+        st.cache_data.clear()  # prerace_json のキャッシュを即時更新
+    return updated
 
 
 # ── 朝バッチ実行（Streamlit Cloud対応・途中保存あり） ────────────────────────
@@ -609,9 +631,20 @@ def tab_ev_picks():
             key="ev_venue",
         )
 
+    # prerace_json（自動パイロットが保存したファイル）からオッズを優先ロード
+    prerace = load_prerace_json(hd)
+
     odds_cache_key = f"ev_odds_{hd}"
     if odds_cache_key not in st.session_state:
         st.session_state[odds_cache_key] = {}
+
+    # prerace_json のオッズを session_state にマージ
+    for ck, entry in prerace.items():
+        if "odds" in entry and ck not in st.session_state[odds_cache_key]:
+            st.session_state[odds_cache_key][ck] = {
+                tuple(int(x) for x in k.split("-")): v
+                for k, v in entry["odds"].items()
+            }
 
     races_filtered = [
         p for p in preds
@@ -631,21 +664,25 @@ def tab_ev_picks():
             status_txt = st.empty()
             for i, p in enumerate(races_filtered):
                 ck = f"{p['jcd']}_{p['race_no']}"
-                if ck not in st.session_state[odds_cache_key]:
-                    odds = scrape_odds_3t(p["jcd"], hd, p["race_no"])
+                odds = scrape_odds_3t(p["jcd"], hd, p["race_no"])
+                if odds:
                     st.session_state[odds_cache_key][ck] = odds
                 bar.progress((i + 1) / total)
                 status_txt.text(f"{p['venue_name']} {p['race_no']}R ... ({i+1}/{total})")
             bar.empty()
             status_txt.success(f"✅ {total}レース分のオッズを取得しました")
     with col_status:
+        auto_on = st.session_state.get("auto_pilot", False)
+        auto_str = "🤖 自動パイロットON" if auto_on else "手動取得モード"
         st.caption(
-            f"キャッシュ済み: {cached_count} / {len(races_filtered)} レース　"
-            "※ 発走30分前〜直前に取得するとオッズが確定します"
+            f"キャッシュ済み: {cached_count} / {len(races_filtered)} レース　{auto_str}"
         )
 
     if cached_count == 0:
-        st.info("「全レースオッズを一括取得」を押してください。")
+        if st.session_state.get("auto_pilot"):
+            st.info("自動パイロットが有効です。発走60分前になると自動でオッズを取得します。")
+        else:
+            st.info("「🔄 全レースオッズを一括取得」を押すか、サイドバーの🤖自動更新モードをONにしてください。")
         return
 
     all_ev = []
@@ -654,7 +691,9 @@ def tab_ev_picks():
         odds_3t = st.session_state[odds_cache_key].get(ck)
         if not odds_3t:
             continue
+        # prerace の展示タイムで boat_prob を更新（展示STが取得済みの場合）
         boat_prob_int = {int(k): v for k, v in p["boat_prob"].items()}
+        exhibit = prerace.get(ck, {}).get("exhibit", {})
         for row in compute_ev_combos(boat_prob_int, odds_3t, meta):
             if row["ev"] >= ev_thresh:
                 all_ev.append({
@@ -664,6 +703,7 @@ def tab_ev_picks():
                     "race_no": p["race_no"],
                     "race_time": p.get("race_time", ""),
                     "confidence": p["confidence"],
+                    "has_exhibit": len(exhibit) > 0,
                 })
 
     if not all_ev:
@@ -689,9 +729,10 @@ def tab_ev_picks():
         else:
             bg = ""; ev_color = "#999"
         cols = st.columns([1.1, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.1])
+        exhibit_mark = "📡" if row.get("has_exhibit") else ""
         cols[0].write(row["venue_name"])
         cols[1].write(f"{row['race_no']}R")
-        cols[2].write(row.get("race_time", ""))
+        cols[2].write(f"{row.get('race_time', '')} {exhibit_mark}")
         cols[3].markdown(
             f'<span style="background:{bg};padding:2px 5px;border-radius:3px;'
             f'font-weight:bold;">{r1}-{r2}-{r3}</span>',
@@ -709,7 +750,11 @@ def tab_ev_picks():
             unsafe_allow_html=True,
         )
 
-    st.caption("⚠️ EV = 統計確率×市場オッズ−1。過去データに基づく参考値です。賭けは自己責任で。")
+    exhibit_count = sum(1 for r in display if r.get("has_exhibit"))
+    st.caption(
+        f"⚠️ EV = 統計確率×市場オッズ−1。過去データに基づく参考値です。賭けは自己責任で。"
+        + (f"　📡 {exhibit_count}レースは展示タイム取得済み" if exhibit_count else "")
+    )
 
 
 # ── メイン ───────────────────────────────────────────────────────────────────
@@ -738,6 +783,57 @@ def main():
             )
         st.sidebar.markdown("---")
         st.sidebar.caption("↑ 本日の開催会場一覧")
+
+    # ── 自動パイロット ────────────────────────────────────────────────────────
+    st.sidebar.markdown("---")
+    auto_pilot = st.sidebar.toggle("🤖 自動更新モード", value=False, key="auto_pilot")
+
+    if auto_pilot:
+        refresh_min = st.sidebar.selectbox("更新間隔", [3, 5, 10, 15], index=1, key="refresh_min")
+
+        # 発走60分以内のオッズ・展示タイムを自動取得
+        with st.sidebar:
+            with st.spinner("レース前データを確認中..."):
+                updated = _auto_pilot_update(hd_today)
+        if updated > 0:
+            st.sidebar.success(f"✅ {updated}件更新")
+
+        # 最終更新時刻
+        prerace_path = os.path.join(config.DATA_DIR, f"prerace_{hd_today}.json")
+        if os.path.exists(prerace_path):
+            mtime = os.path.getmtime(prerace_path)
+            mtime_str = datetime.fromtimestamp(mtime).strftime("%H:%M:%S")
+            st.sidebar.caption(f"最終更新: {mtime_str}")
+
+        # 次レースまでのカウントダウン
+        if schedule:
+            now = datetime.now()
+            upcoming = []
+            for jcd, info in schedule.items():
+                for rno, t in info["times"].items():
+                    if not t:
+                        continue
+                    h, m_t = map(int, t.split(":"))
+                    race_dt = now.replace(hour=h, minute=m_t, second=0, microsecond=0)
+                    mins = (race_dt - now).total_seconds() / 60
+                    if 0 < mins < 180:
+                        upcoming.append((mins, info["name"], rno, t))
+            if upcoming:
+                upcoming.sort()
+                mins_next, name_next, rno_next, t_next = upcoming[0]
+                st.sidebar.info(
+                    f"🏁 次: **{name_next} {rno_next}R** {t_next}  \n"
+                    f"（{mins_next:.0f}分後）"
+                )
+
+        # JavaScript で自動リロード
+        st.sidebar.markdown(
+            f'<script>setTimeout(function(){{window.location.reload();}}'
+            f', {refresh_min * 60 * 1000});</script>',
+            unsafe_allow_html=True,
+        )
+    else:
+        st.sidebar.caption("🤖 ONにすると発走前のオッズ・展示タイムを自動取得します")
 
     st.title("🚤 ボートレース予想AI")
     st.caption("会場・レース番号を選んで「出走表を取得」→「予測する」だけ")

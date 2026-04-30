@@ -1,0 +1,39 @@
+name: Morning Batch
+
+on:
+  schedule:
+    - cron: '0 21 * * *'  # 6:00 AM JST (UTC 21:00)
+  workflow_dispatch:
+
+env:
+  PYTHONIOENCODING: utf-8
+
+jobs:
+  morning-batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml numpy scipy scikit-learn pandas
+
+      - name: Run morning batch
+        run: |
+          HD=$(TZ=Asia/Tokyo date +%Y%m%d)
+          echo "Morning batch for $HD"
+          python morning_batch.py --date "$HD"
+
+      - name: Commit batch results
+        run: |
+          git config user.name "BlitzBoat Bot"
+          git config user.email "bot@blitzboat.dev"
+          git add data/today_*.json
+          git diff --staged --quiet || git commit -m "Morning batch $(TZ=Asia/Tokyo date +%Y%m%d)"
+          git push || true
