@@ -14,7 +14,7 @@ data/backtest_result.txt
 data/bubble_enrich_log.txt
 data/debug_racelist.html
 data/bubble_today_*.json
-data/today_*.json
+# data/today_*.json は GitHub Actions ワークフロー間でデータ共有に使うため追跡対象
 data/progress_*.json
 data/prediction_model.json
 data/verify_*.txt

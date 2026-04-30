@@ -5,6 +5,9 @@ on:
     - cron: '0 21 * * *'  # 6:00 AM JST (UTC 21:00)
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   PYTHONIOENCODING: utf-8
 
