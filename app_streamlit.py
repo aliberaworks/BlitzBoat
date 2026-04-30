@@ -77,7 +77,27 @@ def load_models():
         clf_km = pickle.load(f)
     with open(MODEL_META, encoding="utf-8") as f:
         meta = json.load(f)
-    return clf_boat, clf_km, meta
+    cal_path = os.path.join(config.DATA_DIR, "calibration_boat.pkl")
+    calibrators = None
+    if os.path.exists(cal_path):
+        with open(cal_path, "rb") as f:
+            calibrators = pickle.load(f)
+    return clf_boat, clf_km, meta, calibrators
+
+
+def apply_calibration(raw_proba: dict, calibrators) -> dict:
+    """生の確率をIsotonic補正＋正規化して返す"""
+    if calibrators is None:
+        return raw_proba
+    cals = calibrators["calibrators"]
+    calibrated = {}
+    for boat, p in raw_proba.items():
+        ir = cals.get(boat)
+        calibrated[boat] = float(ir.predict([p])[0]) if ir else p
+    total = sum(calibrated.values())
+    if total <= 0:
+        return raw_proba
+    return {b: v / total for b, v in calibrated.items()}
 
 
 # ── 特徴量構築 ────────────────────────────────────────────────────────────────
@@ -233,7 +253,7 @@ def load_batch_json(hd: str) -> dict | None:
 # ── 朝バッチ実行（Streamlit Cloud対応・途中保存あり） ────────────────────────
 def _run_morning_batch(hd: str, resume: bool = False):
     from datetime import datetime as _dt
-    clf_boat, clf_km, meta = load_models()
+    clf_boat, clf_km, meta, calibrators = load_models()
     km_by_boat = meta.get("km_by_boat", {})
     out_path = os.path.join(config.DATA_DIR, f"today_{hd}.json")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
@@ -298,6 +318,7 @@ def _run_morning_batch(hd: str, resume: bool = False):
                         }
                     X = build_feature_vector(jcd, boat_data)
                     boat_prob = {int(c): float(p) for c, p in zip(clf_boat.classes_, clf_boat.predict_proba(X)[0])}
+                    boat_prob = apply_calibration(boat_prob, calibrators)
                     km_prob   = {c: float(p) for c, p in zip(clf_km.classes_, clf_km.predict_proba(X)[0])}
                     top_boat  = max(boat_prob, key=boat_prob.get)
                     cond      = km_by_boat.get(str(top_boat), {})
@@ -496,7 +517,7 @@ def main():
         st.error("モデルが見つかりません。`python train_model.py` を先に実行してください。")
         return
 
-    clf_boat, clf_km, meta = load_models()
+    clf_boat, clf_km, meta, calibrators = load_models()
     km_by_boat = meta.get("km_by_boat", {})
 
     tab1, tab2, tab3 = st.tabs(["🔍 レース予測", "📋 朝バッチ", "📊 前日比較"])
@@ -653,6 +674,7 @@ def main():
                                  day_from_start=day, total_days=total_days,
                                  race_bubble=race_bubble)
         boat_prob = {int(c): float(p) for c, p in zip(clf_boat.classes_, clf_boat.predict_proba(X)[0])}
+        boat_prob = apply_calibration(boat_prob, calibrators)
 
         # オッズ取得（レース前のみ有効）
         with st.spinner("3連単オッズを取得中..."):
