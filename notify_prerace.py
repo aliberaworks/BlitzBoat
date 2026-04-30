@@ -97,8 +97,9 @@ def _compute_ev(boat_prob: dict, odds_3t: dict, meta: dict) -> list:
 
 
 def run(hd: str, win_min: int = 30, win_max: int = 60):
-    batch_path = os.path.join(config.DATA_DIR, f"today_{hd}.json")
-    meta_path  = os.path.join(config.DATA_DIR, "model_meta.json")
+    batch_path   = os.path.join(config.DATA_DIR, f"today_{hd}.json")
+    meta_path    = os.path.join(config.DATA_DIR, "model_meta.json")
+    prerace_path = os.path.join(config.DATA_DIR, f"prerace_{hd}.json")
 
     if not os.path.exists(batch_path):
         print(f"[SKIP] 朝バッチなし: {batch_path}")
@@ -108,6 +109,15 @@ def run(hd: str, win_min: int = 30, win_max: int = 60):
         batch = json.load(f)
     with open(meta_path, encoding="utf-8") as f:
         meta = json.load(f)
+
+    # prerace_json があれば読み込む（展示タイム・コース変更情報）
+    prerace: dict = {}
+    if os.path.exists(prerace_path):
+        try:
+            with open(prerace_path, encoding="utf-8") as f:
+                prerace = json.load(f)
+        except Exception:
+            pass
 
     now = datetime.now(JST).replace(tzinfo=None)
     preds = batch.get("predictions", [])
@@ -126,6 +136,7 @@ def run(hd: str, win_min: int = 30, win_max: int = 60):
     notified = 0
 
     for mins, p in sorted(targets):
+        ck = f"{p['jcd']}_{p['race_no']}"
         print(f"  {p['venue_name']} {p['race_no']}R  ({mins:.0f}分前) オッズ取得中...")
         try:
             odds = scrape_odds_3t(p["jcd"], hd, p["race_no"])
@@ -133,9 +144,14 @@ def run(hd: str, win_min: int = 30, win_max: int = 60):
                 print(f"    オッズ取得失敗")
                 continue
 
-            boat_prob = {int(k): v for k, v in p["boat_prob"].items()}
-            ev_rows   = _compute_ev(boat_prob, odds, meta)
-            top_ev    = [r for r in ev_rows if r["ev"] >= EV_THRESH]
+            boat_prob    = {int(k): v for k, v in p["boat_prob"].items()}
+            ev_rows      = _compute_ev(boat_prob, odds, meta)
+            top_ev       = [r for r in ev_rows if r["ev"] >= EV_THRESH]
+            pr_entry     = prerace.get(ck, {})
+            course_changes = pr_entry.get("course_changes") or None
+
+            if course_changes:
+                print(f"    ⚠️ コース変更: {course_changes}")
 
             if not top_ev:
                 print(f"    EV≥{EV_THRESH}の買い目なし")
@@ -145,6 +161,7 @@ def run(hd: str, win_min: int = 30, win_max: int = 60):
                 p["venue_name"], p["race_no"],
                 p.get("race_time", ""),
                 ev_rows, EV_THRESH,
+                course_changes=course_changes,
             )
             if sent:
                 notified += 1

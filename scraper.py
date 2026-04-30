@@ -330,17 +330,20 @@ def scrape_odds_3t(jcd: str, hd: str, rno: int) -> dict:
 # ═══════════════════════════════════════════
 def scrape_beforeinfo(jcd: str, hd: str, rno: int) -> list[dict]:
     """
-    直前情報ページから展示STを取得。
-    スタート展示テーブル（headers: コース / 並び / ST）のST列のみを対象とする。
-    データ未公開（レース30分前以前）の場合は空リストを返す。
-    Returns: [{"boat": 1, "exhibit_st": 0.15}, ...]
+    直前情報ページから展示ST・実際のコース番号を取得。
+    テーブル行はコース順(1〜6)に並ぶ。各行の艇番バッジから艇番を取得する。
+
+    Returns: [{"boat": 1, "course": 1, "exhibit_st": 0.15}, ...]
+      boat   : 実際の艇番 (前づけ時は course と異なる)
+      course : 実際に入ったコース番号 (1=最内)
+      exhibit_st: 展示スタートタイム
+    前づけ検出: boat != course の場合が前づけ/後ろ付け
     """
     url = config.URL_BEFOREINFO.format(jcd=jcd, hd=hd, rno=rno)
     soup = _fetch(url)
     if not soup:
         return []
 
-    # スタート展示テーブルを特定（header に "ST" が含まれる table）
     for table in soup.find_all("table"):
         ths = [th.get_text(strip=True) for th in table.find_all("th")]
         if "ST" not in ths or "コース" not in ths:
@@ -348,26 +351,60 @@ def scrape_beforeinfo(jcd: str, hd: str, rno: int) -> list[dict]:
 
         st_idx = ths.index("ST")
         results = []
+        course_no = 0
         for row in table.find_all("tr"):
             tds = row.find_all("td")
             if len(tds) <= st_idx:
                 continue
-            text = tds[st_idx].get_text(strip=True)
-            if re.match(r"^[FLK]?0?\.\d{2}$|^0\.\d{2}$", text):
-                # F/L/K スタートも考慮。数値部分を抽出
-                num = re.search(r"(\d\.\d{2})", text)
-                if num and len(results) < 6:
-                    results.append({
-                        "boat": len(results) + 1,
-                        "exhibit_st": float(num.group(1)),
-                    })
+            st_text = tds[st_idx].get_text(strip=True)
+            if not re.search(r"\d\.\d{2}", st_text):
+                continue
+
+            course_no += 1
+            if course_no > 6:
+                break
+
+            # 艇番をボートカラーバッジ（is-boatColor1〜6 or is-juten1〜6）から取得
+            boat = course_no  # デフォルト: コース番号=艇番（前づけなし想定）
+            for td in tds:
+                el = td.find(class_=re.compile(r'is-boatColor\d|is-juten\d|is-waveColor\d'))
+                if el:
+                    try:
+                        b = int(el.get_text(strip=True))
+                        if 1 <= b <= 6:
+                            boat = b
+                            break
+                    except ValueError:
+                        pass
+
+            num = re.search(r"(\d\.\d{2})", st_text)
+            if num:
+                results.append({
+                    "boat":       boat,
+                    "course":     course_no,
+                    "exhibit_st": float(num.group(1)),
+                })
 
         if results:
             return results
-        # テーブルは見つかったがデータが空 → 未公開
         return []
 
     return []
+
+
+def detect_course_changes(beforeinfo: list[dict]) -> list[dict]:
+    """
+    展示データから前づけ・後ろ付けを検出。
+    Returns: [{"boat": 3, "course": 1, "type": "前づけ"}, ...]
+    """
+    changes = []
+    for e in beforeinfo:
+        boat   = e["boat"]
+        course = e.get("course", boat)
+        if boat != course:
+            t = "前づけ" if course < boat else "後ろ付け"
+            changes.append({"boat": boat, "course": course, "type": t})
+    return changes
 
 
 # ═══════════════════════════════════════════

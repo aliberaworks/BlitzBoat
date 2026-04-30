@@ -685,15 +685,19 @@ def tab_ev_picks():
             st.info("「🔄 全レースオッズを一括取得」を押すか、サイドバーの🤖自動更新モードをONにしてください。")
         return
 
+    _BOAT_LABEL_SHORT = ["①白", "②黒", "③赤", "④青", "⑤黄", "⑥緑"]
+
     all_ev = []
     for p in races_filtered:
         ck = f"{p['jcd']}_{p['race_no']}"
         odds_3t = st.session_state[odds_cache_key].get(ck)
         if not odds_3t:
             continue
-        # prerace の展示タイムで boat_prob を更新（展示STが取得済みの場合）
         boat_prob_int = {int(k): v for k, v in p["boat_prob"].items()}
-        exhibit = prerace.get(ck, {}).get("exhibit", {})
+        pr_entry = prerace.get(ck, {})
+        exhibit = pr_entry.get("exhibit", {})
+        course_changes = pr_entry.get("course_changes", [])
+        course_map = pr_entry.get("course_map", {})
         for row in compute_ev_combos(boat_prob_int, odds_3t, meta):
             if row["ev"] >= ev_thresh:
                 all_ev.append({
@@ -704,6 +708,8 @@ def tab_ev_picks():
                     "race_time": p.get("race_time", ""),
                     "confidence": p["confidence"],
                     "has_exhibit": len(exhibit) > 0,
+                    "course_changes": course_changes,
+                    "course_map": course_map,
                 })
 
     if not all_ev:
@@ -713,9 +719,33 @@ def tab_ev_picks():
     all_ev.sort(key=lambda x: x["ev"], reverse=True)
     display = all_ev[:top_n]
 
+    # 前づけ警告バナー（展示取得済みレースで前づけが検出された場合）
+    alert_races: dict = {}
+    for row in display:
+        if row.get("course_changes"):
+            key = (row["venue_name"], row["race_no"])
+            alert_races[key] = (row["course_changes"], row["course_map"])
+
+    if alert_races:
+        with st.container():
+            for (vname, rno), (changes, cmap) in alert_races.items():
+                change_strs = []
+                for c in changes:
+                    icon = "⚠️ 前づけ" if c["type"] == "前づけ" else "↩️ 後ろ付け"
+                    b_lbl = _BOAT_LABEL_SHORT[c["boat"] - 1]
+                    change_strs.append(f"{icon}: {b_lbl} → {c['course']}コース発走")
+                course_order = " / ".join(
+                    f"{_BOAT_LABEL_SHORT[int(b)-1]}→{c}C"
+                    for b, c in sorted(cmap.items(), key=lambda x: int(x[1]))
+                ) if cmap else ""
+                st.warning(
+                    f"**{vname} {rno}R** コース変更あり  " + "  ".join(change_strs)
+                    + (f"\n\nコース順: {course_order}" if course_order else "")
+                )
+
     st.success(f"EV≥{ev_thresh:.1f}の買い目: 全{len(all_ev)}件 → 上位{len(display)}件表示")
 
-    hdr = st.columns([1.1, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.1])
+    hdr = st.columns([1.2, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.0])
     for col, lbl in zip(hdr, ["会場", "R", "時刻", "買い目", "1着", "2着", "3着", "オッズ", "EV"]):
         col.markdown(f"**{lbl}**")
 
@@ -728,9 +758,10 @@ def tab_ev_picks():
             bg = "#fff9c4"; ev_color = "#e65100"
         else:
             bg = ""; ev_color = "#999"
-        cols = st.columns([1.1, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.1])
+        cols = st.columns([1.2, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.0])
         exhibit_mark = "📡" if row.get("has_exhibit") else ""
-        cols[0].write(row["venue_name"])
+        alert_mark = "⚠️" if row.get("course_changes") else ""
+        cols[0].write(f"{row['venue_name']} {alert_mark}")
         cols[1].write(f"{row['race_no']}R")
         cols[2].write(f"{row.get('race_time', '')} {exhibit_mark}")
         cols[3].markdown(
@@ -751,24 +782,27 @@ def tab_ev_picks():
         )
 
     exhibit_count = sum(1 for r in display if r.get("has_exhibit"))
-    st.caption(
-        "⚠️ EV = 統計確率×市場オッズ−1。過去データに基づく参考値です。賭けは自己責任で。"
-        + (f"　📡 {exhibit_count}レースは展示タイム取得済み" if exhibit_count else "")
-    )
+    alert_count = len(alert_races)
+    caption = "⚠️ EV = 統計確率×市場オッズ−1。過去データに基づく参考値です。賭けは自己責任で。"
+    if exhibit_count:
+        caption += f"　📡 {exhibit_count}レースは展示タイム取得済み"
+    if alert_count:
+        caption += f"　⚠️ {alert_count}レースでコース変更検出"
+    st.caption(caption)
 
     # LINE手動送信
     st.markdown("---")
     if st.button("📲 上位EV買い目をLINEで送る", key="ev_line_send"):
         try:
             from line_bot import send_ev_notification as _send_ev
-            # レースごとにまとめて送信
             from itertools import groupby as _groupby
             sent_count = 0
             for (vname, rno, rtime), rows_iter in _groupby(
-                display, key=lambda r: (r["venue_name"], r["race_no"], r.get("race_time",""))
+                display, key=lambda r: (r["venue_name"], r["race_no"], r.get("race_time", ""))
             ):
                 rows_list = list(rows_iter)
-                if _send_ev(vname, rno, rtime, rows_list, ev_thresh):
+                cc = rows_list[0].get("course_changes") or None
+                if _send_ev(vname, rno, rtime, rows_list, ev_thresh, course_changes=cc):
                     sent_count += 1
             if sent_count:
                 st.success(f"✅ {sent_count}レース分をLINEに送信しました")

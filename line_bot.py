@@ -148,6 +148,7 @@ def format_ev_notification(
     race_time: str,
     ev_rows: list,
     ev_thresh: float = 0.5,
+    course_changes: list | None = None,
 ) -> str:
     """EV推薦買い目のLINE通知テキストを生成"""
     targets = [r for r in ev_rows if r["ev"] >= ev_thresh]
@@ -157,8 +158,18 @@ def format_ev_notification(
     lines = [
         f"🎯 EV推薦買い目",
         f"📍 {venue_name} {race_no}R　⏰ {race_time}",
-        "",
     ]
+
+    # 前づけ・後ろ付けアラート
+    if course_changes:
+        lines.append("")
+        for c in course_changes:
+            icon = "⚠️ 前づけ" if c["type"] == "前づけ" else "↩️ 後ろ付け"
+            lines.append(
+                f"{icon}: {_BOAT_LABEL[c['boat']-1]} → {c['course']}コース発走"
+            )
+
+    lines.append("")
     for i, row in enumerate(targets[:6], 1):
         r1, r2, r3 = row["r1"], row["r2"], row["r3"]
         b1 = _BOAT_LABEL[r1 - 1]
@@ -183,9 +194,12 @@ def send_ev_notification(
     race_time: str,
     ev_rows: list,
     ev_thresh: float = 0.5,
+    course_changes: list | None = None,
 ) -> bool:
     """EV推薦買い目をLINEに送信。送信した場合 True を返す。"""
-    text = format_ev_notification(venue_name, race_no, race_time, ev_rows, ev_thresh)
+    text = format_ev_notification(
+        venue_name, race_no, race_time, ev_rows, ev_thresh, course_changes
+    )
     if not text:
         return False
     return send_line_message(text)

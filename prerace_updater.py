@@ -23,8 +23,9 @@ import config
 _spec = _ilu.spec_from_file_location("scraper", os.path.join(_HERE, "scraper.py"))
 _mod  = _ilu.module_from_spec(_spec)
 _spec.loader.exec_module(_mod)
-scrape_odds_3t    = _mod.scrape_odds_3t
-scrape_beforeinfo = _mod.scrape_beforeinfo
+scrape_odds_3t        = _mod.scrape_odds_3t
+scrape_beforeinfo     = _mod.scrape_beforeinfo
+detect_course_changes = _mod.detect_course_changes
 
 try:
     from line_bot import send_ev_notification
@@ -182,6 +183,7 @@ def run(hd: str, window_min: int = 60, force: bool = False, verbose: bool = True
                                 p["venue_name"], p["race_no"],
                                 p.get("race_time", ""),
                                 ev_rows, EV_THRESH,
+                                course_changes=entry.get("course_changes"),
                             )
                             if sent:
                                 entry["line_notified"] = now_ts
@@ -204,10 +206,24 @@ def run(hd: str, window_min: int = 60, force: bool = False, verbose: bool = True
                             for e in exhibit
                             if e.get("exhibit_st") is not None
                         }
+                        # コース変更（前づけ・後ろ付け）を検出
+                        changes = detect_course_changes(exhibit)
+                        entry["course_changes"] = changes
+                        entry["course_map"] = {
+                            str(e["boat"]): e.get("course", e["boat"])
+                            for e in exhibit
+                        }
                         entry["exhibit_ts"] = now_ts
                         updated += 1
                         if verbose:
-                            print(f"  展示ST: {p['venue_name']} {p['race_no']}R")
+                            if changes:
+                                ch_str = ", ".join(
+                                    f"{c['boat']}号艇→{c['course']}コース({c['type']})"
+                                    for c in changes
+                                )
+                                print(f"  展示ST: {p['venue_name']} {p['race_no']}R  ⚠️ {ch_str}")
+                            else:
+                                print(f"  展示ST: {p['venue_name']} {p['race_no']}R  コース変更なし")
                 except Exception as e:
                     if verbose:
                         print(f"  [ERR] 展示ST {p['venue_name']} {p['race_no']}R: {e}")
