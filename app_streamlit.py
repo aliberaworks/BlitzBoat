@@ -230,11 +230,37 @@ def load_batch_json(hd: str) -> dict | None:
         return json.load(f)
 
 
-# ── 朝バッチ実行（Streamlit Cloud対応） ──────────────────────────────────────
-def _run_morning_batch(hd: str):
+# ── 朝バッチ実行（Streamlit Cloud対応・途中保存あり） ────────────────────────
+def _run_morning_batch(hd: str, resume: bool = False):
     from datetime import datetime as _dt
     clf_boat, clf_km, meta = load_models()
     km_by_boat = meta.get("km_by_boat", {})
+    out_path = os.path.join(config.DATA_DIR, f"today_{hd}.json")
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+
+    # 途中再開: 既存ファイルから完了済み会場を読み込む
+    existing_results = []
+    done_jcds = set()
+    if resume and os.path.exists(out_path):
+        try:
+            with open(out_path, encoding="utf-8") as f:
+                prev = json.load(f)
+            existing_results = prev.get("predictions", [])
+            done_jcds = {r["jcd"] for r in existing_results}
+        except Exception:
+            pass
+
+    def _save(results: list, status_label: str):
+        results_sorted = sorted(results, key=lambda x: x["confidence"], reverse=True)
+        data = {
+            "date": hd,
+            "generated_at": _dt.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "total_races": len(results_sorted),
+            "model_info": meta["boat_eval"],
+            "predictions": results_sorted,
+        }
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
 
     with st.status("朝バッチ実行中...", expanded=True) as status:
         st.write("開催会場を取得中...")
@@ -244,12 +270,17 @@ def _run_morning_batch(hd: str):
             return
 
         venues = {v["jcd"]: (v["name"], v.get("races", 12)) for v in venues_raw}
-        st.write(f"{len(venues)} 会場を取得しました")
+        remaining = {j: v for j, v in venues.items() if j not in done_jcds}
+        if done_jcds:
+            st.write(f"{len(done_jcds)}/{len(venues)} 会場は取得済み。残り {len(remaining)} 会場を処理します")
+        else:
+            st.write(f"{len(venues)} 会場を取得しました")
 
-        all_results = []
-        for jcd, (name, n_races) in venues.items():
+        all_results = list(existing_results)
+        for jcd, (name, n_races) in remaining.items():
             st.write(f"{name} を処理中...")
             race_times = scrape_race_times(jcd, hd)
+            venue_results = []
             for rno in range(1, n_races + 1):
                 try:
                     entries = scrape_racelist(jcd, hd, rno)
@@ -272,7 +303,7 @@ def _run_morning_batch(hd: str):
                     cond      = km_by_boat.get(str(top_boat), {})
                     top_km    = cond.get("_modal") or max(km_prob, key=km_prob.get)
                     confidence = boat_prob[top_boat] - 1.0 / 6
-                    all_results.append({
+                    venue_results.append({
                         "jcd": jcd, "venue_name": name, "race_no": rno,
                         "race_time": race_times.get(rno, ""),
                         "boat_data": boat_data,
@@ -281,21 +312,11 @@ def _run_morning_batch(hd: str):
                         "confidence": round(confidence, 4),
                         "top_combo_p": round(boat_prob[top_boat] * cond.get(top_km, km_prob.get(top_km, 0.0)), 4),
                     })
-                except Exception as e:
+                except Exception:
                     pass
-
-        all_results.sort(key=lambda x: x["confidence"], reverse=True)
-        out_path = os.path.join(config.DATA_DIR, f"today_{hd}.json")
-        os.makedirs(os.path.dirname(out_path), exist_ok=True)
-        save_data = {
-            "date": hd,
-            "generated_at": _dt.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "total_races": len(all_results),
-            "model_info": meta["boat_eval"],
-            "predictions": all_results,
-        }
-        with open(out_path, "w", encoding="utf-8") as f:
-            json.dump(save_data, f, ensure_ascii=False, indent=2)
+            all_results.extend(venue_results)
+            # 会場完了ごとに保存（途中でページが閉じても消えない）
+            _save(all_results, f"{name} 完了")
 
         status.update(label=f"完了！ {len(all_results)} レースを予測しました", state="complete")
 
@@ -310,14 +331,21 @@ def tab_morning_batch():
     hd_input = st.date_input("対象日", value=date.today(), key="batch_date")
     hd = hd_input.strftime("%Y%m%d")
 
-    col_run, col_info = st.columns([2, 5])
+    partial_path = os.path.join(config.DATA_DIR, f"today_{hd}.json")
+    has_partial = os.path.exists(partial_path)
+
+    col_run, col_resume, col_info = st.columns([2, 2, 4])
     with col_run:
-        if st.button("🔄 朝バッチを今すぐ実行", help="boatrace.jpから全会場スクレイプ（約2〜3分）"):
-            _run_morning_batch(hd)
+        if st.button("🔄 最初から実行", help="全会場をスクレイプして予測（約2〜3分）"):
+            _run_morning_batch(hd, resume=False)
+    with col_resume:
+        if has_partial:
+            if st.button("▶ 途中から再開", help="中断した会場の続きから実行"):
+                _run_morning_batch(hd, resume=True)
 
     data = load_batch_json(hd)
     if not data:
-        st.warning(f"{hd_input.strftime('%m/%d')} の朝バッチデータがありません。「朝バッチを今すぐ実行」ボタンを押してください。")
+        st.warning(f"{hd_input.strftime('%m/%d')} の朝バッチデータがありません。「最初から実行」ボタンを押してください。")
         return
 
     preds = data["predictions"]
