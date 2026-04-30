@@ -346,6 +346,33 @@ def main():
     print(f"\n保存: {out_path}")
     print(f"次: python morning_batch.py --top 10 --min-conf 0.08  (絞り込み例)")
 
+    # ── LINE朝通知 ─────────────────────────────────────────────────────────────
+    try:
+        from line_bot import send_line_message as _snd
+        ymd = f"{hd[:4]}/{hd[4:6]}/{hd[6:]}"
+        lines = [
+            f"🌅 本日の予測完了 {ymd}",
+            f"📍 {len(venues)}会場 {total}R",
+            "",
+            f"🏆 信頼度ランキング TOP10",
+        ]
+        for rank, r in enumerate(all_results[:10], 1):
+            b    = r["top_boat"]
+            conf = r["confidence"]
+            prob = r["boat_prob"][b]
+            t    = r.get("race_time", "--:--")
+            stars = "★" * min(int(conf / 0.05), 5)
+            lines.append(
+                f"{rank:2}. {r['venue_name']} {r['race_no']}R {t} "
+                f"{BOAT_MARK[b-1]} {KM_SHORT.get(r['top_km'], r['top_km'])} "
+                f"{stars} {prob*100:.1f}%"
+            )
+        lines += ["", "💰 発走60分前にEV推薦買い目を別途通知します"]
+        _snd("\n".join(lines))
+        print("\n[LINE] 朝通知を送信しました")
+    except Exception as e:
+        print(f"\n[LINE] 通知スキップ: {e}")
+
 
 if __name__ == "__main__":
     main()

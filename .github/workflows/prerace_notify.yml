@@ -1,0 +1,52 @@
+name: Pre-Race LINE Notify
+
+on:
+  schedule:
+    # JST 8:00〜21:30を30分ごと
+    # UTC表記: JST-9h。JST 8:00 = UTC 23:00(前日), JST 21:30 = UTC 12:30
+    - cron: '0,30 23 * * *'    # JST 8:00, 8:30
+    - cron: '0,30 0-11 * * *'  # JST 9:00〜20:30
+    - cron: '0,30 12 * * *'    # JST 21:00, 21:30
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '日付 YYYYMMDD (空欄=今日)'
+        required: false
+      win_min:
+        description: '通知窓・下限(分前)'
+        default: '30'
+      win_max:
+        description: '通知窓・上限(分前)'
+        default: '60'
+
+env:
+  PYTHONIOENCODING: utf-8
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml numpy scipy scikit-learn
+
+      - name: Run pre-race notifier
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: |
+          HD=$(TZ=Asia/Tokyo date +%Y%m%d)
+          DATE_ARG="${{ github.event.inputs.date }}"
+          WIN_MIN="${{ github.event.inputs.win_min || '30' }}"
+          WIN_MAX="${{ github.event.inputs.win_max || '60' }}"
+          TARGET="${DATE_ARG:-$HD}"
+          echo "通知対象: $TARGET  窓: ${WIN_MIN}〜${WIN_MAX}分前"
+          python notify_prerace.py --date "$TARGET" --min "$WIN_MIN" --max "$WIN_MAX"

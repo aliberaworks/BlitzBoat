@@ -25,6 +25,9 @@ jobs:
         run: pip install requests beautifulsoup4 lxml numpy scipy scikit-learn pandas
 
       - name: Run morning batch
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
         run: |
           HD=$(TZ=Asia/Tokyo date +%Y%m%d)
           echo "Morning batch for $HD"
