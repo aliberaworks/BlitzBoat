@@ -100,6 +100,29 @@ def apply_calibration(raw_proba: dict, calibrators) -> dict:
     return {b: v / total for b, v in calibrated.items()}
 
 
+# ── 開催スケジュール ──────────────────────────────────────────────────────────
+@st.cache_data(ttl=600)
+def get_schedule(hd: str) -> dict:
+    venues = scrape_today_venues(hd)
+    schedule = {}
+    for v in (venues or []):
+        jcd  = v["jcd"]
+        name = v.get("name", config.VENUE_CODES.get(jcd, jcd))
+        times = scrape_race_times(jcd, hd)
+        schedule[jcd] = {"name": name, "races": v.get("races", 12), "times": times}
+    return schedule
+
+
+@st.cache_data(ttl=600)
+def find_next_race_date(from_hd: str) -> str:
+    for delta in range(1, 8):
+        d = (date.fromisoformat(f"{from_hd[:4]}-{from_hd[4:6]}-{from_hd[6:]}") +
+             timedelta(days=delta)).strftime("%Y%m%d")
+        if scrape_today_venues(d):
+            return d
+    return ""
+
+
 # ── 特徴量構築 ────────────────────────────────────────────────────────────────
 def build_feature_vector(
     venue: str,
@@ -509,6 +532,29 @@ def tab_review():
 # ── メイン ───────────────────────────────────────────────────────────────────
 def main():
     init_state()
+
+    # ── サイドバー：本日の開催情報 ────────────────────────────────────────────
+    hd_today = date.today().strftime("%Y%m%d")
+    hd_disp  = f"{hd_today[:4]}/{hd_today[4:6]}/{hd_today[6:]}"
+    st.sidebar.markdown(f"## 🗓 {hd_disp} 開催情報")
+    with st.sidebar:
+        with st.spinner("開催情報を取得中..."):
+            schedule = get_schedule(hd_today)
+
+    if not schedule:
+        st.sidebar.warning("本日の開催なし")
+        next_d = find_next_race_date(hd_today)
+        if next_d:
+            st.sidebar.info(f"次回開催: {next_d[:4]}/{next_d[4:6]}/{next_d[6:]}")
+    else:
+        for jcd, info in schedule.items():
+            times_list = [t for t in info["times"].values() if t]
+            last_t = max(times_list) if times_list else "—"
+            st.sidebar.markdown(
+                f"**{info['name']}**　{info['races']}R　最終 {last_t}"
+            )
+        st.sidebar.markdown("---")
+        st.sidebar.caption("↑ 本日の開催会場一覧")
 
     st.title("🚤 ボートレース予想AI")
     st.caption("会場・レース番号を選んで「出走表を取得」→「予測する」だけ")
