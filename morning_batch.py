@@ -27,7 +27,12 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path = [_HERE] + [p for p in sys.path if p != _HERE]
 
 import config
-from bubble_today import compute_bubble_status, save_bubble_today, get_race_bubble_today
+try:
+    from bubble_today import compute_bubble_status, save_bubble_today, get_race_bubble_today
+except ImportError:
+    def compute_bubble_status(*a, **kw): return None
+    def save_bubble_today(*a, **kw): return None
+    def get_race_bubble_today(*a, **kw): return None
 
 _scraper_spec = _ilu.spec_from_file_location("scraper", os.path.join(_HERE, "scraper.py"))
 _scraper_mod  = _ilu.module_from_spec(_scraper_spec)

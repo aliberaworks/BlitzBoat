@@ -34,10 +34,12 @@ import importlib.util as _ilu
 _scraper_spec = _ilu.spec_from_file_location("scraper", os.path.join(_HERE, "scraper.py"))
 _scraper_mod  = _ilu.module_from_spec(_scraper_spec)
 _scraper_spec.loader.exec_module(_scraper_mod)
-scrape_beforeinfo  = _scraper_mod.scrape_beforeinfo
-scrape_race_result = _scraper_mod.scrape_race_result
-scrape_racelist    = _scraper_mod.scrape_racelist
-scrape_odds_3t     = _scraper_mod.scrape_odds_3t
+scrape_beforeinfo   = _scraper_mod.scrape_beforeinfo
+scrape_race_result  = _scraper_mod.scrape_race_result
+scrape_racelist     = _scraper_mod.scrape_racelist
+scrape_odds_3t      = _scraper_mod.scrape_odds_3t
+scrape_today_venues = _scraper_mod.scrape_today_venues
+scrape_race_times   = _scraper_mod.scrape_race_times
 
 st.set_page_config(page_title="ボートレース予想AI", page_icon="🚤", layout="wide")
 
@@ -228,6 +230,79 @@ def load_batch_json(hd: str) -> dict | None:
         return json.load(f)
 
 
+# ── 朝バッチ実行（Streamlit Cloud対応） ──────────────────────────────────────
+def _run_morning_batch(hd: str):
+    from datetime import datetime as _dt
+    clf_boat, clf_km, meta = load_models()
+    km_by_boat = meta.get("km_by_boat", {})
+
+    with st.status("朝バッチ実行中...", expanded=True) as status:
+        st.write("開催会場を取得中...")
+        venues_raw = scrape_today_venues(hd)
+        if not venues_raw:
+            status.update(label="エラー：開催会場を取得できませんでした", state="error")
+            return
+
+        venues = {v["jcd"]: (v["name"], v.get("races", 12)) for v in venues_raw}
+        st.write(f"{len(venues)} 会場を取得しました")
+
+        all_results = []
+        for jcd, (name, n_races) in venues.items():
+            st.write(f"{name} を処理中...")
+            race_times = scrape_race_times(jcd, hd)
+            for rno in range(1, n_races + 1):
+                try:
+                    entries = scrape_racelist(jcd, hd, rno)
+                    if not entries or len(entries) < 6:
+                        continue
+                    boat_data = {}
+                    for e in entries:
+                        i = e["boat"]
+                        boat_data[i] = {
+                            "avg_st":        float(e.get("avg_st") or 0.17),
+                            "motor_2rate":   float(e.get("motor_2rate") or 38.0),
+                            "national_rate": float(e.get("national_rate") or 5.0),
+                            "local_rate":    float(e.get("local_rate") or 5.0),
+                            "grade":         e.get("grade", ""),
+                        }
+                    X = build_feature_vector(jcd, boat_data)
+                    boat_prob = {int(c): float(p) for c, p in zip(clf_boat.classes_, clf_boat.predict_proba(X)[0])}
+                    km_prob   = {c: float(p) for c, p in zip(clf_km.classes_, clf_km.predict_proba(X)[0])}
+                    top_boat  = max(boat_prob, key=boat_prob.get)
+                    cond      = km_by_boat.get(str(top_boat), {})
+                    top_km    = cond.get("_modal") or max(km_prob, key=km_prob.get)
+                    confidence = boat_prob[top_boat] - 1.0 / 6
+                    all_results.append({
+                        "jcd": jcd, "venue_name": name, "race_no": rno,
+                        "race_time": race_times.get(rno, ""),
+                        "boat_data": boat_data,
+                        "top_boat": top_boat, "top_km": top_km,
+                        "boat_prob": boat_prob, "km_prob": km_prob,
+                        "confidence": round(confidence, 4),
+                        "top_combo_p": round(boat_prob[top_boat] * cond.get(top_km, km_prob.get(top_km, 0.0)), 4),
+                    })
+                except Exception as e:
+                    pass
+
+        all_results.sort(key=lambda x: x["confidence"], reverse=True)
+        out_path = os.path.join(config.DATA_DIR, f"today_{hd}.json")
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+        save_data = {
+            "date": hd,
+            "generated_at": _dt.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "total_races": len(all_results),
+            "model_info": meta["boat_eval"],
+            "predictions": all_results,
+        }
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(save_data, f, ensure_ascii=False, indent=2)
+
+        status.update(label=f"完了！ {len(all_results)} レースを予測しました", state="complete")
+
+    st.cache_data.clear()
+    st.rerun()
+
+
 # ── 朝バッチ ダッシュボードタブ ───────────────────────────────────────────────
 def tab_morning_batch():
     st.subheader("朝バッチ 予測ランキング")
@@ -237,12 +312,12 @@ def tab_morning_batch():
 
     col_run, col_info = st.columns([2, 5])
     with col_run:
-        if st.button("🔄 朝バッチを今すぐ実行", help="boatrace.jpから全会場スクレイプ（約2分）"):
-            st.info("コマンドプロンプトで実行してください:\n`python morning_batch.py`")
+        if st.button("🔄 朝バッチを今すぐ実行", help="boatrace.jpから全会場スクレイプ（約2〜3分）"):
+            _run_morning_batch(hd)
 
     data = load_batch_json(hd)
     if not data:
-        st.warning(f"{hd_input.strftime('%m/%d')} の朝バッチデータがありません。先に `python morning_batch.py` を実行してください。")
+        st.warning(f"{hd_input.strftime('%m/%d')} の朝バッチデータがありません。「朝バッチを今すぐ実行」ボタンを押してください。")
         return
 
     preds = data["predictions"]
