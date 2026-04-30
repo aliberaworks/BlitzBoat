@@ -62,26 +62,29 @@ def format_chance_race_message(chance_race: dict, tickets: list[dict] = None) ->
     venue_name = chance_race.get("venue_name", "")
     race_no = chance_race.get("race_no", 0)
     win_prob = chance_race.get("boat1_win_prob", 0)
-    cond1 = chance_race.get("cond1", {})
-    cond2 = chance_race.get("cond2", {})
+    
+    tier = chance_race.get("tier", 0)
+    rate_gap = chance_race.get("rate_gap", 0.0)
+    dent_prob = chance_race.get("dent_probability", 0.0)
+    tier_reason = chance_race.get("tier_reason", "")
     
     lines = [
-        "🔥 BlitzBoat 大荒れ警報 🔥",
+        f"🔥 BlitzBoat Tier {tier} Alert 🔥",
         "",
         f"📍 {venue_name} {race_no}R",
         f"🚩 1号艇: {boat1.get('name', '不明')}",
-        f"📊 全国勝率: {boat1.get('national_rate', 0):.1f}",
-        f"📊 当地勝率: {boat1.get('local_rate', 0):.1f}",
-        f"⚠️ 1号艇勝率推定: {win_prob*100:.1f}%",
+        f"📊 全国勝率: {boat1.get('national_rate', 0):.2f}",
+        f"📉 当地ギャップ: {rate_gap:.2f}",
+        f"⚠️ 1号艇推定勝率: {win_prob*100:.1f}%",
+        f"🌪️ 凹み確率: {dent_prob*100:.0f}%",
         "",
-        f"❌ Cond.1: {cond1.get('reason', '')}",
-        f"❌ Cond.2: {cond2.get('reason', '')}",
+        f"📝 判定: {tier_reason}",
     ]
     
     if tickets:
         lines.append("")
-        lines.append("── 推奨出目 ──")
-        for i, t in enumerate(tickets[:5]):
+        lines.append(f"── 推奨出目 (¥{config.TOTAL_BUDGET:,}配分) ──")
+        for i, t in enumerate(tickets[:8]): # 少し多めに表示
             prob_pct = t["prob"] * 100
             lines.append(f"{i+1}. {t['trifecta']} ({prob_pct:.1f}%)")
     
@@ -107,11 +110,12 @@ def notify_chance_races(chance_races: list[dict], venue_stats: dict = None):
     top_race = chance_races[0]
     
     from ticket_generator import generate_tickets
-    from statistics_engine import get_venue_ranking
+    from statistics_engine import get_filtered_ranking
     
     tickets = []
     if venue_stats:
-        patterns = get_venue_ranking(venue_stats, top_race.get("venue", ""))
+        dent_prob = top_race.get("dent_probability", 0.0)
+        patterns = get_filtered_ranking(venue_stats, top_race.get("venue", ""), dent_prob)
         if patterns:
             tickets = generate_tickets(patterns)
     
@@ -131,3 +135,57 @@ def notify_chance_races(chance_races: list[dict], venue_stats: dict = None):
             )
         
         send_line_message("\n".join(summary_lines))
+
+
+# ── EV推薦買い目通知 ──────────────────────────────────────────────────────────
+
+_BOAT_LABEL = ["①白", "②黒", "③赤", "④青", "⑤黄", "⑥緑"]
+
+
+def format_ev_notification(
+    venue_name: str,
+    race_no: int,
+    race_time: str,
+    ev_rows: list,
+    ev_thresh: float = 0.5,
+) -> str:
+    """EV推薦買い目のLINE通知テキストを生成"""
+    targets = [r for r in ev_rows if r["ev"] >= ev_thresh]
+    if not targets:
+        return ""
+
+    lines = [
+        f"🎯 EV推薦買い目",
+        f"📍 {venue_name} {race_no}R　⏰ {race_time}",
+        "",
+    ]
+    for i, row in enumerate(targets[:6], 1):
+        r1, r2, r3 = row["r1"], row["r2"], row["r3"]
+        b1 = _BOAT_LABEL[r1 - 1]
+        b2 = _BOAT_LABEL[r2 - 1]
+        b3 = _BOAT_LABEL[r3 - 1]
+        ev   = row["ev"]
+        odds = row["odds"]
+        star = "★" if ev >= 1.0 else "☆"
+        lines.append(f"{star} {b1}-{b2}-{b3}  {odds:.1f}倍  EV{ev:+.2f}")
+
+    lines.extend([
+        "",
+        f"EV≥{ev_thresh:.1f}の買い目: {len(targets)}通り",
+        "※統計確率×市場オッズ−1の参考値です",
+    ])
+    return "\n".join(lines)
+
+
+def send_ev_notification(
+    venue_name: str,
+    race_no: int,
+    race_time: str,
+    ev_rows: list,
+    ev_thresh: float = 0.5,
+) -> bool:
+    """EV推薦買い目をLINEに送信。送信した場合 True を返す。"""
+    text = format_ev_notification(venue_name, race_no, race_time, ev_rows, ev_thresh)
+    if not text:
+        return False
+    return send_line_message(text)

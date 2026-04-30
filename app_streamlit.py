@@ -752,9 +752,30 @@ def tab_ev_picks():
 
     exhibit_count = sum(1 for r in display if r.get("has_exhibit"))
     st.caption(
-        f"⚠️ EV = 統計確率×市場オッズ−1。過去データに基づく参考値です。賭けは自己責任で。"
+        "⚠️ EV = 統計確率×市場オッズ−1。過去データに基づく参考値です。賭けは自己責任で。"
         + (f"　📡 {exhibit_count}レースは展示タイム取得済み" if exhibit_count else "")
     )
+
+    # LINE手動送信
+    st.markdown("---")
+    if st.button("📲 上位EV買い目をLINEで送る", key="ev_line_send"):
+        try:
+            from line_bot import send_ev_notification as _send_ev
+            # レースごとにまとめて送信
+            from itertools import groupby as _groupby
+            sent_count = 0
+            for (vname, rno, rtime), rows_iter in _groupby(
+                display, key=lambda r: (r["venue_name"], r["race_no"], r.get("race_time",""))
+            ):
+                rows_list = list(rows_iter)
+                if _send_ev(vname, rno, rtime, rows_list, ev_thresh):
+                    sent_count += 1
+            if sent_count:
+                st.success(f"✅ {sent_count}レース分をLINEに送信しました")
+            else:
+                st.warning("LINE未設定またはEV≥しきい値の買い目なし")
+        except Exception as e:
+            st.error(f"LINE送信エラー: {e}")
 
 
 # ── メイン ───────────────────────────────────────────────────────────────────
