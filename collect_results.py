@@ -272,19 +272,13 @@ def run(hd: str, ev_thresh: float = EV_THRESH_DEFAULT, verbose: bool = True) -> 
     else:
         print(f"  EV買い目なし（オッズ未取得 or EV<{ev_thresh}）")
 
-    # LINE通知
+    # LINE通知（詳細日次まとめ）
     try:
-        from line_bot import send_line_message as _snd
-        ymd = f"{hd[:4]}/{hd[4:6]}/{hd[6:]}"
-        lines = [
-            f"📊 {ymd} 結果速報",
-            f"  1着的中率: {win_acc*100:.1f}%  ({sum(1 for r in race_records if r['hit_win'])}/{n}R)",
-            f"  3着内的中率: {top3_acc*100:.1f}%",
-        ]
-        if ev_total_bets > 0:
-            lines.append(f"  EV買い目ROI: {ev_roi*100:+.1f}%  ({ev_total_hits}/{ev_total_bets}的中)")
-        _snd("\n".join(lines))
-        print("[LINE] 結果通知送信")
+        from line_bot import send_line_message as _snd, format_daily_summary as _fmt
+        text = _fmt(hd, race_records, ev_total_bets, ev_total_hits, ev_total_return,
+                    ev_thresh, log)
+        _snd(text)
+        print("[LINE] 日次まとめ送信")
     except Exception as e:
         print(f"[LINE] スキップ: {e}")
 
