@@ -3,9 +3,11 @@ BlitzBoat Configuration
 会場コード、URLテンプレート、分析閾値
 """
 import os
-from dotenv import load_dotenv
-
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # GitHub Actions / Vercel では env vars が直接注入されるため不要
 
 # ── 会場コードマッピング ──
 VENUE_CODES = {

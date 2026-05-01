@@ -36,7 +36,7 @@ jobs:
           cache: pip
 
       - name: Install dependencies
-        run: pip install requests beautifulsoup4 lxml numpy scipy scikit-learn
+        run: pip install requests beautifulsoup4 lxml numpy scipy scikit-learn python-dotenv
 
       - name: Run pre-race notifier
         env:
