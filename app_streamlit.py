@@ -676,7 +676,7 @@ def tab_ev_picks():
     preds = data["predictions"]
     clf_boat, clf_km, meta, calibrators = load_models()
 
-    col1, col2, col3, col4 = st.columns([1.5, 1.5, 1.5, 2.0])
+    col1, col2, col3, col4, col5 = st.columns([1.5, 1.5, 1.5, 1.5, 2.0])
     with col1:
         ev_thresh = st.slider("EVしきい値", -1.0, 5.0, 0.5, step=0.1, key="ev_thresh")
     with col2:
@@ -684,6 +684,11 @@ def tab_ev_picks():
     with col3:
         min_conf = st.slider("最低モデル信頼度 +%", 0, 30, 0, key="ev_min_conf") / 100
     with col4:
+        kelly_budget = st.number_input(
+            "Kelly元手(円)", min_value=1000, max_value=500_000,
+            value=config.TOTAL_BUDGET, step=1000, key="kelly_budget"
+        )
+    with col5:
         venue_filter = st.multiselect(
             "会場絞り込み",
             sorted({p["venue_name"] for p in preds}),
@@ -822,7 +827,7 @@ def tab_ev_picks():
             bg = "#fff9c4"; ev_color = "#e65100"
         else:
             bg = ""; ev_color = "#999"
-        bet_amt = kelly_bet(ev, row["odds"])
+        bet_amt = kelly_bet(ev, row["odds"], kelly_budget)
         cols = st.columns([1.1, 0.4, 0.55, 0.8, 0.5, 0.5, 0.5, 0.75, 0.85, 0.85])
         exhibit_mark = "📡" if row.get("has_exhibit") else ""
         alert_mark = "⚠️" if row.get("course_changes") else ""
