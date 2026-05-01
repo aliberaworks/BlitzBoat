@@ -32,6 +32,7 @@ _spec = _ilu.spec_from_file_location("scraper", os.path.join(_HERE, "scraper.py"
 _mod  = _ilu.module_from_spec(_spec)
 _spec.loader.exec_module(_mod)
 scrape_race_result = _mod.scrape_race_result
+scrape_odds_3t     = _mod.scrape_odds_3t
 
 KIMARITE = ["逃げ", "差し", "まくり", "まくり差し", "抜き", "恵まれ"]
 BOATS    = list(range(1, 7))
@@ -164,6 +165,16 @@ def run(hd: str, ev_thresh: float = EV_THRESH_DEFAULT, verbose: bool = True) -> 
         ev_bets = []
         pr_entry = prerace.get(ck, {})
         raw_odds  = pr_entry.get("odds", {})
+        # prerace_json にオッズがなければ live 取得（ブラウザ未起動時のフォールバック）
+        if not raw_odds and meta:
+            try:
+                live = scrape_odds_3t(jcd, hd, rno)
+                if live:
+                    raw_odds = {f"{k[0]}-{k[1]}-{k[2]}": v for k, v in live.items()}
+                    if verbose:
+                        print(f"    オッズ live 取得: {len(raw_odds)}通り")
+            except Exception:
+                pass
         if raw_odds and meta:
             odds_3t    = _parse_odds_dict(raw_odds)
             # 展示ST補正済み確率があれば使う
