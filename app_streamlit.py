@@ -101,15 +101,30 @@ def apply_calibration(raw_proba: dict, calibrators) -> dict:
 
 
 # ── 開催スケジュール ──────────────────────────────────────────────────────────
+def get_schedule_from_batch(hd: str) -> dict:
+    """today_{hd}.json からスケジュールを構築（ページ読み込み時の live scraping 不要）"""
+    data = load_batch_json(hd)
+    if not data:
+        return {}
+    schedule: dict = {}
+    for p in data["predictions"]:
+        jcd = p["jcd"]
+        if jcd not in schedule:
+            schedule[jcd] = {"name": p["venue_name"], "times": {}}
+        schedule[jcd]["times"][p["race_no"]] = p.get("race_time", "")
+    return schedule
+
+
 @st.cache_data(ttl=600)
-def get_schedule(hd: str) -> dict:
+def get_schedule_live(hd: str) -> dict:
+    """フォールバック用 live scraping（朝バッチデータがない場合のみ使う）"""
     venues = scrape_today_venues(hd)
     schedule = {}
     for v in (venues or []):
         jcd  = v["jcd"]
         name = v.get("name", config.VENUE_CODES.get(jcd, jcd))
         times = scrape_race_times(jcd, hd)
-        schedule[jcd] = {"name": name, "races": v.get("races", 12), "times": times}
+        schedule[jcd] = {"name": name, "times": times}
     return schedule
 
 
@@ -121,6 +136,24 @@ def find_next_race_date(from_hd: str) -> str:
         if scrape_today_venues(d):
             return d
     return ""
+
+
+def _next_race_label(times: dict, now: datetime) -> tuple[str, str]:
+    """times={rno: "HH:MM"} から次のレース番号と時刻を返す。全終了なら最終Rを返す。"""
+    for rno in sorted(times.keys()):
+        t = times[rno]
+        if not t:
+            continue
+        h, m = map(int, t.split(":"))
+        race_dt = now.replace(hour=h, minute=m, second=0, microsecond=0)
+        if race_dt >= now - timedelta(minutes=3):
+            return str(rno), t
+    # 全レース終了 → 最後のレースを表示
+    valid = [(rno, t) for rno, t in times.items() if t]
+    if valid:
+        last_rno, last_t = max(valid, key=lambda x: x[0])
+        return f"{last_rno}(終)", last_t
+    return "—", "—"
 
 
 # ── 特徴量構築 ────────────────────────────────────────────────────────────────
@@ -450,6 +483,13 @@ def tab_morning_batch():
     partial_path = os.path.join(config.DATA_DIR, f"today_{hd}.json")
     has_partial = os.path.exists(partial_path)
 
+    st.info(
+        "🤖 **GitHub Actions が毎朝6:00 JST に自動実行**します。"
+        "　データが表示されていれば自動取得済みです。"
+        "　ローカル実行・再取得が必要な場合のみ下のボタンを使用。",
+        icon=None,
+    )
+
     col_run, col_resume, col_info = st.columns([2, 2, 4])
     with col_run:
         if st.button("🔄 最初から実行", help="全会場をスクレイプして予測（約2〜3分）"):
@@ -461,7 +501,11 @@ def tab_morning_batch():
 
     data = load_batch_json(hd)
     if not data:
-        st.warning(f"{hd_input.strftime('%m/%d')} の朝バッチデータがありません。「最初から実行」ボタンを押してください。")
+        st.warning(
+            f"{hd_input.strftime('%m/%d')} の朝バッチデータがありません。"
+            "　GitHub Actions は毎朝6:00に自動実行されます。"
+            "　今すぐ使いたい場合は「🔄 最初から実行」を押してください。"
+        )
         return
 
     preds = data["predictions"]
@@ -610,7 +654,11 @@ def tab_ev_picks():
 
     data = load_batch_json(hd)
     if not data:
-        st.warning("朝バッチデータがありません。先に「📋 朝バッチ」タブで実行してください。")
+        st.warning(
+            "朝バッチデータがありません。"
+            "　GitHub Actions が毎朝6:00に自動生成します。"
+            "　手動実行は「📋 朝バッチ」タブの「🔄 最初から実行」から。"
+        )
         return
 
     preds = data["predictions"]
@@ -820,10 +868,17 @@ def main():
     hd_today = date.today().strftime("%Y%m%d")
     hd_disp  = f"{hd_today[:4]}/{hd_today[4:6]}/{hd_today[6:]}"
     st.sidebar.markdown(f"## 🗓 {hd_disp} 開催情報")
-    with st.sidebar:
-        with st.spinner("開催情報を取得中..."):
-            schedule = get_schedule(hd_today)
 
+    # 朝バッチJSONがあればそこから読む（live scraping しない）
+    schedule = get_schedule_from_batch(hd_today)
+    batch_loaded = bool(schedule)
+    if not schedule:
+        # バッチ前 or ローカル実行 → live scraping にフォールバック
+        with st.sidebar:
+            with st.spinner("開催情報を取得中（朝バッチ未取得）..."):
+                schedule = get_schedule_live(hd_today)
+
+    now_sidebar = datetime.now()
     if not schedule:
         st.sidebar.warning("本日の開催なし")
         next_d = find_next_race_date(hd_today)
@@ -831,17 +886,19 @@ def main():
             st.sidebar.info(f"次回開催: {next_d[:4]}/{next_d[4:6]}/{next_d[6:]}")
     else:
         for jcd, info in schedule.items():
-            times_list = [t for t in info["times"].values() if t]
-            last_t = max(times_list) if times_list else "—"
+            rno_lbl, next_t = _next_race_label(info["times"], now_sidebar)
             st.sidebar.markdown(
-                f"**{info['name']}**　{info['races']}R　最終 {last_t}"
+                f"**{info['name']}**　次: {rno_lbl}R {next_t}"
             )
         st.sidebar.markdown("---")
-        st.sidebar.caption("↑ 本日の開催会場一覧")
+        if batch_loaded:
+            st.sidebar.caption("📋 朝バッチデータ読み込み済み")
+        else:
+            st.sidebar.caption("⚠️ 朝バッチ未取得（live取得中）")
 
     # ── 自動パイロット ────────────────────────────────────────────────────────
     st.sidebar.markdown("---")
-    auto_pilot = st.sidebar.toggle("🤖 自動更新モード", value=False, key="auto_pilot")
+    auto_pilot = st.sidebar.toggle("🤖 自動更新モード", value=True, key="auto_pilot")
 
     if auto_pilot:
         refresh_min = st.sidebar.selectbox("更新間隔", [3, 5, 10, 15], index=1, key="refresh_min")
