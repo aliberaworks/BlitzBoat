@@ -192,7 +192,7 @@ def run(hd: str, win_min: int = 30, win_max: int = 60):
     print(f"対象: {len(targets)}レース (窓: {win_min}〜{win_max}分前)")
     notified = 0
 
-    for mins, p in sorted(targets):
+    for mins, p in sorted(targets, key=lambda x: x[0]):
         ck = f"{p['jcd']}_{p['race_no']}"
         print(f"  {p['venue_name']} {p['race_no']}R  ({mins:.0f}分前) オッズ取得中...")
         try:
