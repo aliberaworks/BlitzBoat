@@ -423,6 +423,18 @@ def _run_morning_batch(hd: str, resume: bool = False):
     st.rerun()
 
 
+# ── Kelly Criterion ──────────────────────────────────────────────────────────
+def kelly_bet(ev: float, odds: float, budget: int = config.TOTAL_BUDGET) -> int:
+    """Half-Kelly で推奨賭け金（100円単位切り捨て）を返す"""
+    if odds <= 1 or ev <= 0:
+        return 0
+    p = (ev + 1.0) / odds
+    b = odds - 1.0
+    full_kelly = (p * b - (1 - p)) / b
+    half_kelly = max(0.0, min(full_kelly * 0.5, 0.25))
+    return int(budget * half_kelly / 100) * 100
+
+
 # ── EV計算ユーティリティ ──────────────────────────────────────────────────────
 def compute_ev_combos(boat_prob: dict, odds_3t: dict, meta: dict) -> list:
     """全3連単コンボのEVを計算して [{r1,r2,r3,p_r1,p_combo,odds,ev}] で返す"""
@@ -741,11 +753,15 @@ def tab_ev_picks():
         odds_3t = st.session_state[odds_cache_key].get(ck)
         if not odds_3t:
             continue
-        boat_prob_int = {int(k): v for k, v in p["boat_prob"].items()}
         pr_entry = prerace.get(ck, {})
         exhibit = pr_entry.get("exhibit", {})
         course_changes = pr_entry.get("course_changes", [])
         course_map = pr_entry.get("course_map", {})
+        # 展示ST補正済み確率があればそちらを使う
+        if pr_entry.get("boat_prob_adjusted"):
+            boat_prob_int = {int(k): v for k, v in pr_entry["boat_prob_adjusted"].items()}
+        else:
+            boat_prob_int = {int(k): v for k, v in p["boat_prob"].items()}
         for row in compute_ev_combos(boat_prob_int, odds_3t, meta):
             if row["ev"] >= ev_thresh:
                 all_ev.append({
@@ -793,8 +809,8 @@ def tab_ev_picks():
 
     st.success(f"EV≥{ev_thresh:.1f}の買い目: 全{len(all_ev)}件 → 上位{len(display)}件表示")
 
-    hdr = st.columns([1.2, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.0])
-    for col, lbl in zip(hdr, ["会場", "R", "時刻", "買い目", "1着", "2着", "3着", "オッズ", "EV"]):
+    hdr = st.columns([1.1, 0.4, 0.55, 0.8, 0.5, 0.5, 0.5, 0.75, 0.85, 0.85])
+    for col, lbl in zip(hdr, ["会場", "R", "時刻", "買い目", "1着", "2着", "3着", "オッズ", "EV", "賭け金"]):
         col.markdown(f"**{lbl}**")
 
     for row in display:
@@ -806,7 +822,8 @@ def tab_ev_picks():
             bg = "#fff9c4"; ev_color = "#e65100"
         else:
             bg = ""; ev_color = "#999"
-        cols = st.columns([1.2, 0.4, 0.6, 0.9, 0.55, 0.55, 0.55, 0.9, 1.0])
+        bet_amt = kelly_bet(ev, row["odds"])
+        cols = st.columns([1.1, 0.4, 0.55, 0.8, 0.5, 0.5, 0.5, 0.75, 0.85, 0.85])
         exhibit_mark = "📡" if row.get("has_exhibit") else ""
         alert_mark = "⚠️" if row.get("course_changes") else ""
         cols[0].write(f"{row['venue_name']} {alert_mark}")
@@ -828,6 +845,7 @@ def tab_ev_picks():
             f'<span style="color:{ev_color};font-weight:bold;">EV {ev:+.2f}</span>',
             unsafe_allow_html=True,
         )
+        cols[9].write(f"¥{bet_amt:,}" if bet_amt > 0 else "—")
 
     exhibit_count = sum(1 for r in display if r.get("has_exhibit"))
     alert_count = len(alert_races)
@@ -858,6 +876,86 @@ def tab_ev_picks():
                 st.warning("LINE未設定またはEV≥しきい値の買い目なし")
         except Exception as e:
             st.error(f"LINE送信エラー: {e}")
+
+
+# ── ROI追跡タブ ───────────────────────────────────────────────────────────────
+def tab_roi_tracking():
+    st.subheader("📈 予測精度・ROI追跡")
+    st.caption("collect_results.py が毎晩22時に自動実行し、予測と実績を照合します。")
+
+    log_path = os.path.join(config.DATA_DIR, "accuracy_log.json")
+    if not os.path.exists(log_path):
+        st.info("まだデータがありません。GitHub Actions が毎晩22:00 JST に自動収集します。")
+        return
+
+    with open(log_path, encoding="utf-8") as f:
+        log = json.load(f)
+
+    if not log:
+        st.info("まだデータがありません。")
+        return
+
+    rows = []
+    for hd, s in sorted(log.items(), reverse=True):
+        ev_roi = s.get("ev_roi")
+        roi_str = f"{ev_roi*100:+.1f}%" if ev_roi is not None else "—"
+        rows.append({
+            "日付":           f"{hd[:4]}/{hd[4:6]}/{hd[6:]}",
+            "レース数":       s.get("n_races", 0),
+            "1着的中率":      f"{s.get('win_accuracy', 0)*100:.1f}%",
+            "3着内的中率":    f"{s.get('top3_accuracy', 0)*100:.1f}%",
+            "EV買い目数":     s.get("ev_bets_count", 0),
+            "EV的中数":       s.get("ev_hits", 0),
+            "EV_ROI":         roi_str,
+        })
+
+    st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
+
+    # 累計サマリー
+    ev_days = [s for s in log.values() if s.get("ev_bets_count", 0) > 0]
+    if ev_days:
+        total_bets   = sum(s["ev_bets_count"] for s in ev_days)
+        total_hits   = sum(s.get("ev_hits", 0) for s in ev_days)
+        total_return = sum(s.get("ev_total_return", 0.0) for s in ev_days)
+        overall_roi  = (total_return / total_bets) - 1.0 if total_bets > 0 else 0.0
+
+        st.markdown("---")
+        c1, c2, c3, c4 = st.columns(4)
+        c1.metric("累計EV買い目数", total_bets)
+        c2.metric("累計的中数", total_hits)
+        c3.metric("累計回収", f"{total_return:.0f}倍相当")
+        roi_delta = f"{overall_roi*100:+.1f}%"
+        c4.metric("通算EV_ROI", roi_delta,
+                  delta=roi_delta,
+                  delta_color="normal" if overall_roi >= 0 else "inverse")
+
+        st.caption(
+            f"EV_ROI = (回収合計 / EV買い目数) - 1。EV≥0.5の3連単のみ集計。"
+            f"  ※ 統計的有意性は最低100件以上のサンプルが必要です。"
+        )
+
+    # 手動実行ボタン
+    st.markdown("---")
+    hd_input = st.date_input("日付を指定して手動収集", value=date.today(), key="roi_date")
+    if st.button("🔄 結果を今すぐ収集", key="roi_collect"):
+        hd_str = hd_input.strftime("%Y%m%d")
+        import importlib.util as _ilu2
+        _spec2 = _ilu2.spec_from_file_location("collect_results",
+                                                os.path.join(_HERE, "collect_results.py"))
+        _m2 = _ilu2.module_from_spec(_spec2)
+        _spec2.loader.exec_module(_m2)
+        with st.spinner(f"{hd_str} の結果を収集中..."):
+            summary = _m2.run(hd_str, verbose=False)
+        if summary:
+            st.success(
+                f"完了: {summary['n_races']}レース  "
+                f"1着的中率 {summary['win_accuracy']*100:.1f}%  "
+                + (f"EV_ROI {summary['ev_roi']*100:+.1f}%" if summary.get('ev_roi') is not None else "EV買い目なし")
+            )
+            st.cache_data.clear()
+            st.rerun()
+        else:
+            st.warning("データを取得できませんでした（朝バッチ未取得または未発走）")
 
 
 # ── メイン ───────────────────────────────────────────────────────────────────
@@ -957,7 +1055,9 @@ def main():
     clf_boat, clf_km, meta, calibrators = load_models()
     km_by_boat = meta.get("km_by_boat", {})
 
-    tab1, tab2, tab3, tab4 = st.tabs(["🔍 レース予測", "📋 朝バッチ", "💰 EV買い目", "📊 前日比較"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(
+        ["🔍 レース予測", "📋 朝バッチ", "💰 EV買い目", "📊 前日比較", "📈 ROI追跡"]
+    )
 
     with tab2:
         tab_morning_batch()
@@ -967,6 +1067,9 @@ def main():
 
     with tab4:
         tab_review()
+
+    with tab5:
+        tab_roi_tracking()
 
     with tab1:
         # ── ① 会場・日付・レース番号 ────────────────────────────────────────────

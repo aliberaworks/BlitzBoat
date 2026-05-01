@@ -41,6 +41,29 @@ EXHIBIT_WINDOW = 35  # 展示タイムは発走35分前から
 EV_THRESH  = 0.5   # LINE通知する最低EV
 EV_NOTIFY_WINDOW = 55  # 発走何分前にEV通知するか
 KIMARITE = ["逃げ", "差し", "まくり", "まくり差し", "抜き", "恵まれ"]
+ST_CORRECTION_K = 3.0  # 展示ST補正係数（差0.01秒→約3%の重み変化）
+
+
+def _adjust_prob_by_exhibit(boat_prob: dict, avg_st: dict, exhibit: dict) -> dict:
+    """展示ST（実測）vs 平均STの差でboat_probを補正・正規化して返す"""
+    import math
+    weights = {}
+    for b in range(1, 7):
+        p = boat_prob.get(b, 0.0)
+        if p <= 0:
+            weights[b] = 0.0
+            continue
+        ex_st = exhibit.get(str(b))
+        av_st = float(avg_st.get(str(b), 0.17))
+        if ex_st is not None:
+            delta = av_st - float(ex_st)   # 正 = 展示が良い（平均より速い）
+            weights[b] = p * math.exp(ST_CORRECTION_K * delta)
+        else:
+            weights[b] = p
+    total = sum(weights.values())
+    if total <= 0:
+        return boat_prob
+    return {b: w / total for b, w in weights.items()}
 
 
 def _load_meta():
@@ -214,6 +237,15 @@ def run(hd: str, window_min: int = 60, force: bool = False, verbose: bool = True
                             for e in exhibit
                         }
                         entry["exhibit_ts"] = now_ts
+                        # 展示STで確率を補正
+                        boat_prob_raw = {int(k): v for k, v in p["boat_prob"].items()}
+                        avg_st_map = {
+                            str(b): (p.get("boat_data") or {}).get(str(b), {}).get("avg_st", 0.17)
+                            for b in range(1, 7)
+                        }
+                        entry["boat_prob_adjusted"] = _adjust_prob_by_exhibit(
+                            boat_prob_raw, avg_st_map, entry["exhibit"]
+                        )
                         updated += 1
                         if verbose:
                             if changes:
