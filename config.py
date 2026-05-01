@@ -42,7 +42,7 @@ ST_SLOW_THRESHOLD = 0.18             # motor_avg_st + st_std > この値
 CUMULATIVE_PROB_CUTOFF = 0.97        # 上位97%まで選定
 
 # ── 資金配分 ──
-TOTAL_BUDGET     = 10_000            # 合計金額（Kelly基準の元手）
+TOTAL_BUDGET     = 30_000            # 合計金額（Kelly基準の元手）
 MIN_BET_UNIT     = 100               # 最小単位
 
 # ── スクレイピング設定 ──
