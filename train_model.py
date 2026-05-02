@@ -191,7 +191,7 @@ def train_boat_model(X_train, y_train):
         n_estimators=300,
         max_depth=12,
         min_samples_leaf=20,
-        class_weight="balanced",
+        class_weight={1: 0.6, 2: 1.4, 3: 1.6, 4: 1.8, 5: 2.5, 6: 3.0},
         n_jobs=-1,
         random_state=42,
     )

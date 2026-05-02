@@ -113,8 +113,8 @@
     "逃げ"
   ],
   "boat_eval": {
-    "accuracy": 0.3973,
-    "top3_accuracy": 0.7971,
+    "accuracy": 0.5253,
+    "top3_accuracy": 0.8739,
     "baseline": 0.5551
   },
   "km_eval": {
@@ -124,44 +124,44 @@
   },
   "boat_importance": [
     {
-      "feature": "b6_national_rate",
-      "importance": 0.0437
+      "feature": "b1_national_rate",
+      "importance": 0.0509
     },
     {
       "feature": "b5_national_rate",
-      "importance": 0.0435
+      "importance": 0.0391
     },
     {
       "feature": "b3_national_rate",
-      "importance": 0.0359
+      "importance": 0.0378
     },
     {
       "feature": "b2_national_rate",
-      "importance": 0.0338
-    },
-    {
-      "feature": "b1_national_rate",
-      "importance": 0.0325
+      "importance": 0.0369
     },
     {
       "feature": "b4_national_rate",
-      "importance": 0.0319
+      "importance": 0.032
+    },
+    {
+      "feature": "b1_local_rate",
+      "importance": 0.0314
+    },
+    {
+      "feature": "b6_national_rate",
+      "importance": 0.0291
     },
     {
       "feature": "b5_local_rate",
-      "importance": 0.0301
+      "importance": 0.0274
     },
     {
-      "feature": "b6_national_rate_rank",
-      "importance": 0.0295
+      "feature": "b1_national_rate_rank",
+      "importance": 0.0266
     },
     {
-      "feature": "b6_local_rate",
-      "importance": 0.0276
-    },
-    {
-      "feature": "b5_national_rate_rank",
-      "importance": 0.0271
+      "feature": "b4_local_rate",
+      "importance": 0.0252
     }
   ],
   "km_importance": [
