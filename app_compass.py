@@ -257,7 +257,7 @@ for r2 in sorted_r2:
 
         stat_str = f"{stat_p*100:.1f}%"
 
-        if odds_val and has_odds and odds_val <= 500:
+        if odds_val and has_odds and stat_p >= 0.005:
             ev = stat_p * odds_val - 1.0
             ev_str = f"{ev:+.1f}"
             odds_str = f"{odds_val:.1f}倍"

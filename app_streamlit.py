@@ -472,9 +472,11 @@ def compute_ev_combos(boat_prob: dict, odds_3t: dict, meta: dict) -> list:
                 p_cond[c] += p_km * km_cond_map.get(c, unif_km)
         for r2, r3 in all_combos:
             odds_val = odds_3t.get((r1, r2, r3))
-            if odds_val is None or odds_val <= 0 or odds_val > 500:
+            if odds_val is None or odds_val <= 0:
                 continue
             p_combo = p_r1 * p_cond.get((r2, r3), 1.0 / len(all_combos))
+            if p_combo < 0.005:  # 統計確率0.5%未満は信頼できないためスキップ
+                continue
             ev = p_combo * odds_val - 1.0
             ev_rows.append({
                 "r1": r1, "r2": r2, "r3": r3,
