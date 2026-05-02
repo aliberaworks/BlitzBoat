@@ -3,7 +3,7 @@
 1着・決まり手を選ぶと、統計的な2・3着分布とリアルタイムオッズ・期待値を表示。
 """
 import json, os, sys
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path = [_HERE] + [p for p in sys.path if p != _HERE]
@@ -82,11 +82,25 @@ if not schedule:
         st.sidebar.info(f"次回開催: {next_d[:4]}/{next_d[4:6]}/{next_d[6:]}")
     selected_jcd = None
 else:
+    now_cmp = datetime.now()
     for jcd, info in schedule.items():
-        times_list = [t for t in info["times"].values() if t]
-        next_t = min(times_list) if times_list else "—"
+        times_items = sorted(
+            [(rno, t) for rno, t in info["times"].items() if t],
+            key=lambda x: x[0],
+        )
+        next_rno, next_t = "—", "—"
+        for rno, t in times_items:
+            h, m_t = map(int, t.split(":"))
+            race_dt = now_cmp.replace(hour=h, minute=m_t, second=0, microsecond=0)
+            if race_dt >= now_cmp - timedelta(minutes=3):
+                next_rno, next_t = str(rno), t
+                break
+        else:
+            if times_items:
+                lr, lt = times_items[-1]
+                next_rno, next_t = f"{lr}(終)", lt
         st.sidebar.markdown(
-            f"**{info['name']}**　{info['races']}R　最終 {next_t}"
+            f"**{info['name']}**　次: {next_rno}R {next_t}"
         )
     st.sidebar.markdown("---")
 
@@ -243,7 +257,7 @@ for r2 in sorted_r2:
 
         stat_str = f"{stat_p*100:.1f}%"
 
-        if odds_val and has_odds:
+        if odds_val and has_odds and odds_val <= 500:
             ev = stat_p * odds_val - 1.0
             ev_str = f"{ev:+.1f}"
             odds_str = f"{odds_val:.1f}倍"

@@ -71,7 +71,7 @@ def _compute_ev(boat_prob: dict, odds_3t: dict, meta: dict) -> list:
                 p_cond[c] += p_km * km_map.get(c, unif)
         for r2, r3 in all_c:
             ov = odds_3t.get((r1, r2, r3))
-            if ov is None or ov <= 0:
+            if ov is None or ov <= 0 or ov > 500:
                 continue
             p_combo = p_r1 * p_cond.get((r2, r3), 1.0 / len(all_c))
             rows.append({

@@ -472,7 +472,7 @@ def compute_ev_combos(boat_prob: dict, odds_3t: dict, meta: dict) -> list:
                 p_cond[c] += p_km * km_cond_map.get(c, unif_km)
         for r2, r3 in all_combos:
             odds_val = odds_3t.get((r1, r2, r3))
-            if odds_val is None or odds_val <= 0:
+            if odds_val is None or odds_val <= 0 or odds_val > 500:
                 continue
             p_combo = p_r1 * p_cond.get((r2, r3), 1.0 / len(all_combos))
             ev = p_combo * odds_val - 1.0
@@ -724,18 +724,31 @@ def tab_ev_picks():
     col_fetch, col_status = st.columns([2, 4])
     with col_fetch:
         if st.button("🔄 全レースオッズを一括取得", key="ev_fetch"):
+            from concurrent.futures import ThreadPoolExecutor, as_completed as _as_completed
             total = len(races_filtered)
             bar = st.progress(0)
             status_txt = st.empty()
-            for i, p in enumerate(races_filtered):
-                ck = f"{p['jcd']}_{p['race_no']}"
-                odds = scrape_odds_3t(p["jcd"], hd, p["race_no"])
-                if odds:
-                    st.session_state[odds_cache_key][ck] = odds
-                bar.progress((i + 1) / total)
-                status_txt.text(f"{p['venue_name']} {p['race_no']}R ... ({i+1}/{total})")
+            fetched: dict = {}
+            done_count = 0
+            with ThreadPoolExecutor(max_workers=8) as _ex:
+                _futs = {
+                    _ex.submit(scrape_odds_3t, p["jcd"], hd, p["race_no"]): p
+                    for p in races_filtered
+                }
+                for fut in _as_completed(_futs):
+                    p = _futs[fut]
+                    try:
+                        odds = fut.result()
+                    except Exception:
+                        odds = None
+                    if odds:
+                        fetched[f"{p['jcd']}_{p['race_no']}"] = odds
+                    done_count += 1
+                    bar.progress(done_count / total)
+                    status_txt.text(f"取得中... ({done_count}/{total})")
+            st.session_state[odds_cache_key].update(fetched)
             bar.empty()
-            status_txt.success(f"✅ {total}レース分のオッズを取得しました")
+            status_txt.success(f"✅ {len(fetched)}/{total}レース分のオッズを取得しました")
     with col_status:
         auto_on = st.session_state.get("auto_pilot", False)
         auto_str = "🤖 自動パイロットON" if auto_on else "手動取得モード"
