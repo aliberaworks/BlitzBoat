@@ -136,7 +136,6 @@ def run(hd: str, ev_thresh: float = EV_THRESH_DEFAULT, verbose: bool = True) -> 
         rno = p["race_no"]
         ck  = f"{jcd}_{rno}"
 
-        time.sleep(config.REQUEST_DELAY)
         try:
             result = scrape_race_result(jcd, hd, rno)
         except Exception as e:
