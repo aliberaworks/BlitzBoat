@@ -26,5 +26,56 @@
     "naive_return_yen": 18180,
     "naive_roi": -0.495,
     "naive_roi_pct": -49.5
+  },
+  "20260509": {
+    "n_races_total": 132,
+    "n_arare_candidate": 40,
+    "arare_thresh": 0.55,
+    "ev_thresh": 0.3,
+    "max_bets": 8,
+    "ev_bets": 320,
+    "ev_hits": 1,
+    "ev_invest_yen": 32000,
+    "ev_return_yen": 290,
+    "ev_roi": -0.9909,
+    "ev_roi_pct": -99.1,
+    "naive_bets": 320,
+    "naive_hits": 6,
+    "naive_invest_yen": 32000,
+    "naive_return_yen": 10980,
+    "naive_roi": -0.6569,
+    "naive_roi_pct": -65.7,
+    "tier_stats": {
+      "t55_65": {
+        "races": 24,
+        "arare_actual": 14,
+        "ev_bets": 192,
+        "ev_hits": 0,
+        "invest_yen": 19200,
+        "return_yen": 0,
+        "arare_rate": 0.583,
+        "ev_roi": -1.0
+      },
+      "t65_75": {
+        "races": 11,
+        "arare_actual": 9,
+        "ev_bets": 88,
+        "ev_hits": 1,
+        "invest_yen": 8800,
+        "return_yen": 290,
+        "arare_rate": 0.818,
+        "ev_roi": -0.967
+      },
+      "t75up": {
+        "races": 5,
+        "arare_actual": 4,
+        "ev_bets": 40,
+        "ev_hits": 0,
+        "invest_yen": 4000,
+        "return_yen": 0,
+        "arare_rate": 0.8,
+        "ev_roi": -1.0
+      }
+    }
   }
 }
