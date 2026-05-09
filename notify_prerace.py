@@ -29,22 +29,57 @@ scrape_odds_3t     = _mod.scrape_odds_3t
 scrape_race_result = _mod.scrape_race_result
 
 try:
-    from line_bot import (
-        send_ev_notification, send_line_message,
-        format_race_result_notification,
-    )
+    from line_bot import send_line_message
 except Exception:
-    def send_ev_notification(*a, **kw): return False
-    def send_line_message(*a, **kw):    return False
-    def format_race_result_notification(*a, **kw): return ""
+    def send_line_message(*a, **kw): return False
 
 JST      = timezone(timedelta(hours=9))
 KIMARITE = ["逃げ", "差し", "まくり", "まくり差し", "抜き", "恵まれ"]
 BOATS    = list(range(1, 7))
-EV_THRESH        = 0.3   # 荒れ特化後はEV閾値を下げる（荒れレース限定なので）
-ARARE_PROB_THRESH = 0.55  # 荒れ確率がこの値以上のレースのみEV通知する
-RESULT_MIN_PAST  = 10   # 発走後何分から結果を確認するか
-RESULT_MAX_PAST  = 42   # 発走後何分まで（30分cron + バッファ）
+EV_THRESH            = 0.3   # 荒れ特化後はEV閾値を下げる（荒れレース限定なので）
+ARARE_PROB_THRESH    = 0.55  # 荒れ確率がこの値以上のレースのみEV通知する
+MAX_DAILY_NOTIFY     = 4     # 1日のLINE送信上限（月200通制限: 4×26日=104 + 朝26 + 集計26 = 156通）
+
+
+_BOAT_LABEL = ["①白", "②黒", "③赤", "④青", "⑤黄", "⑥緑"]
+
+
+def _format_consolidated(notify_list: list, now: datetime, ev_thresh: float, sent_today: int) -> str:
+    """
+    複数レースをまとめた1通のLINEメッセージを生成。
+    notify_list: [{"race": p, "ev_rows": [...], "arare_prob": float, "course_changes": list|None}, ...]
+    """
+    t = now.strftime("%H:%M")
+    lines = [f"🌪 荒れEV警報  {t}", ""]
+
+    for n in notify_list:
+        p          = n["race"]
+        arare_pct  = int(n["arare_prob"] * 100)
+        cc         = n.get("course_changes") or []
+        ev_rows    = n["ev_rows"]
+        top_bets   = [r for r in ev_rows if r["ev"] >= ev_thresh][:3]
+
+        lines.append(f"📍 {p['venue_name']} {p['race_no']}R ⏰{p.get('race_time','--:--')} 荒れ{arare_pct}%")
+
+        if cc:
+            for c in cc:
+                icon = "⚠前づけ" if c.get("type") == "前づけ" else "↩後づけ"
+                lines.append(f"  {icon}: {_BOAT_LABEL[c['boat']-1]}→{c['course']}コース")
+
+        for r in top_bets:
+            b1   = _BOAT_LABEL[r["r1"] - 1]
+            b2   = _BOAT_LABEL[r["r2"] - 1]
+            b3   = _BOAT_LABEL[r["r3"] - 1]
+            star = "★" if r["ev"] >= 1.0 else "☆"
+            lines.append(f"  {star} {b1}-{b2}-{b3} {r['odds']:.0f}倍 EV{r['ev']:+.2f}")
+
+        total = len([r for r in ev_rows if r["ev"] >= ev_thresh])
+        lines.append(f"  (EV≥{ev_thresh}: {total}点)")
+        lines.append("")
+
+    lines.append(f"本日{sent_today + 1}回目 / 上限{MAX_DAILY_NOTIFY}回")
+    lines.append("※統計確率×市場オッズ−1の参考値")
+    return "\n".join(lines)
 
 
 def _load_arare_stats() -> dict:
@@ -301,11 +336,15 @@ def run(hd: str, win_min: int = 30, win_max: int = 60):
         print(f"対象レースなし (窓: {win_min}〜{win_max}分前, 荒れ確率≥{ARARE_PROB_THRESH})")
         return
 
-    print(f"対象: {len(targets)}レース (窓: {win_min}〜{win_max}分前, 荒れ候補のみ)")
-    notified = 0
+    # 本日の送信回数を prerace JSON から読む
+    line_sent_today = int(prerace.get("line_sent_today", 0))
+    print(f"対象: {len(targets)}レース (窓: {win_min}〜{win_max}分前, 荒れ候補のみ) / 本日LINE送信済: {line_sent_today}回")
+
+    # ── オッズ取得 + EV計算（全レース）──────────────────────────────────────
+    notify_list = []   # LINE送信対象レースをここに積む
 
     for mins, p in sorted(targets, key=lambda x: x[0]):
-        ck = f"{p['jcd']}_{p['race_no']}"
+        ck         = f"{p['jcd']}_{p['race_no']}"
         arare_prob = p.get("arare_prob", 0.5)
         print(f"  {p['venue_name']} {p['race_no']}R  ({mins:.0f}分前 / 荒れ{arare_prob*100:.0f}%) オッズ取得中...")
         try:
@@ -318,126 +357,68 @@ def run(hd: str, win_min: int = 30, win_max: int = 60):
             if ck not in prerace:
                 prerace[ck] = {}
             prerace[ck]["odds"] = {f"{k[0]}-{k[1]}-{k[2]}": v for k, v in odds.items()}
-            try:
-                with open(prerace_path, "w", encoding="utf-8") as _pf:
-                    json.dump(prerace, _pf, ensure_ascii=False)
-            except Exception:
-                pass
 
             boat_prob = {int(k): v for k, v in p["boat_prob"].items()}
-
             if use_arare_ev:
                 ev_rows = _compute_ev_arare(boat_prob, arare_prob, odds, arare_stats, p["venue_name"])
             else:
                 ev_rows = _compute_ev(boat_prob, odds, meta)
 
-            top_ev = [r for r in ev_rows if r["ev"] >= EV_THRESH][:30]
-            pr_entry = prerace.get(ck, {})
-            course_changes = pr_entry.get("course_changes") or None
+            top_ev = [r for r in ev_rows if r["ev"] >= EV_THRESH]
+            course_changes = prerace.get(ck, {}).get("course_changes") or None
 
-            if course_changes:
-                print(f"    ⚠️ コース変更: {course_changes}")
-
-            # 診断ログ: 上位EV値を必ず表示
+            # 診断ログ
             if ev_rows:
                 top3 = ev_rows[:3]
                 print(f"    EV上位3: " + " / ".join(
                     f"{r['r1']}-{r['r2']}-{r['r3']} EV{r['ev']:+.3f}({r['odds']}x)" for r in top3
                 ))
 
-            if not top_ev:
-                print(f"    EV≥{EV_THRESH}の買い目なし (最高EV={ev_rows[0]['ev']:+.3f})" if ev_rows else f"    EV計算結果なし")
-                continue
-
-            sent = send_ev_notification(
-                p["venue_name"], p["race_no"],
-                p.get("race_time", ""),
-                ev_rows, EV_THRESH,
-                course_changes=course_changes,
-            )
-            if sent:
-                notified += 1
-                print(f"    📲 LINE送信 (EV≥{EV_THRESH}: {len(top_ev)}件)")
+            if top_ev:
+                notify_list.append({
+                    "race":           p,
+                    "ev_rows":        ev_rows,
+                    "arare_prob":     arare_prob,
+                    "course_changes": course_changes,
+                })
+                print(f"    → 通知候補 (EV≥{EV_THRESH}: {len(top_ev)}点)")
             else:
-                print(f"    LINE未設定 (EV≥{EV_THRESH}: {len(top_ev)}件)")
+                top_ev_val = ev_rows[0]["ev"] if ev_rows else None
+                print(f"    EV≥{EV_THRESH}の買い目なし" + (f" (最高EV={top_ev_val:+.3f})" if top_ev_val is not None else ""))
 
         except Exception as e:
             print(f"    [ERR] {e}")
 
-    print(f"\n完了: {notified}/{len(targets)}レースをLINE通知")
+    # prerace JSON を保存（オッズ記録のため）
+    try:
+        with open(prerace_path, "w", encoding="utf-8") as _pf:
+            json.dump(prerace, _pf, ensure_ascii=False)
+    except Exception:
+        pass
 
-    # ── レース直後の結果通知 ──────────────────────────────────────────────────
-    # 発走10〜42分前に終わったレース（EV買い目があったもののみ）を照合して通知
-    result_targets = []
-    for p in preds:
-        mins = _minutes_until(p.get("race_time", ""), now)
-        past = -mins  # 過去方向を正にする
-        if RESULT_MIN_PAST <= past <= RESULT_MAX_PAST:
-            result_targets.append(p)
+    # ── まとめて1通のLINEに送信（月200通制限対応）────────────────────────────
+    if not notify_list:
+        print(f"\n完了: 通知対象レースなし")
+        return
 
-    if result_targets:
-        today_summary = _load_today_summary(hd)
-        cumulative    = _load_cumulative(hd)
-        print(f"\n結果確認対象: {len(result_targets)}レース")
+    if line_sent_today >= MAX_DAILY_NOTIFY:
+        print(f"\n本日のLINE上限({MAX_DAILY_NOTIFY}回)に達しています。スキップ。")
+        skipped = ", ".join(f"{n['race']['venue_name']} {n['race']['race_no']}R" for n in notify_list)
+        print(f"  候補: {skipped}")
+        return
 
-        for p in result_targets:
-            ck       = f"{p['jcd']}_{p['race_no']}"
-            pr_entry = prerace.get(ck, {})
-            raw_odds = pr_entry.get("odds", {})
-
-            # オッズがなければスキップ（EV買い目を出していないレース）
-            if not raw_odds:
-                continue
-
-            try:
-                result = scrape_race_result(p["jcd"], hd, p["race_no"])
-                if not result or not result.get("results") or len(result["results"]) < 3:
-                    print(f"  [SKIP] {p['venue_name']} {p['race_no']}R: 結果未確定")
-                    continue
-
-                r1       = result["results"][0]["boat"]
-                r2       = result["results"][1]["boat"]
-                r3       = result["results"][2]["boat"]
-                trifecta = f"{r1}-{r2}-{r3}"
-                kimarite = result.get("kimarite", "")
-
-                # EV買い目と照合
-                bp = {int(k): v for k, v in p["boat_prob"].items()}
-                if pr_entry.get("boat_prob_adjusted"):
-                    bp = {int(k): v for k, v in pr_entry["boat_prob_adjusted"].items()}
-                odds_3t  = _parse_odds_dict(raw_odds)
-                ev_rows  = _compute_ev(bp, odds_3t, meta)
-                ev_bets  = []
-                for row in ev_rows[:30]:
-                    if row["ev"] < EV_THRESH:
-                        break
-                    combo = f"{row['r1']}-{row['r2']}-{row['r3']}"
-                    hit   = (combo == trifecta)
-                    ev_bets.append({
-                        "combo":  combo,
-                        "ev":     row["ev"],
-                        "odds":   row["odds"],
-                        "hit":    hit,
-                        "return": row["odds"] if hit else 0.0,
-                    })
-
-                if not ev_bets:
-                    continue
-
-                text = format_race_result_notification(
-                    p["venue_name"], p["race_no"], p.get("race_time", ""),
-                    trifecta, kimarite, ev_bets,
-                    today_summary=today_summary if today_summary.get("bets") else None,
-                    cumulative=cumulative if cumulative.get("bets") else None,
-                )
-                if text:
-                    send_line_message(text)
-                    hits = sum(1 for b in ev_bets if b["hit"])
-                    mark = "✅" if hits else "❌"
-                    print(f"  {mark} {p['venue_name']} {p['race_no']}R: {trifecta} ({kimarite})  EV{len(ev_bets)}件/{hits}的中")
-
-            except Exception as e:
-                print(f"  [ERR] {p['venue_name']} {p['race_no']}R 結果取得: {e}")
+    text = _format_consolidated(notify_list, now, EV_THRESH, line_sent_today)
+    if send_line_message(text):
+        line_sent_today += 1
+        prerace["line_sent_today"] = line_sent_today
+        try:
+            with open(prerace_path, "w", encoding="utf-8") as _pf:
+                json.dump(prerace, _pf, ensure_ascii=False)
+        except Exception:
+            pass
+        print(f"\n📲 LINE送信完了: {len(notify_list)}レースまとめ / 本日{line_sent_today}回目(上限{MAX_DAILY_NOTIFY})")
+    else:
+        print(f"\nLINE送信失敗")
 
 
 if __name__ == "__main__":
