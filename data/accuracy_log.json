@@ -1,0 +1,30 @@
+{
+  "20260502": {
+    "n_races": 46,
+    "win_accuracy": 0.4783,
+    "top3_accuracy": 0.8696,
+    "ev_bets_count": 985,
+    "ev_hits": 3,
+    "ev_roi": -0.5639,
+    "ev_total_return": 429.6
+  },
+  "20260508": {
+    "n_races_total": 144,
+    "n_arare_candidate": 45,
+    "arare_thresh": 0.55,
+    "ev_thresh": 0.3,
+    "max_bets": 8,
+    "ev_bets": 360,
+    "ev_hits": 0,
+    "ev_invest_yen": 36000,
+    "ev_return_yen": 0,
+    "ev_roi": -1.0,
+    "ev_roi_pct": -100.0,
+    "naive_bets": 360,
+    "naive_hits": 3,
+    "naive_invest_yen": 36000,
+    "naive_return_yen": 18180,
+    "naive_roi": -0.495,
+    "naive_roi_pct": -49.5
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "train_size": 21444,
+    "test_size": 5361,
+    "test_items": 5361,
+    "bet_unit_yen": 100,
+    "run_date": "2026-05-08"
+  },
+  "results": {
+    "0.5_3": {
+      "threshold": 0.5,
+      "top_n": 3,
+      "races_bet": 1974,
+      "total_bet": 592200,
+      "total_return": 2291620,
+      "roi": 2.8697,
+      "hit_count": 284,
+      "hit_rate": 0.1439
+    },
+    "0.5_5": {
+      "threshold": 0.5,
+      "top_n": 5,
+      "races_bet": 1974,
+      "total_bet": 987000,
+      "total_return": 3120650,
+      "roi": 2.1618,
+      "hit_count": 424,
+      "hit_rate": 0.2148
+    },
+    "0.5_8": {
+      "threshold": 0.5,
+      "top_n": 8,
+      "races_bet": 1974,
+      "total_bet": 1579200,
+      "total_return": 4432330,
+      "roi": 1.8067,
+      "hit_count": 596,
+      "hit_rate": 0.3019
+    },
+    "0.5_12": {
+      "threshold": 0.5,
+      "top_n": 12,
+      "races_bet": 1974,
+      "total_bet": 2368800,
+      "total_return": 5460890,
+      "roi": 1.3053,
+      "hit_count": 744,
+      "hit_rate": 0.3769
+    },
+    "0.55_3": {
+      "threshold": 0.55,
+      "top_n": 3,
+      "races_bet": 1496,
+      "total_bet": 448800,
+      "total_return": 1607030,
+      "roi": 2.5807,
+      "hit_count": 219,
+      "hit_rate": 0.1464
+    },
+    "0.55_5": {
+      "threshold": 0.55,
+      "top_n": 5,
+      "races_bet": 1496,
+      "total_bet": 748000,
+      "total_return": 2208830,
+      "roi": 1.953,
+      "hit_count": 333,
+      "hit_rate": 0.2226
+    },
+    "0.55_8": {
+      "threshold": 0.55,
+      "top_n": 8,
+      "races_bet": 1496,
+      "total_bet": 1196800,
+      "total_return": 3364550,
+      "roi": 1.8113,
+      "hit_count": 477,
+      "hit_rate": 0.3189
+    },
+    "0.55_12": {
+      "threshold": 0.55,
+      "top_n": 12,
+      "races_bet": 1496,
+      "total_bet": 1795200,
+      "total_return": 4171190,
+      "roi": 1.3235,
+      "hit_count": 597,
+      "hit_rate": 0.3991
+    },
+    "0.6_3": {
+      "threshold": 0.6,
+      "top_n": 3,
+      "races_bet": 1171,
+      "total_bet": 351300,
+      "total_return": 1402330,
+      "roi": 2.9918,
+      "hit_count": 186,
+      "hit_rate": 0.1588
+    },
+    "0.6_5": {
+      "threshold": 0.6,
+      "top_n": 5,
+      "races_bet": 1171,
+      "total_bet": 585500,
+      "total_return": 1927190,
+      "roi": 2.2915,
+      "hit_count": 285,
+      "hit_rate": 0.2434
+    },
+    "0.6_8": {
+      "threshold": 0.6,
+      "top_n": 8,
+      "races_bet": 1171,
+      "total_bet": 936800,
+      "total_return": 2933210,
+      "roi": 2.1311,
+      "hit_count": 405,
+      "hit_rate": 0.3459
+    },
+    "0.6_12": {
+      "threshold": 0.6,
+      "top_n": 12,
+      "races_bet": 1171,
+      "total_bet": 1405200,
+      "total_return": 3561500,
+      "roi": 1.5345,
+      "hit_count": 498,
+      "hit_rate": 0.4253
+    },
+    "0.65_3": {
+      "threshold": 0.65,
+      "top_n": 3,
+      "races_bet": 680,
+      "total_bet": 204000,
+      "total_return": 741110,
+      "roi": 2.6329,
+      "hit_count": 111,
+      "hit_rate": 0.1632
+    },
+    "0.65_5": {
+      "threshold": 0.65,
+      "top_n": 5,
+      "races_bet": 680,
+      "total_bet": 340000,
+      "total_return": 1172580,
+      "roi": 2.4488,
+      "hit_count": 181,
+      "hit_rate": 0.2662
+    },
+    "0.65_8": {
+      "threshold": 0.65,
+      "top_n": 8,
+      "races_bet": 680,
+      "total_bet": 544000,
+      "total_return": 1814600,
+      "roi": 2.3357,
+      "hit_count": 259,
+      "hit_rate": 0.3809
+    },
+    "0.65_12": {
+      "threshold": 0.65,
+      "top_n": 12,
+      "races_bet": 680,
+      "total_bet": 816000,
+      "total_return": 2151770,
+      "roi": 1.637,
+      "hit_count": 318,
+      "hit_rate": 0.4676
+    },
+    "BASE_0.0_3": {
+      "threshold": 0.0,
+      "top_n": 3,
+      "races_bet": 5219,
+      "total_bet": 1565700,
+      "total_return": 5006140,
+      "roi": 2.1974,
+      "hit_count": 485,
+      "hit_rate": 0.0929
+    },
+    "BASE_0.0_5": {
+      "threshold": 0.0,
+      "top_n": 5,
+      "races_bet": 5219,
+      "total_bet": 2609500,
+      "total_return": 7215290,
+      "roi": 1.765,
+      "hit_count": 764,
+      "hit_rate": 0.1464
+    },
+    "BASE_0.0_8": {
+      "threshold": 0.0,
+      "top_n": 8,
+      "races_bet": 5219,
+      "total_bet": 4175200,
+      "total_return": 10189450,
+      "roi": 1.4405,
+      "hit_count": 1090,
+      "hit_rate": 0.2089
+    },
+    "BASE_0.0_12": {
+      "threshold": 0.0,
+      "top_n": 12,
+      "races_bet": 5219,
+      "total_bet": 6262800,
+      "total_return": 13204880,
+      "roi": 1.1085,
+      "hit_count": 1367,
+      "hit_rate": 0.2619
+    }
+  },
+  "best_key": "0.6_3"
+}

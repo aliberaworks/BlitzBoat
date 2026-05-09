@@ -1,0 +1,7782 @@
+{
+  "date": "20260502",
+  "summary": {
+    "n_races": 46,
+    "win_accuracy": 0.4783,
+    "top3_accuracy": 0.8696,
+    "ev_bets_count": 985,
+    "ev_hits": 3,
+    "ev_roi": -0.5639,
+    "ev_total_return": 429.6
+  },
+  "races": [
+    {
+      "jcd": "10",
+      "venue_name": "三国",
+      "race_no": 1,
+      "race_time": "08:44",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.6006,
+      "confidence": 0.4339,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 6,
+      "trifecta": "1-3-6",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "5-3-4",
+          "ev": 18.536,
+          "odds": 3625.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 15.138,
+          "odds": 2991.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 14.9552,
+          "odds": 2815.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 13.5679,
+          "odds": 2883.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 8.5014,
+          "odds": 419.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 8.1081,
+          "odds": 655.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 8.0801,
+          "odds": 541.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 7.8535,
+          "odds": 335.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 7.5718,
+          "odds": 371.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 4.7852,
+          "odds": 276.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 2.9751,
+          "odds": 378.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 2.7381,
+          "odds": 99.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 1.9736,
+          "odds": 158.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 1.6522,
+          "odds": 59.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 1.2706,
+          "odds": 137.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-5",
+          "ev": 1.1061,
+          "odds": 51.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 0.6787,
+          "odds": 29.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-5",
+          "ev": 0.5278,
+          "odds": 93.2,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 1,
+      "race_time": "08:32",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.5821,
+      "confidence": 0.4154,
+      "actual_1st": 1,
+      "actual_2nd": 5,
+      "actual_3rd": 2,
+      "trifecta": "1-5-2",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 57.6823,
+          "odds": 4997.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 25.3279,
+          "odds": 5090.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 22.9751,
+          "odds": 3435.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 20.654,
+          "odds": 1502.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 18.7543,
+          "odds": 738.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 16.2264,
+          "odds": 1090.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 14.9764,
+          "odds": 907.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 14.5133,
+          "odds": 981.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 12.3655,
+          "odds": 845.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 8.0033,
+          "odds": 566.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 7.5441,
+          "odds": 303.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 5.4282,
+          "odds": 454.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 4.0348,
+          "odds": 305.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 2.97,
+          "odds": 251.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 2.6048,
+          "odds": 129.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 2.1639,
+          "odds": 199.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 2.0662,
+          "odds": 87.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 1.9843,
+          "odds": 69.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-3",
+          "ev": 1.6069,
+          "odds": 96.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 1.5029,
+          "odds": 107.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-5",
+          "ev": 0.6744,
+          "odds": 105.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 4,
+      "race_time": "09:56",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.5294,
+      "confidence": 0.3627,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 3,
+      "trifecta": "1-4-3",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 38.9255,
+          "odds": 2934.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 20.528,
+          "odds": 1313.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 18.9631,
+          "odds": 1195.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 17.213,
+          "odds": 953.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 14.9926,
+          "odds": 2112.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 9.6841,
+          "odds": 1347.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 6.683,
+          "odds": 1492.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 4.8914,
+          "odds": 933.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 3.0902,
+          "odds": 131.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 2.9418,
+          "odds": 628.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 2.909,
+          "odds": 469.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 2.808,
+          "odds": 428.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 2.4818,
+          "odds": 637.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 1.59,
+          "odds": 106.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 1.4795,
+          "odds": 172.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 1.2677,
+          "odds": 145.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 0.6896,
+          "odds": 263.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 0.63,
+          "odds": 30.0,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 6,
+      "race_time": "10:50",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.5008,
+      "confidence": 0.3341,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 2,
+      "trifecta": "1-3-2",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "ev": 55.4746,
+          "odds": 1311.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 42.5232,
+          "odds": 7465.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 42.5047,
+          "odds": 1386.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 31.5121,
+          "odds": 5881.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 26.7473,
+          "odds": 2021.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 25.1868,
+          "odds": 4976.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 20.8741,
+          "odds": 1617.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 19.7767,
+          "odds": 1528.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-5",
+          "ev": 12.8439,
+          "odds": 405.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-5",
+          "ev": 9.828,
+          "odds": 792.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 8.377,
+          "odds": 574.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 6.9311,
+          "odds": 180.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-3",
+          "ev": 6.5985,
+          "odds": 546.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 6.038,
+          "odds": 517.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 4.4757,
+          "odds": 109.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 3.4094,
+          "odds": 431.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 2.5212,
+          "odds": 94.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 2.2947,
+          "odds": 161.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 1.971,
+          "odds": 83.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 1.2968,
+          "odds": 48.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-5",
+          "ev": 0.8424,
+          "odds": 133.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 0.509,
+          "odds": 110.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 3,
+      "race_time": "09:24",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4975,
+      "confidence": 0.3308,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "4-6-5",
+          "ev": 54.4468,
+          "odds": 9999.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 51.0649,
+          "odds": 9999.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 43.1398,
+          "odds": 1314.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 32.9831,
+          "odds": 6317.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 26.3104,
+          "odds": 1195.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 25.0387,
+          "odds": 4470.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 25.0182,
+          "odds": 5010.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 21.0452,
+          "odds": 1632.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 18.6137,
+          "odds": 1452.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 15.9054,
+          "odds": 1950.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 9.1507,
+          "odds": 427.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 8.2355,
+          "odds": 683.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 6.8131,
+          "odds": 564.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 6.5147,
+          "odds": 553.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 5.6162,
+          "odds": 140.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 4.5275,
+          "odds": 409.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 4.4821,
+          "odds": 477.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 3.5109,
+          "odds": 575.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 2.9487,
+          "odds": 228.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 1.5527,
+          "odds": 61.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 1.4487,
+          "odds": 60.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 0.9336,
+          "odds": 142.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 0.7472,
+          "odds": 47.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 0.6145,
+          "odds": 34.6,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 6,
+      "race_time": "10:59",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4921,
+      "confidence": 0.3255,
+      "actual_1st": 5,
+      "actual_2nd": 1,
+      "actual_3rd": 6,
+      "trifecta": "5-1-6",
+      "kimarite": "まくり",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "5-3-4",
+          "ev": 24.2916,
+          "odds": 4636.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 21.4691,
+          "odds": 776.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 10.2548,
+          "odds": 333.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 9.8161,
+          "odds": 450.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 8.8038,
+          "odds": 332.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 5.7825,
+          "odds": 1216.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 5.3503,
+          "odds": 1015.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 5.0787,
+          "odds": 1143.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 5.0094,
+          "odds": 1009.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 3.6329,
+          "odds": 912.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 3.4849,
+          "odds": 213.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 2.0993,
+          "odds": 122.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 1.3672,
+          "odds": 74.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 0.7607,
+          "odds": 110.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 0.6472,
+          "odds": 53.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "10",
+      "venue_name": "三国",
+      "race_no": 3,
+      "race_time": "09:36",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4823,
+      "confidence": 0.3157,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 50.6367,
+          "odds": 1566.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 21.6119,
+          "odds": 558.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 13.0836,
+          "odds": 2724.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 11.7715,
+          "odds": 576.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 9.8975,
+          "odds": 832.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 8.0753,
+          "odds": 1699.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 7.2953,
+          "odds": 633.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 7.2599,
+          "odds": 627.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 6.7547,
+          "odds": 613.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 5.9084,
+          "odds": 527.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 5.0932,
+          "odds": 170.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 4.7766,
+          "odds": 742.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 4.5053,
+          "odds": 272.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 2.791,
+          "odds": 164.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 2.643,
+          "odds": 78.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-3",
+          "ev": 2.3173,
+          "odds": 148.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 2.0353,
+          "odds": 76.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 1.5832,
+          "odds": 57.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 1.5132,
+          "odds": 191.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-5",
+          "ev": 1.4552,
+          "odds": 186.5,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 2,
+      "race_time": "09:04",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4819,
+      "confidence": 0.3152,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 6,
+      "trifecta": "1-2-6",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "5-3-4",
+          "ev": 18.0678,
+          "odds": 1695.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 10.5291,
+          "odds": 444.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 10.1393,
+          "odds": 375.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 9.2407,
+          "odds": 402.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-2",
+          "ev": 7.4851,
+          "odds": 1421.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-3",
+          "ev": 7.2564,
+          "odds": 1288.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-4",
+          "ev": 7.1114,
+          "odds": 1288.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 5.4339,
+          "odds": 1266.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 5.4152,
+          "odds": 303.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 5.2564,
+          "odds": 1029.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 3.4071,
+          "odds": 570.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 3.1895,
+          "odds": 560.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 2.592,
+          "odds": 673.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.8569,
+          "odds": 137.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.5082,
+          "odds": 440.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 1.296,
+          "odds": 133.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 1.1919,
+          "odds": 84.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 1.0555,
+          "odds": 343.8,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "09",
+      "venue_name": "津",
+      "race_no": 1,
+      "race_time": "10:28",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4667,
+      "confidence": 0.3,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 4,
+      "trifecta": "1-2-4",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 39.8195,
+          "odds": 2095.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 14.2482,
+          "odds": 2465.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 13.6107,
+          "odds": 681.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 12.0985,
+          "odds": 1612.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 12.0266,
+          "odds": 1028.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 11.5942,
+          "odds": 2502.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 10.0553,
+          "odds": 1596.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 9.5163,
+          "odds": 829.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 8.8346,
+          "odds": 776.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 6.6327,
+          "odds": 1003.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 5.7298,
+          "odds": 722.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 5.6966,
+          "odds": 468.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 4.1177,
+          "odds": 187.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 3.6507,
+          "odds": 198.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 3.1405,
+          "odds": 173.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 2.9828,
+          "odds": 623.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 2.9243,
+          "odds": 176.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 2.5937,
+          "odds": 283.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 2.5245,
+          "odds": 412.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 2.5171,
+          "odds": 276.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 2.1466,
+          "odds": 247.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 1.903,
+          "odds": 400.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-3",
+          "ev": 1.4046,
+          "odds": 453.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 0.7834,
+          "odds": 311.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 0.5841,
+          "odds": 274.3,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 2,
+      "race_time": "08:58",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4616,
+      "confidence": 0.2949,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 2,
+      "trifecta": "1-3-2",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "4-6-5",
+          "ev": 50.4243,
+          "odds": 9972.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 43.7572,
+          "odds": 8262.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 31.1086,
+          "odds": 648.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 30.2859,
+          "odds": 1571.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 23.1789,
+          "odds": 707.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 22.3976,
+          "odds": 4381.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 11.6869,
+          "odds": 1007.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 11.6459,
+          "odds": 292.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 9.2668,
+          "odds": 819.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 8.1498,
+          "odds": 733.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 8.0169,
+          "odds": 546.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-5",
+          "ev": 7.757,
+          "odds": 695.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 6.4675,
+          "odds": 590.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 5.6839,
+          "odds": 165.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-3",
+          "ev": 5.6754,
+          "odds": 312.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 3.3159,
+          "odds": 88.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 3.247,
+          "odds": 75.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 3.0923,
+          "odds": 193.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 2.9052,
+          "odds": 311.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 2.5329,
+          "odds": 142.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 1.766,
+          "odds": 220.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 1.3753,
+          "odds": 82.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 1.1533,
+          "odds": 97.7,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 1,
+      "race_time": "08:38",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4282,
+      "confidence": 0.2616,
+      "actual_1st": 5,
+      "actual_2nd": 2,
+      "actual_3rd": 4,
+      "trifecta": "5-2-4",
+      "kimarite": "差し",
+      "hit_win": false,
+      "hit_top3": false,
+      "ev_bets": []
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 1,
+      "race_time": "08:50",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4229,
+      "confidence": 0.2562,
+      "actual_1st": 4,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "4-2-3",
+      "kimarite": "まくり",
+      "hit_win": false,
+      "hit_top3": false,
+      "ev_bets": [
+        {
+          "combo": "4-6-5",
+          "ev": 23.9468,
+          "odds": 2258.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 20.7267,
+          "odds": 4135.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 18.8684,
+          "odds": 3660.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 14.6475,
+          "odds": 1978.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 14.0981,
+          "odds": 761.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 12.9443,
+          "odds": 2054.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 11.7782,
+          "odds": 1101.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 10.5161,
+          "odds": 1113.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 6.6654,
+          "odds": 546.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 6.3877,
+          "odds": 784.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 5.4595,
+          "odds": 270.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 5.2609,
+          "odds": 322.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 4.6858,
+          "odds": 495.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 3.0312,
+          "odds": 351.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 2.8569,
+          "odds": 207.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 2.6205,
+          "odds": 453.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 2.5671,
+          "odds": 457.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 2.4365,
+          "odds": 299.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 2.1276,
+          "odds": 272.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 1.799,
+          "odds": 100.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 1.6351,
+          "odds": 267.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-2",
+          "ev": 1.5213,
+          "odds": 473.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 1.2646,
+          "odds": 288.4,
+          "hit": true,
+          "return": 288.4
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 0.9929,
+          "odds": 98.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 0.9817,
+          "odds": 88.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 0.8978,
+          "odds": 71.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 0.8079,
+          "odds": 64.6,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 4,
+      "race_time": "09:50",
+      "pred_boat": 2,
+      "pred_km": "差し",
+      "pred_prob": 0.4213,
+      "confidence": 0.2547,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 4,
+      "trifecta": "1-2-4",
+      "kimarite": "逃げ",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 46.679,
+          "odds": 2309.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 34.8272,
+          "odds": 1440.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 9.2793,
+          "odds": 405.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 5.8499,
+          "odds": 236.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 2.9474,
+          "odds": 432.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 2.3177,
+          "odds": 380.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 1.8023,
+          "odds": 283.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 1.709,
+          "odds": 375.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 1.0268,
+          "odds": 28.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 0.8851,
+          "odds": 184.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 0.6452,
+          "odds": 227.1,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "10",
+      "venue_name": "三国",
+      "race_no": 2,
+      "race_time": "09:10",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4182,
+      "confidence": 0.2515,
+      "actual_1st": 2,
+      "actual_2nd": 1,
+      "actual_3rd": 5,
+      "trifecta": "2-1-5",
+      "kimarite": "差し",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 81.7543,
+          "odds": 5495.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 27.6738,
+          "odds": 4539.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 23.4436,
+          "odds": 4539.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 19.2552,
+          "odds": 1784.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 15.815,
+          "odds": 1481.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 14.8045,
+          "odds": 1392.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 13.8013,
+          "odds": 815.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 10.5601,
+          "odds": 601.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 9.9098,
+          "odds": 1644.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 9.8259,
+          "odds": 953.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 8.7488,
+          "odds": 527.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 8.5266,
+          "odds": 1898.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 6.768,
+          "odds": 1313.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 5.1428,
+          "odds": 538.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 5.1035,
+          "odds": 1082.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 5.0139,
+          "odds": 527.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 3.8875,
+          "odds": 149.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 3.5454,
+          "odds": 215.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 1.416,
+          "odds": 121.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-3",
+          "ev": 0.583,
+          "odds": 136.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 5,
+      "race_time": "10:29",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4139,
+      "confidence": 0.2473,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 5,
+      "trifecta": "1-3-5",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 68.5793,
+          "odds": 1831.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 29.0252,
+          "odds": 1579.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 20.9104,
+          "odds": 1928.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 20.6995,
+          "odds": 3053.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 17.3762,
+          "odds": 1635.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 16.0163,
+          "odds": 1514.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 11.5674,
+          "odds": 1888.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 11.5543,
+          "odds": 1117.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 7.7245,
+          "odds": 441.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 7.2954,
+          "odds": 155.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 6.9966,
+          "odds": 1071.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 6.495,
+          "odds": 1237.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 6.0504,
+          "odds": 627.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 4.5637,
+          "odds": 370.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 4.4694,
+          "odds": 301.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 3.8922,
+          "odds": 433.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 2.4968,
+          "odds": 681.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 2.3495,
+          "odds": 147.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 1.9349,
+          "odds": 64.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 1.5565,
+          "odds": 363.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 1.5147,
+          "odds": 497.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 0.9485,
+          "odds": 75.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 0.8335,
+          "odds": 162.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "17",
+      "venue_name": "宮島",
+      "race_no": 1,
+      "race_time": "10:44",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.4092,
+      "confidence": 0.2426,
+      "actual_1st": 1,
+      "actual_2nd": 6,
+      "actual_3rd": 5,
+      "trifecta": "1-6-5",
+      "kimarite": "抜き",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 13.5579,
+          "odds": 696.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 4.8226,
+          "odds": 844.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 4.5918,
+          "odds": 190.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 4.2149,
+          "odds": 207.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 3.577,
+          "odds": 178.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 2.3417,
+          "odds": 453.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 1.9967,
+          "odds": 387.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 1.7634,
+          "odds": 135.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 1.4713,
+          "odds": 401.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 1.2819,
+          "odds": 84.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 1.2355,
+          "odds": 275.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.2103,
+          "odds": 67.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 1.1978,
+          "odds": 54.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 1.1573,
+          "odds": 405.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.0513,
+          "odds": 237.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 0.7627,
+          "odds": 288.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 0.6168,
+          "odds": 86.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 0.5976,
+          "odds": 255.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 0.5768,
+          "odds": 141.9,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "10",
+      "venue_name": "三国",
+      "race_no": 7,
+      "race_time": "11:31",
+      "pred_boat": 2,
+      "pred_km": "差し",
+      "pred_prob": 0.4036,
+      "confidence": 0.2369,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 9.621,
+          "odds": 351.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 6.9335,
+          "odds": 217.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 6.343,
+          "odds": 1333.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 5.1376,
+          "odds": 1111.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 4.1316,
+          "odds": 998.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 3.5532,
+          "odds": 824.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 2.3489,
+          "odds": 606.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 2.2604,
+          "odds": 584.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 2.1576,
+          "odds": 45.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 2.0741,
+          "odds": 328.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 2.0496,
+          "odds": 58.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 2.0466,
+          "odds": 238.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 1.8864,
+          "odds": 77.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.1854,
+          "odds": 26.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-5",
+          "ev": 1.0574,
+          "odds": 370.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 1.0412,
+          "odds": 369.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-3",
+          "ev": 0.615,
+          "odds": 286.0,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 7,
+      "race_time": "11:34",
+      "pred_boat": 3,
+      "pred_km": "まくり",
+      "pred_prob": 0.3976,
+      "confidence": 0.2309,
+      "actual_1st": 3,
+      "actual_2nd": 1,
+      "actual_3rd": 4,
+      "trifecta": "3-1-4",
+      "kimarite": "まくり",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 8.0394,
+          "odds": 138.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 4.9524,
+          "odds": 548.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 4.3402,
+          "odds": 833.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 4.3287,
+          "odds": 831.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 4.0807,
+          "odds": 874.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 3.8927,
+          "odds": 944.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 3.7286,
+          "odds": 60.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 3.5047,
+          "odds": 214.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 2.6129,
+          "odds": 130.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 2.4156,
+          "odds": 230.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 2.2029,
+          "odds": 499.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 2.0183,
+          "odds": 90.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 1.9309,
+          "odds": 36.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 1.4702,
+          "odds": 381.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 1.4593,
+          "odds": 381.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 1.1765,
+          "odds": 339.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 0.8858,
+          "odds": 107.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 0.7114,
+          "odds": 151.8,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 5,
+      "race_time": "10:20",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.3976,
+      "confidence": 0.2309,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 3,
+      "trifecta": "1-4-3",
+      "kimarite": "抜き",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "2-1-3",
+          "ev": 13.9479,
+          "odds": 407.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 11.7554,
+          "odds": 693.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 10.4462,
+          "odds": 413.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 9.4222,
+          "odds": 428.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 5.5055,
+          "odds": 221.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 3.2377,
+          "odds": 304.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 3.1338,
+          "odds": 182.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 2.9901,
+          "odds": 188.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-3",
+          "ev": 2.8598,
+          "odds": 642.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 2.553,
+          "odds": 180.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 1.3738,
+          "odds": 311.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-4",
+          "ev": 1.1835,
+          "odds": 369.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-3",
+          "ev": 1.1487,
+          "odds": 217.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-1",
+          "ev": 0.9406,
+          "odds": 196.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-3",
+          "ev": 0.8135,
+          "odds": 82.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 0.7668,
+          "odds": 91.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.5402,
+          "odds": 64.8,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "10",
+      "venue_name": "三国",
+      "race_no": 4,
+      "race_time": "10:02",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.3729,
+      "confidence": 0.2062,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 2,
+      "trifecta": "1-4-2",
+      "kimarite": "逃げ",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "6-3-5",
+          "ev": 25.0781,
+          "odds": 4190.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-3",
+          "ev": 24.8906,
+          "odds": 4190.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 23.298,
+          "odds": 997.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 19.9424,
+          "odds": 1002.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 17.5434,
+          "odds": 1069.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 13.4464,
+          "odds": 2721.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 11.6272,
+          "odds": 471.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 10.4517,
+          "odds": 1518.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 9.2763,
+          "odds": 578.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 8.1074,
+          "odds": 480.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-3",
+          "ev": 6.5402,
+          "odds": 1486.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 5.0014,
+          "odds": 858.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-2",
+          "ev": 3.7224,
+          "odds": 440.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 3.6381,
+          "odds": 217.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 3.24,
+          "odds": 283.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 3.0106,
+          "odds": 265.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-3",
+          "ev": 2.9587,
+          "odds": 748.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 2.8552,
+          "odds": 213.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 2.3608,
+          "odds": 498.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 2.0862,
+          "odds": 230.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 1.851,
+          "odds": 113.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 1.7032,
+          "odds": 175.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-5",
+          "ev": 1.3283,
+          "odds": 443.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-3",
+          "ev": 1.3074,
+          "odds": 338.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 1.056,
+          "odds": 134.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 0.974,
+          "odds": 92.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-3",
+          "ev": 0.9487,
+          "odds": 60.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-3",
+          "ev": 0.5196,
+          "odds": 164.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-1",
+          "ev": 0.5159,
+          "odds": 163.9,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "09",
+      "venue_name": "津",
+      "race_no": 2,
+      "race_time": "10:57",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.3533,
+      "confidence": 0.1866,
+      "actual_1st": 4,
+      "actual_2nd": 2,
+      "actual_3rd": 5,
+      "trifecta": "4-2-5",
+      "kimarite": "まくり",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 44.3325,
+          "odds": 1873.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 31.0668,
+          "odds": 1782.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 13.1468,
+          "odds": 1748.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 9.2868,
+          "odds": 546.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 9.0345,
+          "odds": 812.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 8.464,
+          "odds": 470.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-3",
+          "ev": 6.6235,
+          "odds": 870.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 6.2732,
+          "odds": 1223.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 6.0606,
+          "odds": 966.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 5.5455,
+          "odds": 182.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 5.2416,
+          "odds": 183.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 4.2705,
+          "odds": 307.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 4.2165,
+          "odds": 620.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-1",
+          "ev": 4.042,
+          "odds": 575.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 3.693,
+          "odds": 197.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-3",
+          "ev": 2.446,
+          "odds": 549.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 1.5109,
+          "odds": 86.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.4806,
+          "odds": 86.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 1.3528,
+          "odds": 311.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-4",
+          "ev": 1.0974,
+          "odds": 340.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.9896,
+          "odds": 94.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-1-6",
+          "ev": 0.9059,
+          "odds": 217.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 0.7877,
+          "odds": 125.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 0.5195,
+          "odds": 138.1,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "17",
+      "venue_name": "宮島",
+      "race_no": 2,
+      "race_time": "11:12",
+      "pred_boat": 3,
+      "pred_km": "まくり",
+      "pred_prob": 0.3475,
+      "confidence": 0.1808,
+      "actual_1st": 2,
+      "actual_2nd": 1,
+      "actual_3rd": 4,
+      "trifecta": "2-1-4",
+      "kimarite": "抜き",
+      "hit_win": false,
+      "hit_top3": false,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 38.9787,
+          "odds": 699.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 10.5216,
+          "odds": 1208.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 9.2851,
+          "odds": 589.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 8.9963,
+          "odds": 1114.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 8.9169,
+          "odds": 1677.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 7.7266,
+          "odds": 1489.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 5.3592,
+          "odds": 1199.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 4.7364,
+          "odds": 642.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 4.5531,
+          "odds": 1047.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 4.1187,
+          "odds": 965.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 3.1881,
+          "odds": 685.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 3.0361,
+          "odds": 496.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 3.0157,
+          "odds": 400.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 2.9878,
+          "odds": 57.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 2.6451,
+          "odds": 390.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 1.5999,
+          "odds": 32.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 1.5166,
+          "odds": 472.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 1.0889,
+          "odds": 90.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 1.087,
+          "odds": 393.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 1.037,
+          "odds": 228.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 0.8947,
+          "odds": 27.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 0.6802,
+          "odds": 60.3,
+          "hit": true,
+          "return": 60.3
+        }
+      ]
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 2,
+      "race_time": "11:16",
+      "pred_boat": 2,
+      "pred_km": "差し",
+      "pred_prob": 0.3405,
+      "confidence": 0.1739,
+      "actual_1st": 5,
+      "actual_2nd": 2,
+      "actual_3rd": 4,
+      "trifecta": "5-2-4",
+      "kimarite": "差し",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 31.7453,
+          "odds": 2074.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 12.923,
+          "odds": 316.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 9.1835,
+          "odds": 115.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 7.5632,
+          "odds": 441.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 7.0523,
+          "odds": 363.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 6.2707,
+          "odds": 382.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 5.7866,
+          "odds": 957.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 2.5905,
+          "odds": 419.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 2.5187,
+          "odds": 438.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.9419,
+          "odds": 41.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 1.9392,
+          "odds": 185.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 1.9107,
+          "odds": 295.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 1.6235,
+          "odds": 45.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-3",
+          "ev": 1.481,
+          "odds": 121.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 1.4607,
+          "odds": 334.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.118,
+          "odds": 210.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 0.9127,
+          "odds": 128.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-4",
+          "ev": 0.757,
+          "odds": 213.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 0.5558,
+          "odds": 252.0,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "09",
+      "venue_name": "津",
+      "race_no": 4,
+      "race_time": "11:53",
+      "pred_boat": 3,
+      "pred_km": "まくり",
+      "pred_prob": 0.3358,
+      "confidence": 0.1691,
+      "actual_1st": 3,
+      "actual_2nd": 1,
+      "actual_3rd": 4,
+      "trifecta": "3-1-4",
+      "kimarite": "まくり差し",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "2-1-5",
+          "ev": 7.5131,
+          "odds": 340.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 6.8869,
+          "odds": 118.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 6.584,
+          "odds": 97.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 3.8569,
+          "odds": 790.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 3.5421,
+          "odds": 150.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 3.2906,
+          "odds": 113.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 3.1901,
+          "odds": 782.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 2.8607,
+          "odds": 204.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 2.1416,
+          "odds": 420.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 2.1169,
+          "odds": 281.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 1.5652,
+          "odds": 496.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.1163,
+          "odds": 204.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.9263,
+          "odds": 177.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 0.729,
+          "odds": 31.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-5",
+          "ev": 0.7265,
+          "odds": 143.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 0.7224,
+          "odds": 25.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 0.5389,
+          "odds": 158.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 0.5301,
+          "odds": 209.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 8,
+      "race_time": "11:51",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.335,
+      "confidence": 0.1683,
+      "actual_1st": 4,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "4-2-3",
+      "kimarite": "まくり差し",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 16.8161,
+          "odds": 928.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 16.5256,
+          "odds": 757.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 8.0751,
+          "odds": 142.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 7.6118,
+          "odds": 319.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 6.6656,
+          "odds": 239.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 5.7144,
+          "odds": 895.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 3.4981,
+          "odds": 106.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 2.8853,
+          "odds": 586.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 2.6093,
+          "odds": 215.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 1.9384,
+          "odds": 124.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 1.6505,
+          "odds": 340.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-3",
+          "ev": 1.5864,
+          "odds": 120.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 0.5989,
+          "odds": 31.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 0.5728,
+          "odds": 153.7,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "17",
+      "venue_name": "宮島",
+      "race_no": 3,
+      "race_time": "11:42",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.3335,
+      "confidence": 0.1668,
+      "actual_1st": 2,
+      "actual_2nd": 4,
+      "actual_3rd": 1,
+      "trifecta": "2-4-1",
+      "kimarite": "差し",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 68.2352,
+          "odds": 3666.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 35.3402,
+          "odds": 1597.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 10.2839,
+          "odds": 1920.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 9.9844,
+          "odds": 1213.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 9.5069,
+          "odds": 396.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 8.0194,
+          "odds": 588.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 7.2505,
+          "odds": 677.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 6.3042,
+          "odds": 806.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 4.6757,
+          "odds": 244.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 3.9739,
+          "odds": 546.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 3.8212,
+          "odds": 532.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 3.7279,
+          "odds": 370.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 3.6153,
+          "odds": 200.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-3",
+          "ev": 3.0319,
+          "odds": 647.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 2.9799,
+          "odds": 439.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 2.8173,
+          "odds": 83.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.9486,
+          "odds": 206.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 1.819,
+          "odds": 92.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-3",
+          "ev": 1.7445,
+          "odds": 296.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 1.7407,
+          "odds": 172.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 1.5536,
+          "odds": 74.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 1.2723,
+          "odds": 108.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 0.9398,
+          "odds": 192.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-5",
+          "ev": 0.795,
+          "odds": 195.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.572,
+          "odds": 104.8,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 7,
+      "race_time": "11:21",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.3262,
+      "confidence": 0.1596,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 4,
+      "trifecta": "1-3-4",
+      "kimarite": "逃げ",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 76.439,
+          "odds": 3254.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 50.0686,
+          "odds": 1781.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 23.0515,
+          "odds": 3935.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 17.5688,
+          "odds": 755.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 16.0784,
+          "odds": 511.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 12.6866,
+          "odds": 2318.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 12.0252,
+          "odds": 924.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 7.5662,
+          "odds": 1566.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 6.1209,
+          "odds": 1167.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-3",
+          "ev": 6.0356,
+          "odds": 1128.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 5.9533,
+          "odds": 238.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 5.9388,
+          "odds": 373.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 5.3338,
+          "odds": 1038.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-5",
+          "ev": 4.2206,
+          "odds": 340.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 3.7946,
+          "odds": 289.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 3.4749,
+          "odds": 726.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 3.0531,
+          "odds": 392.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 2.882,
+          "odds": 636.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 2.6269,
+          "odds": 687.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 2.501,
+          "odds": 94.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-5",
+          "ev": 2.2953,
+          "odds": 532.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 2.2273,
+          "odds": 246.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 1.2712,
+          "odds": 143.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 1.2207,
+          "odds": 362.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.9367,
+          "odds": 99.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 0.8306,
+          "odds": 300.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 0.718,
+          "odds": 160.1,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 7,
+      "race_time": "11:29",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.3239,
+      "confidence": 0.1573,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 4,
+      "trifecta": "1-3-4",
+      "kimarite": "逃げ",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "ev": 31.0878,
+          "odds": 954.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 18.6057,
+          "odds": 2537.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 15.7794,
+          "odds": 3269.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 12.8197,
+          "odds": 2606.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 10.0313,
+          "odds": 543.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 8.2258,
+          "odds": 1168.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 6.9387,
+          "odds": 339.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 6.9281,
+          "odds": 674.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 6.8035,
+          "odds": 780.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 5.7701,
+          "odds": 762.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 5.2032,
+          "odds": 222.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 4.4894,
+          "odds": 624.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 3.9889,
+          "odds": 567.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 3.9392,
+          "odds": 441.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-3",
+          "ev": 3.7893,
+          "odds": 532.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 3.5071,
+          "odds": 557.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-2",
+          "ev": 3.4871,
+          "odds": 831.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 2.6932,
+          "odds": 703.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-5",
+          "ev": 2.5427,
+          "odds": 160.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-5",
+          "ev": 1.4818,
+          "odds": 280.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 1.2942,
+          "odds": 67.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 0.9225,
+          "odds": 49.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-5",
+          "ev": 0.6676,
+          "odds": 186.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 0.6211,
+          "odds": 169.9,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 3,
+      "race_time": "09:30",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.3144,
+      "confidence": 0.1477,
+      "actual_1st": 3,
+      "actual_2nd": 1,
+      "actual_3rd": 5,
+      "trifecta": "3-1-5",
+      "kimarite": "まくり",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "6-2-4",
+          "ev": 8.9119,
+          "odds": 1164.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-4",
+          "ev": 6.1481,
+          "odds": 1240.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-5",
+          "ev": 5.9949,
+          "odds": 1154.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 5.99,
+          "odds": 1130.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-2",
+          "ev": 5.4497,
+          "odds": 1180.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-3",
+          "ev": 4.7415,
+          "odds": 978.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 3.8593,
+          "odds": 798.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 3.5631,
+          "odds": 516.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-3",
+          "ev": 3.5419,
+          "odds": 708.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 2.8948,
+          "odds": 485.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-5",
+          "ev": 2.4986,
+          "odds": 526.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 2.4673,
+          "odds": 180.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 2.4249,
+          "odds": 332.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 2.1441,
+          "odds": 86.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 1.5593,
+          "odds": 374.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-3",
+          "ev": 1.5565,
+          "odds": 327.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 1.5174,
+          "odds": 80.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.4643,
+          "odds": 287.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 1.4626,
+          "odds": 348.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-2",
+          "ev": 1.3998,
+          "odds": 448.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 1.3476,
+          "odds": 446.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 1.2243,
+          "odds": 368.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 1.2163,
+          "odds": 246.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 1.0633,
+          "odds": 104.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 0.9676,
+          "odds": 84.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-5",
+          "ev": 0.8567,
+          "odds": 236.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-3",
+          "ev": 0.849,
+          "odds": 276.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 0.6479,
+          "odds": 172.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 0.5179,
+          "odds": 52.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 2,
+      "race_time": "09:16",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.3128,
+      "confidence": 0.1462,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 3,
+      "trifecta": "1-4-3",
+      "kimarite": "逃げ",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-2-1",
+          "ev": 17.4574,
+          "odds": 542.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 13.1124,
+          "odds": 483.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 9.9532,
+          "odds": 350.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 9.3189,
+          "odds": 497.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 8.9112,
+          "odds": 408.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 6.3239,
+          "odds": 467.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 4.8357,
+          "odds": 233.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 4.6976,
+          "odds": 1136.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 4.0658,
+          "odds": 901.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 2.6758,
+          "odds": 123.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 2.3597,
+          "odds": 201.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 2.3341,
+          "odds": 551.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 2.0761,
+          "odds": 243.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-2",
+          "ev": 1.6279,
+          "odds": 292.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 1.1955,
+          "odds": 138.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 1.1132,
+          "odds": 164.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 0.897,
+          "odds": 173.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-3",
+          "ev": 0.8759,
+          "odds": 54.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 0.6498,
+          "odds": 108.7,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "09",
+      "venue_name": "津",
+      "race_no": 3,
+      "race_time": "11:25",
+      "pred_boat": 3,
+      "pred_km": "まくり",
+      "pred_prob": 0.3026,
+      "confidence": 0.1359,
+      "actual_1st": 4,
+      "actual_2nd": 6,
+      "actual_3rd": 1,
+      "trifecta": "4-6-1",
+      "kimarite": "まくり",
+      "hit_win": false,
+      "hit_top3": false,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "ev": 39.646,
+          "odds": 677.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 14.907,
+          "odds": 719.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 14.4212,
+          "odds": 2495.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-3",
+          "ev": 11.6725,
+          "odds": 2319.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 9.4945,
+          "odds": 1184.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 7.9201,
+          "odds": 179.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 6.8195,
+          "odds": 111.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-5",
+          "ev": 6.6123,
+          "odds": 1383.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 6.0426,
+          "odds": 1383.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-5",
+          "ev": 4.7771,
+          "odds": 598.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 4.5955,
+          "odds": 334.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 4.3042,
+          "odds": 159.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 2.5463,
+          "odds": 132.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 1.6608,
+          "odds": 409.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-1",
+          "ev": 1.1468,
+          "odds": 321.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-3",
+          "ev": 1.0573,
+          "odds": 110.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 1.0533,
+          "odds": 33.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 1.0365,
+          "odds": 188.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-1-5",
+          "ev": 0.9085,
+          "odds": 285.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.889,
+          "odds": 117.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 0.6163,
+          "odds": 271.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 0.5148,
+          "odds": 98.9,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 6,
+      "race_time": "11:03",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.2975,
+      "confidence": 0.1308,
+      "actual_1st": 3,
+      "actual_2nd": 1,
+      "actual_3rd": 5,
+      "trifecta": "3-1-5",
+      "kimarite": "まくり差し",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 46.8942,
+          "odds": 1819.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 19.4164,
+          "odds": 1454.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 17.775,
+          "odds": 2176.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 16.0453,
+          "odds": 1424.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-3",
+          "ev": 14.9598,
+          "odds": 2608.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 14.1886,
+          "odds": 1155.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 12.9676,
+          "odds": 1022.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 10.6321,
+          "odds": 731.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-1",
+          "ev": 8.3568,
+          "odds": 1529.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 8.1646,
+          "odds": 1490.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 7.6516,
+          "odds": 1071.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 6.629,
+          "odds": 517.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 6.5029,
+          "odds": 928.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 6.2743,
+          "odds": 900.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 4.489,
+          "odds": 148.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-1-6",
+          "ev": 4.428,
+          "odds": 887.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 3.6965,
+          "odds": 330.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 3.3275,
+          "odds": 681.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 1.9749,
+          "odds": 298.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 1.9461,
+          "odds": 362.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 1.935,
+          "odds": 90.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 1.9255,
+          "odds": 584.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.8855,
+          "odds": 113.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-2",
+          "ev": 1.2806,
+          "odds": 321.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 1.1595,
+          "odds": 68.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 1.043,
+          "odds": 201.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 0.8801,
+          "odds": 231.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 0.7214,
+          "odds": 213.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 0.65,
+          "odds": 131.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 0.5675,
+          "odds": 74.5,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 1,
+      "race_time": "10:47",
+      "pred_boat": 3,
+      "pred_km": "まくり",
+      "pred_prob": 0.2966,
+      "confidence": 0.1299,
+      "actual_1st": 3,
+      "actual_2nd": 5,
+      "actual_3rd": 1,
+      "trifecta": "3-5-1",
+      "kimarite": "抜き",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-2-1",
+          "ev": 26.8154,
+          "odds": 406.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 10.2704,
+          "odds": 1796.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 9.1845,
+          "odds": 924.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 8.7895,
+          "odds": 671.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 7.7303,
+          "odds": 397.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-3",
+          "ev": 7.5882,
+          "odds": 1492.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-5",
+          "ev": 6.1139,
+          "odds": 1227.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 5.773,
+          "odds": 384.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 5.2006,
+          "odds": 952.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 4.7671,
+          "odds": 118.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 3.7559,
+          "odds": 80.9,
+          "hit": true,
+          "return": 80.9
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 3.4811,
+          "odds": 546.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 3.1382,
+          "odds": 389.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 2.4855,
+          "odds": 432.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 2.4015,
+          "odds": 328.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 2.0352,
+          "odds": 214.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-5",
+          "ev": 1.9221,
+          "odds": 189.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-3",
+          "ev": 1.7633,
+          "odds": 92.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 1.5697,
+          "odds": 238.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 1.509,
+          "odds": 118.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-2",
+          "ev": 1.3284,
+          "odds": 425.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 0.9339,
+          "odds": 277.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 0.8525,
+          "odds": 263.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 0.7964,
+          "odds": 77.6,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "10",
+      "venue_name": "三国",
+      "race_no": 5,
+      "race_time": "10:30",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.2953,
+      "confidence": 0.1287,
+      "actual_1st": 3,
+      "actual_2nd": 1,
+      "actual_3rd": 6,
+      "trifecta": "3-1-6",
+      "kimarite": "まくり差し",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "6-2-4",
+          "ev": 8.3999,
+          "odds": 1726.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 7.9101,
+          "odds": 139.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 5.4832,
+          "odds": 356.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 4.4727,
+          "odds": 97.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-4",
+          "ev": 4.3558,
+          "odds": 873.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-2",
+          "ev": 3.9898,
+          "odds": 858.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 3.6347,
+          "odds": 777.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 3.0174,
+          "odds": 177.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 2.788,
+          "odds": 621.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 2.7794,
+          "odds": 251.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 2.6298,
+          "odds": 331.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-3",
+          "ev": 2.4581,
+          "odds": 553.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 1.7697,
+          "odds": 60.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 1.5968,
+          "odds": 459.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 1.5162,
+          "odds": 221.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 1.3851,
+          "odds": 109.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 1.2816,
+          "odds": 41.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 0.9764,
+          "odds": 347.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 0.9325,
+          "odds": 303.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 0.734,
+          "odds": 62.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 0.5676,
+          "odds": 288.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 0.5515,
+          "odds": 213.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 0.5495,
+          "odds": 206.1,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 3,
+      "race_time": "11:45",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.2799,
+      "confidence": 0.1132,
+      "actual_1st": 4,
+      "actual_2nd": 5,
+      "actual_3rd": 2,
+      "trifecta": "4-5-2",
+      "kimarite": "差し",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 48.0288,
+          "odds": 2644.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 14.5765,
+          "odds": 615.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 12.1206,
+          "odds": 1693.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 5.4637,
+          "odds": 248.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-3",
+          "ev": 4.4903,
+          "odds": 791.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 3.574,
+          "odds": 336.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 3.3697,
+          "odds": 86.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-1",
+          "ev": 3.0744,
+          "odds": 587.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 2.7472,
+          "odds": 382.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 2.6967,
+          "odds": 458.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 2.5058,
+          "odds": 154.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 2.3167,
+          "odds": 391.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 2.2576,
+          "odds": 145.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 2.1359,
+          "odds": 196.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 1.6531,
+          "odds": 254.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 1.5973,
+          "odds": 150.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-2",
+          "ev": 1.4685,
+          "odds": 434.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-3",
+          "ev": 1.4522,
+          "odds": 110.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 1.2567,
+          "odds": 151.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-1-6",
+          "ev": 0.865,
+          "odds": 268.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 0.7343,
+          "odds": 51.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 0.6288,
+          "odds": 40.3,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "11",
+      "venue_name": "びわこ",
+      "race_no": 3,
+      "race_time": "11:40",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.2783,
+      "confidence": 0.1116,
+      "actual_1st": 4,
+      "actual_2nd": 1,
+      "actual_3rd": 5,
+      "trifecta": "4-1-5",
+      "kimarite": "差し",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 53.2622,
+          "odds": 2858.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 9.7812,
+          "odds": 404.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 9.4107,
+          "odds": 830.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 7.9103,
+          "odds": 389.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 7.1057,
+          "odds": 1094.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 6.3419,
+          "odds": 409.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 6.1599,
+          "odds": 530.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 5.8455,
+          "odds": 1018.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 4.1083,
+          "odds": 142.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 3.4751,
+          "odds": 192.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-3",
+          "ev": 3.3404,
+          "odds": 628.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 3.1356,
+          "odds": 332.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 2.7501,
+          "odds": 453.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-3",
+          "ev": 2.498,
+          "odds": 493.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 2.4838,
+          "odds": 470.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 2.4266,
+          "odds": 460.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 2.3539,
+          "odds": 257.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-2",
+          "ev": 2.3113,
+          "odds": 645.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 2.2549,
+          "odds": 439.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 1.9216,
+          "odds": 300.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.9206,
+          "odds": 184.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 1.045,
+          "odds": 86.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 1.0366,
+          "odds": 137.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 0.7848,
+          "odds": 126.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-2",
+          "ev": 0.6973,
+          "odds": 212.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 0.6076,
+          "odds": 57.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-1",
+          "ev": 0.5269,
+          "odds": 221.2,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "11",
+      "venue_name": "びわこ",
+      "race_no": 2,
+      "race_time": "11:09",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.2709,
+      "confidence": 0.1043,
+      "actual_1st": 5,
+      "actual_2nd": 3,
+      "actual_3rd": 6,
+      "trifecta": "5-3-6",
+      "kimarite": "まくり差し",
+      "hit_win": false,
+      "hit_top3": false,
+      "ev_bets": [
+        {
+          "combo": "3-4-1",
+          "ev": 16.8022,
+          "odds": 633.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 7.5326,
+          "odds": 372.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 6.6974,
+          "odds": 239.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 6.2321,
+          "odds": 929.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 5.5802,
+          "odds": 868.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-3",
+          "ev": 5.4411,
+          "odds": 1180.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 5.3104,
+          "odds": 998.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 5.151,
+          "odds": 738.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 4.5107,
+          "odds": 694.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 4.3882,
+          "odds": 775.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 3.7595,
+          "odds": 871.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 3.6701,
+          "odds": 169.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-5",
+          "ev": 3.6235,
+          "odds": 720.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 3.5729,
+          "odds": 280.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 2.8384,
+          "odds": 611.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 2.5261,
+          "odds": 396.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-2",
+          "ev": 2.3401,
+          "odds": 386.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-3",
+          "ev": 2.288,
+          "odds": 478.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.9374,
+          "odds": 125.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-5",
+          "ev": 1.5569,
+          "odds": 471.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 1.4754,
+          "odds": 265.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-3",
+          "ev": 1.3796,
+          "odds": 454.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-5",
+          "ev": 1.1436,
+          "odds": 333.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 1.0524,
+          "odds": 284.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 0.9873,
+          "odds": 99.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 0.9719,
+          "odds": 67.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-4",
+          "ev": 0.8152,
+          "odds": 199.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-3",
+          "ev": 0.7293,
+          "odds": 138.1,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "16",
+      "venue_name": "児島",
+      "race_no": 3,
+      "race_time": "11:49",
+      "pred_boat": 3,
+      "pred_km": "まくり",
+      "pred_prob": 0.2646,
+      "confidence": 0.0979,
+      "actual_1st": 3,
+      "actual_2nd": 6,
+      "actual_3rd": 5,
+      "trifecta": "3-6-5",
+      "kimarite": "差し",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "ev": 4.6538,
+          "odds": 107.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 4.3434,
+          "odds": 707.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 3.8907,
+          "odds": 427.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 3.8824,
+          "odds": 79.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 3.6384,
+          "odds": 86.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 3.0044,
+          "odds": 159.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-5",
+          "ev": 2.7174,
+          "odds": 432.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 2.4355,
+          "odds": 662.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 2.155,
+          "odds": 151.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 2.0121,
+          "odds": 155.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 1.6558,
+          "odds": 529.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 1.6393,
+          "odds": 239.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 1.2255,
+          "odds": 135.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-2",
+          "ev": 1.1959,
+          "odds": 402.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 1.0003,
+          "odds": 63.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-3",
+          "ev": 0.948,
+          "odds": 224.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 0.7757,
+          "odds": 247.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.6625,
+          "odds": 324.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-2",
+          "ev": 0.5935,
+          "odds": 253.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-5",
+          "ev": 0.5137,
+          "odds": 192.8,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 3,
+      "race_time": "09:42",
+      "pred_boat": 2,
+      "pred_km": "差し",
+      "pred_prob": 0.2613,
+      "confidence": 0.0946,
+      "actual_1st": 2,
+      "actual_2nd": 5,
+      "actual_3rd": 4,
+      "trifecta": "2-5-4",
+      "kimarite": "まくり",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 30.371,
+          "odds": 1573.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 11.1374,
+          "odds": 505.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 6.1968,
+          "odds": 547.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 5.5865,
+          "odds": 926.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 4.8809,
+          "odds": 240.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 3.7567,
+          "odds": 169.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 3.5725,
+          "odds": 837.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 3.3851,
+          "odds": 455.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 2.6329,
+          "odds": 665.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 2.1568,
+          "odds": 361.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 1.9706,
+          "odds": 321.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-2",
+          "ev": 1.5891,
+          "odds": 477.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 1.4278,
+          "odds": 240.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 1.3864,
+          "odds": 35.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 1.2584,
+          "odds": 413.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 1.1407,
+          "odds": 390.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-3",
+          "ev": 1.0377,
+          "odds": 367.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.0343,
+          "odds": 180.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 0.999,
+          "odds": 96.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-3",
+          "ev": 0.9182,
+          "odds": 255.9,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 4,
+      "race_time": "10:08",
+      "pred_boat": 5,
+      "pred_km": "まくり差し",
+      "pred_prob": 0.258,
+      "confidence": 0.0914,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "hit_win": false,
+      "hit_top3": false,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 95.3142,
+          "odds": 3919.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 19.0868,
+          "odds": 1551.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 17.8851,
+          "odds": 1792.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-3",
+          "ev": 16.1472,
+          "odds": 2802.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 12.1651,
+          "odds": 1376.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-2",
+          "ev": 12.0707,
+          "odds": 1849.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 11.7329,
+          "odds": 511.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 10.4176,
+          "odds": 2019.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 9.6357,
+          "odds": 1423.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-1",
+          "ev": 9.4034,
+          "odds": 1700.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 8.2065,
+          "odds": 1628.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 7.1582,
+          "odds": 930.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 7.0189,
+          "odds": 1418.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 6.6869,
+          "odds": 574.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 6.036,
+          "odds": 1306.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 5.0911,
+          "odds": 205.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 5.0796,
+          "odds": 311.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 3.7519,
+          "odds": 157.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-1-6",
+          "ev": 3.408,
+          "odds": 720.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-2-6",
+          "ev": 3.242,
+          "odds": 642.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 3.0267,
+          "odds": 490.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 2.9094,
+          "odds": 688.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 2.3177,
+          "odds": 333.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 2.2638,
+          "odds": 94.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 1.8332,
+          "odds": 501.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 1.4656,
+          "odds": 267.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 1.1671,
+          "odds": 381.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-3",
+          "ev": 0.7225,
+          "odds": 209.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-2",
+          "ev": 0.633,
+          "odds": 203.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-1",
+          "ev": 0.6303,
+          "odds": 266.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "10",
+      "venue_name": "三国",
+      "race_no": 6,
+      "race_time": "11:00",
+      "pred_boat": 1,
+      "pred_km": "逃げ",
+      "pred_prob": 0.2565,
+      "confidence": 0.0898,
+      "actual_1st": 5,
+      "actual_2nd": 1,
+      "actual_3rd": 6,
+      "trifecta": "5-1-6",
+      "kimarite": "まくり差し",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 34.8796,
+          "odds": 2021.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 27.1152,
+          "odds": 1290.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 15.5139,
+          "odds": 662.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 7.7761,
+          "odds": 1347.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 6.6066,
+          "odds": 355.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 6.5207,
+          "odds": 1102.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 4.9306,
+          "odds": 353.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 4.6292,
+          "odds": 93.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-3",
+          "ev": 2.0077,
+          "odds": 553.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-3",
+          "ev": 1.973,
+          "odds": 551.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.8523,
+          "odds": 59.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 1.8108,
+          "odds": 93.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 1.6443,
+          "odds": 237.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 1.5099,
+          "odds": 276.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-2",
+          "ev": 1.3165,
+          "odds": 88.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.2883,
+          "odds": 299.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-4",
+          "ev": 1.2695,
+          "odds": 165.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-3",
+          "ev": 1.2407,
+          "odds": 316.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-3",
+          "ev": 1.1789,
+          "odds": 413.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 1.0514,
+          "odds": 286.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-3",
+          "ev": 0.79,
+          "odds": 151.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 0.6026,
+          "odds": 139.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.507,
+          "odds": 187.7,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "16",
+      "venue_name": "児島",
+      "race_no": 2,
+      "race_time": "11:19",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.2542,
+      "confidence": 0.0875,
+      "actual_1st": 5,
+      "actual_2nd": 4,
+      "actual_3rd": 1,
+      "trifecta": "5-4-1",
+      "kimarite": "まくり",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 31.9826,
+          "odds": 1085.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 8.2106,
+          "odds": 548.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 7.4509,
+          "odds": 947.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 5.9773,
+          "odds": 163.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 5.7486,
+          "odds": 1280.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 4.0246,
+          "odds": 953.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 3.5342,
+          "odds": 121.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 2.4154,
+          "odds": 647.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 2.2601,
+          "odds": 97.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 2.074,
+          "odds": 345.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.8985,
+          "odds": 108.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 1.878,
+          "odds": 310.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 1.6835,
+          "odds": 217.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-3",
+          "ev": 1.5018,
+          "odds": 396.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 1.1149,
+          "odds": 156.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 1.0768,
+          "odds": 56.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-1",
+          "ev": 0.9949,
+          "odds": 316.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-2",
+          "ev": 0.9256,
+          "odds": 354.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 0.8874,
+          "odds": 84.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 0.7157,
+          "odds": 118.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-6",
+          "ev": 0.5957,
+          "odds": 301.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 0.5651,
+          "odds": 295.3,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 5,
+      "race_time": "10:34",
+      "pred_boat": 2,
+      "pred_km": "差し",
+      "pred_prob": 0.2473,
+      "confidence": 0.0806,
+      "actual_1st": 3,
+      "actual_2nd": 2,
+      "actual_3rd": 6,
+      "trifecta": "3-2-6",
+      "kimarite": "まくり差し",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "6-3-4",
+          "ev": 10.6871,
+          "odds": 2250.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 7.6077,
+          "odds": 354.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 7.0301,
+          "odds": 1399.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-6-4",
+          "ev": 5.7705,
+          "odds": 813.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 3.738,
+          "odds": 92.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 3.2165,
+          "odds": 734.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 2.8136,
+          "odds": 392.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 2.5581,
+          "odds": 111.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 2.4876,
+          "odds": 607.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 2.3124,
+          "odds": 369.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 1.9012,
+          "odds": 502.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-4-6",
+          "ev": 1.7582,
+          "odds": 320.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 1.4565,
+          "odds": 446.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 1.3917,
+          "odds": 152.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-6",
+          "ev": 1.0431,
+          "odds": 301.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 0.8682,
+          "odds": 222.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 0.8323,
+          "odds": 61.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 0.8313,
+          "odds": 28.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 0.7753,
+          "odds": 232.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 0.749,
+          "odds": 304.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 0.6655,
+          "odds": 84.0,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 8,
+      "race_time": "12:05",
+      "pred_boat": 2,
+      "pred_km": "差し",
+      "pred_prob": 0.2471,
+      "confidence": 0.0805,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-4-1",
+          "ev": 24.2413,
+          "odds": 628.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 16.3752,
+          "odds": 2836.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 14.5495,
+          "odds": 1237.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 14.317,
+          "odds": 299.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 13.5592,
+          "odds": 2475.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 12.2317,
+          "odds": 2519.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-5",
+          "ev": 10.6933,
+          "odds": 1237.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 10.1827,
+          "odds": 2230.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 9.9316,
+          "odds": 1769.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-3",
+          "ev": 8.4332,
+          "odds": 991.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 8.4186,
+          "odds": 239.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-2",
+          "ev": 8.0024,
+          "odds": 652.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 5.7983,
+          "odds": 1234.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-4",
+          "ev": 4.5714,
+          "odds": 1092.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 4.4613,
+          "odds": 402.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-3",
+          "ev": 4.3235,
+          "odds": 479.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 4.3222,
+          "odds": 125.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-2",
+          "ev": 4.3169,
+          "odds": 886.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-3",
+          "ev": 4.2778,
+          "odds": 613.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-5",
+          "ev": 4.1402,
+          "odds": 1012.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 3.9894,
+          "odds": 411.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-4",
+          "ev": 3.1961,
+          "odds": 240.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-2",
+          "ev": 2.4398,
+          "odds": 294.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-4-6",
+          "ev": 2.4312,
+          "odds": 675.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-2",
+          "ev": 2.1697,
+          "odds": 459.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-5",
+          "ev": 1.3609,
+          "odds": 210.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 1.2804,
+          "odds": 451.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-5",
+          "ev": 0.9552,
+          "odds": 226.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-3-4",
+          "ev": 0.8307,
+          "odds": 184.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-5-6",
+          "ev": 0.6948,
+          "odds": 335.4,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "16",
+      "venue_name": "児島",
+      "race_no": 1,
+      "race_time": "10:45",
+      "pred_boat": 4,
+      "pred_km": "まくり",
+      "pred_prob": 0.245,
+      "confidence": 0.0783,
+      "actual_1st": 4,
+      "actual_2nd": 5,
+      "actual_3rd": 6,
+      "trifecta": "4-5-6",
+      "kimarite": "まくり",
+      "hit_win": true,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "ev": 7.0515,
+          "odds": 348.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-6",
+          "ev": 3.4794,
+          "odds": 211.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-2",
+          "ev": 3.2049,
+          "odds": 483.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 2.5733,
+          "odds": 110.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-3",
+          "ev": 1.9015,
+          "odds": 68.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-4",
+          "ev": 1.4669,
+          "odds": 479.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-3",
+          "ev": 1.234,
+          "odds": 434.6,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.1479,
+          "odds": 63.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-2-6",
+          "ev": 1.0539,
+          "odds": 227.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-4-1",
+          "ev": 0.9774,
+          "odds": 69.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-2",
+          "ev": 0.8307,
+          "odds": 213.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "1-6-5",
+          "ev": 0.7236,
+          "odds": 335.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 0.6246,
+          "odds": 136.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 0.5912,
+          "odds": 56.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 0.5524,
+          "odds": 118.9,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    },
+    {
+      "jcd": "11",
+      "venue_name": "びわこ",
+      "race_no": 1,
+      "race_time": "10:40",
+      "pred_boat": 3,
+      "pred_km": "まくり",
+      "pred_prob": 0.2246,
+      "confidence": 0.058,
+      "actual_1st": 2,
+      "actual_2nd": 1,
+      "actual_3rd": 3,
+      "trifecta": "2-1-3",
+      "kimarite": "差し",
+      "hit_win": false,
+      "hit_top3": true,
+      "ev_bets": [
+        {
+          "combo": "3-4-1",
+          "ev": 8.3233,
+          "odds": 205.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-4",
+          "ev": 7.7018,
+          "odds": 724.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-4",
+          "ev": 7.4967,
+          "odds": 655.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-3",
+          "ev": 6.7462,
+          "odds": 851.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-3",
+          "ev": 5.6525,
+          "odds": 626.3,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-5-1",
+          "ev": 5.5367,
+          "odds": 146.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-4",
+          "ev": 5.4546,
+          "odds": 557.4,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-5",
+          "ev": 5.1661,
+          "odds": 682.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "5-3-4",
+          "ev": 4.7034,
+          "odds": 819.0,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-3-5",
+          "ev": 4.4896,
+          "odds": 513.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-2-5",
+          "ev": 2.9887,
+          "odds": 483.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-4-2",
+          "ev": 2.709,
+          "odds": 647.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "6-5-2",
+          "ev": 2.6887,
+          "odds": 558.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-6-1",
+          "ev": 2.3445,
+          "odds": 90.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-4",
+          "ev": 1.9185,
+          "odds": 72.8,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-5",
+          "ev": 1.721,
+          "odds": 438.1,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-6-5",
+          "ev": 1.6445,
+          "odds": 380.2,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-2-6",
+          "ev": 1.304,
+          "odds": 353.7,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-3-6",
+          "ev": 1.1399,
+          "odds": 360.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "4-5-6",
+          "ev": 0.9619,
+          "odds": 268.5,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "3-2-1",
+          "ev": 0.7587,
+          "odds": 33.9,
+          "hit": false,
+          "return": 0.0
+        },
+        {
+          "combo": "2-1-5",
+          "ev": 0.5973,
+          "odds": 48.1,
+          "hit": false,
+          "return": 0.0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "accuracy": 0.6594,
+  "auc_roc": 0.7009,
+  "brier": 0.2183,
+  "baseline_arare_rate": 0.4447,
+  "n_train": 21444,
+  "n_test": 5361,
+  "threshold_analysis": [
+    {
+      "threshold": 0.45,
+      "n": 2736,
+      "coverage_pct": 51.0,
+      "arare_rate": 0.5859,
+      "lift": 1.318
+    },
+    {
+      "threshold": 0.5,
+      "n": 2033,
+      "coverage_pct": 37.9,
+      "arare_rate": 0.6375,
+      "lift": 1.434
+    },
+    {
+      "threshold": 0.55,
+      "n": 1545,
+      "coverage_pct": 28.8,
+      "arare_rate": 0.6777,
+      "lift": 1.524
+    },
+    {
+      "threshold": 0.6,
+      "n": 1212,
+      "coverage_pct": 22.6,
+      "arare_rate": 0.7063,
+      "lift": 1.588
+    },
+    {
+      "threshold": 0.65,
+      "n": 708,
+      "coverage_pct": 13.2,
+      "arare_rate": 0.7486,
+      "lift": 1.684
+    },
+    {
+      "threshold": 0.7,
+      "n": 422,
+      "coverage_pct": 7.9,
+      "arare_rate": 0.7749,
+      "lift": 1.743
+    }
+  ],
+  "recommended_threshold": 0.55
+}
