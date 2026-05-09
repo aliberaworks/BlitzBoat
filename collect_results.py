@@ -60,6 +60,25 @@ ARARE_THRESH_DEF = 0.55   # arare_prob 閾値（これ以上のレースのみ�
 EV_THRESH_DEF    = 0.3    # EV閾値（30%期待利益以上のみ購入）
 SCRAPE_INTERVAL  = 1.5    # スクレイプ間隔(秒)
 
+# 荒れ確率帯定義  (下限, 上限(exclusive), ラベル, dictキー)
+ARARE_TIERS = [
+    (0.55, 0.65, "55-65%", "t55_65"),
+    (0.65, 0.75, "65-75%", "t65_75"),
+    (0.75, 1.01, "75%+",   "t75up"),
+]
+
+
+def _empty_tier() -> dict:
+    return {"races": 0, "arare_actual": 0,
+            "ev_bets": 0, "ev_hits": 0, "invest_yen": 0, "return_yen": 0}
+
+
+def _tier_key(arare_prob: float) -> str | None:
+    for lo, hi, _, key in ARARE_TIERS:
+        if lo <= arare_prob < hi:
+            return key
+    return None
+
 ARARE_STATS_PATH = os.path.join(config.DATA_DIR, "arare_stats.json")
 
 
@@ -247,6 +266,9 @@ def run(
     naive_ret_yen  = 0
     naive_hits     = 0
 
+    # 荒れ確率帯別カウンタ
+    tier_stats: dict[str, dict] = {key: _empty_tier() for _, _, _, key in ARARE_TIERS}
+
     race_records = []
 
     for p in preds:
@@ -331,6 +353,17 @@ def run(
             if hit:
                 n_hits += 1
 
+        # ── 荒れ確率帯別集計 ──
+        tk = _tier_key(arare_prob)
+        if tk and tk in tier_stats:
+            t = tier_stats[tk]
+            t["races"]       += 1
+            t["arare_actual"] += (1 if actual_r1 != 1 else 0)
+            t["ev_bets"]     += len(ev_records)
+            t["ev_hits"]     += sum(1 for b in ev_records if b["hit"])
+            t["invest_yen"]  += len(ev_records) * BET_UNIT
+            t["return_yen"]  += sum(b["payout"] for b in ev_records)
+
         # ── naive 比較用（EV filter なし、確率スコア上位3点） ──
         naive_bets_list: list[tuple] = []
         if combo_probs:
@@ -399,6 +432,16 @@ def run(
         "naive_return_yen":   naive_ret_yen,
         "naive_roi":          round(naive_roi,    4) if naive_roi is not None else None,
         "naive_roi_pct":      round(naive_roi * 100, 1) if naive_roi is not None else None,
+        # 荒れ確率帯別集計
+        "tier_stats": {
+            key: {
+                **t,
+                "arare_rate": round(t["arare_actual"] / t["races"], 3) if t["races"] > 0 else None,
+                "ev_roi":     round(t["return_yen"] / t["invest_yen"] - 1.0, 3)
+                              if t["invest_yen"] > 0 else None,
+            }
+            for key, t in tier_stats.items()
+        },
     }
 
     out = {
@@ -496,6 +539,33 @@ def _send_line_summary(hd: str, summary: dict, races: list[dict], log: dict) -> 
             f"的中{cum_hits}/{cum_bets}点"
         )
 
+    # ── 荒れ確率帯別サマリー（累積で積み上げる） ─────────────────────────────
+    all_days = [v for _, v in sorted(log.items()) if v.get("tier_stats")]
+    if all_days:
+        # 全日の tier_stats を合算
+        cum_tier: dict[str, dict] = {key: _empty_tier() for _, _, _, key in ARARE_TIERS}
+        for day_v in all_days:
+            for key, t in day_v.get("tier_stats", {}).items():
+                if key in cum_tier:
+                    for field in ("races", "arare_actual", "ev_bets", "ev_hits",
+                                  "invest_yen", "return_yen"):
+                        cum_tier[key][field] += t.get(field, 0)
+
+        lines.append("")
+        lines.append("【荒れ確率帯別 累積実績】")
+        for lo, hi, label, key in ARARE_TIERS:
+            t = cum_tier[key]
+            if t["races"] == 0:
+                continue
+            arare_r  = t["arare_actual"] / t["races"]
+            ev_roi_v = (t["return_yen"] / t["invest_yen"] - 1.0) * 100 if t["invest_yen"] > 0 else None
+            roi_s    = f"{ev_roi_v:+.1f}%" if ev_roi_v is not None else "---"
+            lines.append(
+                f"  {label}: {t['races']}R "
+                f"荒れ実現{arare_r*100:.0f}%  "
+                f"ROI{roi_s}"
+            )
+
     try:
         _snd("\n".join(lines))
         print("[LINE] 日次サマリー送信")
@@ -547,6 +617,29 @@ def show_cumulative(log_path: str | None = None) -> None:
         print("  " + "-" * 62)
         print(f"  {'累計':>10}  {cum_bets:>8}  {cum_hits:>4}  "
               f"{cum_invest:>10,}  {cum_return:>10,}  {cum_roi:>+7.1f}%")
+
+    # ── 荒れ確率帯別累積 ──────────────────────────────────────────────────────
+    cum_tier: dict[str, dict] = {key: _empty_tier() for _, _, _, key in ARARE_TIERS}
+    for d, v in log.items():
+        for key, t in v.get("tier_stats", {}).items():
+            if key in cum_tier:
+                for field in ("races", "arare_actual", "ev_bets", "ev_hits",
+                              "invest_yen", "return_yen"):
+                    cum_tier[key][field] += t.get(field, 0)
+
+    if any(t["races"] > 0 for t in cum_tier.values()):
+        print(f"\n{'─'*62}")
+        print(f"  {'確率帯':>10}  {'R数':>5}  {'荒れ実現率':>10}  {'EV買い目':>8}  {'的中':>4}  {'ROI':>8}")
+        print(f"  {'─'*60}")
+        for lo, hi, label, key in ARARE_TIERS:
+            t = cum_tier[key]
+            if t["races"] == 0:
+                continue
+            arare_r = t["arare_actual"] / t["races"]
+            roi_v   = (t["return_yen"] / t["invest_yen"] - 1.0) * 100 if t["invest_yen"] > 0 else None
+            roi_s   = f"{roi_v:+.1f}%" if roi_v is not None else "---"
+            print(f"  {label:>10}  {t['races']:>5}  {arare_r*100:>9.1f}%  "
+                  f"{t['ev_bets']:>8}  {t['ev_hits']:>4}  {roi_s:>8}")
 
 
 # ────────────────────────────────────────────
