@@ -44,39 +44,60 @@ MAX_DAILY_NOTIFY     = 4     # 1日のLINE送信上限（月200通制限: 4×26�
 _BOAT_LABEL = ["①白", "②黒", "③赤", "④青", "⑤黄", "⑥緑"]
 
 
+MAX_BETS_PER_RACE = 8   # 買い目の最大表示点数（backtest最適値）
+
+
 def _format_consolidated(notify_list: list, now: datetime, ev_thresh: float, sent_today: int) -> str:
     """
     複数レースをまとめた1通のLINEメッセージを生成。
-    notify_list: [{"race": p, "ev_rows": [...], "arare_prob": float, "course_changes": list|None}, ...]
+    構成: ①荒れ警報ランキング → ②レースごとの買い目（最大8点）
+    notify_list: arare_prob降順でソート済みであること
     """
     t = now.strftime("%H:%M")
-    lines = [f"🌪 荒れEV警報  {t}", ""]
+    lines = [f"🌪 荒れEV警報  {t}", "━━━━━━━━━━━"]
 
+    # ── ① 荒れ警報ランキング ────────────────────────────────────────────────
+    lines.append("▼ 荒れ予報")
+    for rank, n in enumerate(notify_list, 1):
+        p         = n["race"]
+        arare_p   = n["arare_prob"]
+        arare_pct = int(arare_p * 100)
+        star_n    = min(5, max(1, int((arare_p - 0.50) / 0.05)))  # 0.55=★1, 0.60=★2, 0.70=★4, 0.75+=★5
+        stars     = "★" * star_n + "☆" * (5 - star_n)
+        lines.append(
+            f"{rank}. {p['venue_name']} {p['race_no']}R ⏰{p.get('race_time','--:--')}  {stars} {arare_pct}%"
+        )
+
+    # ── ② 買い目（レースごと全8点） ─────────────────────────────────────────
+    lines.append("━━━━━━━━━━━")
+    lines.append(f"▼ 買い目 EV≥{ev_thresh}")
     for n in notify_list:
         p          = n["race"]
-        arare_pct  = int(n["arare_prob"] * 100)
-        cc         = n.get("course_changes") or []
         ev_rows    = n["ev_rows"]
-        top_bets   = [r for r in ev_rows if r["ev"] >= ev_thresh][:3]
+        cc         = n.get("course_changes") or []
+        bets       = [r for r in ev_rows if r["ev"] >= ev_thresh][:MAX_BETS_PER_RACE]
 
-        lines.append(f"📍 {p['venue_name']} {p['race_no']}R ⏰{p.get('race_time','--:--')} 荒れ{arare_pct}%")
+        lines.append(f"")
+        lines.append(f"📍 {p['venue_name']} {p['race_no']}R ⏰{p.get('race_time','--:--')}")
 
         if cc:
             for c in cc:
                 icon = "⚠前づけ" if c.get("type") == "前づけ" else "↩後づけ"
                 lines.append(f"  {icon}: {_BOAT_LABEL[c['boat']-1]}→{c['course']}コース")
 
-        for r in top_bets:
+        for i, r in enumerate(bets, 1):
             b1   = _BOAT_LABEL[r["r1"] - 1]
             b2   = _BOAT_LABEL[r["r2"] - 1]
             b3   = _BOAT_LABEL[r["r3"] - 1]
             star = "★" if r["ev"] >= 1.0 else "☆"
-            lines.append(f"  {star} {b1}-{b2}-{b3} {r['odds']:.0f}倍 EV{r['ev']:+.2f}")
+            lines.append(f"  {i}. {star}{b1}-{b2}-{b3} {r['odds']:.0f}倍 EV{r['ev']:+.2f}")
 
         total = len([r for r in ev_rows if r["ev"] >= ev_thresh])
-        lines.append(f"  (EV≥{ev_thresh}: {total}点)")
-        lines.append("")
+        if total > MAX_BETS_PER_RACE:
+            lines.append(f"  他{total - MAX_BETS_PER_RACE}点省略")
 
+    lines.append("")
+    lines.append("━━━━━━━━━━━")
     lines.append(f"本日{sent_today + 1}回目 / 上限{MAX_DAILY_NOTIFY}回")
     lines.append("※統計確率×市場オッズ−1の参考値")
     return "\n".join(lines)
@@ -407,6 +428,7 @@ def run(hd: str, win_min: int = 30, win_max: int = 60):
         print(f"  候補: {skipped}")
         return
 
+    notify_list.sort(key=lambda x: x["arare_prob"], reverse=True)
     text = _format_consolidated(notify_list, now, EV_THRESH, line_sent_today)
     if send_line_message(text):
         line_sent_today += 1
