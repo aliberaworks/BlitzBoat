@@ -416,24 +416,8 @@ def main():
     print(f"\n保存: {out_path}")
     print(f"次: python morning_batch.py --top 10 --min-conf 0.08  (絞り込み例)")
 
-    # ── LINE朝通知（荒れ警報） ─────────────────────────────────────────────────
-    try:
-        from line_bot import send_arare_alert as _send_arare
-
-        if clf_arare is not None:
-            # arare_prob（モデルベース）で降順ソート
-            arare_top = sorted(all_results, key=lambda x: x.get("arare_prob", 0.5), reverse=True)[:10]
-        else:
-            # フォールバック: ルールベーススコア
-            for r in all_results:
-                r["arare_score"] = calc_arare_score(r)
-            arare_top = sorted(all_results, key=lambda x: x["arare_score"], reverse=True)[:10]
-
-        ymd = f"{hd[:4]}/{hd[4:6]}/{hd[6:]}"
-        _send_arare(arare_top, ymd)
-        print("\n[LINE] 荒れ警報を送信しました")
-    except Exception as e:
-        print(f"\n[LINE] 通知スキップ: {e}")
+    # LINE朝通知は無効化（月200通節約のため prerace_notify に一本化）
+    print("\n[LINE] 朝通知スキップ（月間通数節約）")
 
 
 if __name__ == "__main__":
