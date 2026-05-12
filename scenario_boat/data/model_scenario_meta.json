@@ -1,0 +1,42 @@
+{
+  "accuracy": 0.358,
+  "n_train": 21444,
+  "n_test": 5361,
+  "classes": [
+    "1nige",
+    "2mak",
+    "34fail",
+    "3fail",
+    "3mak",
+    "4fail",
+    "4mak",
+    "56mak",
+    "other",
+    "sashi"
+  ],
+  "n_features": 105,
+  "scenario_accuracy": {
+    "3mak": 0.1226,
+    "4mak": 0.1061,
+    "2mak": 0.0558,
+    "56mak": 0.071,
+    "3fail": 0.4583,
+    "4fail": 0.6947,
+    "34fail": 0.1407,
+    "1nige": 0.4316,
+    "sashi": 0.0755,
+    "other": 0.0435
+  },
+  "top_features": [
+    "b4_motor_2rate",
+    "b3_motor_2rate",
+    "b4_avg_st",
+    "b3_vs1_rate_diff",
+    "b1_national_rate",
+    "b4_vs1_rate_diff",
+    "b2_national_rate",
+    "b4_national_rate",
+    "b3_national_rate",
+    "b1_local_rate"
+  ]
+}

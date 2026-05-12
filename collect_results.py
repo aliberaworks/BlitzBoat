@@ -55,8 +55,8 @@ scrape_odds_3t     = _mod.scrape_odds_3t
 BOATS            = list(range(1, 7))
 KIMARITE         = ["逃げ", "差し", "まくり", "まくり差し", "抜き", "恵まれ"]
 BET_UNIT         = 100    # 1点あたり(円)
-MAX_BETS_DEFAULT = 8      # 1レースあたり最大購入点数（3点=ROI最大, 8点=利益最大）
-ARARE_THRESH_DEF = 0.55   # arare_prob 閾値（これ以上のレースのみ対象）
+MAX_BETS_DEFAULT = 3      # 1レースあたり最大購入点数（バックテスト最適値）
+ARARE_THRESH_DEF = 0.60   # arare_prob 閾値（これ以上のレースのみ対象）
 EV_THRESH_DEF    = 0.3    # EV閾値（30%期待利益以上のみ購入）
 SCRAPE_INTERVAL  = 1.5    # スクレイプ間隔(秒)
 
