@@ -1,0 +1,2256 @@
+{
+  "date": "20260531",
+  "summary": {
+    "n_races_total": 192,
+    "n_arare_candidate": 55,
+    "arare_thresh": 0.6,
+    "ev_thresh": 0.3,
+    "max_bets": 3,
+    "ev_bets": 165,
+    "ev_hits": 0,
+    "ev_invest_yen": 16500,
+    "ev_return_yen": 0,
+    "ev_roi": -1.0,
+    "ev_roi_pct": -100.0,
+    "naive_bets": 165,
+    "naive_hits": 2,
+    "naive_invest_yen": 16500,
+    "naive_return_yen": 21120,
+    "naive_roi": 0.28,
+    "naive_roi_pct": 28.0,
+    "tier_stats": {
+      "t55_65": {
+        "races": 18,
+        "arare_actual": 10,
+        "ev_bets": 54,
+        "ev_hits": 0,
+        "invest_yen": 5400,
+        "return_yen": 0,
+        "arare_rate": 0.556,
+        "ev_roi": -1.0
+      },
+      "t65_75": {
+        "races": 21,
+        "arare_actual": 10,
+        "ev_bets": 63,
+        "ev_hits": 0,
+        "invest_yen": 6300,
+        "return_yen": 0,
+        "arare_rate": 0.476,
+        "ev_roi": -1.0
+      },
+      "t75up": {
+        "races": 16,
+        "arare_actual": 13,
+        "ev_bets": 48,
+        "ev_hits": 0,
+        "invest_yen": 4800,
+        "return_yen": 0,
+        "arare_rate": 0.812,
+        "ev_roi": -1.0
+      }
+    }
+  },
+  "races": [
+    {
+      "jcd": "13",
+      "venue_name": "尼崎",
+      "race_no": 1,
+      "race_time": "10:40",
+      "arare_prob": 0.6397,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "抜き",
+      "payout_yen": 10890,
+      "ev_bets": [
+        {
+          "combo": "6-3-4",
+          "prob": 0.029996,
+          "odds": 661.1,
+          "ev": 18.8301,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-6-2",
+          "prob": 0.011142,
+          "odds": 1348.0,
+          "ev": 14.0192,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-2-4",
+          "prob": 0.007787,
+          "odds": 1765.0,
+          "ev": 12.7434,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "11",
+      "venue_name": "びわこ",
+      "race_no": 4,
+      "race_time": "12:00",
+      "arare_prob": 0.804,
+      "actual_1st": 5,
+      "actual_2nd": 3,
+      "actual_3rd": 4,
+      "trifecta": "5-3-4",
+      "kimarite": "まくり差し",
+      "payout_yen": 12220,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.105428,
+          "odds": 406.2,
+          "ev": 41.825,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-6",
+          "prob": 0.115223,
+          "odds": 135.4,
+          "ev": 14.6012,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-5",
+          "prob": 0.046351,
+          "odds": 121.8,
+          "ev": 4.6456,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 2,
+      "race_time": "09:12",
+      "arare_prob": 0.6476,
+      "actual_1st": 3,
+      "actual_2nd": 2,
+      "actual_3rd": 1,
+      "trifecta": "3-2-1",
+      "kimarite": "まくり",
+      "payout_yen": 18890,
+      "ev_bets": [
+        {
+          "combo": "3-4-1",
+          "prob": 0.059306,
+          "odds": 753.1,
+          "ev": 43.6636,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.044157,
+          "odds": 725.3,
+          "ev": 31.0272,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.029769,
+          "odds": 1005.0,
+          "ev": 28.9176,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "20",
+      "venue_name": "若松",
+      "race_no": 3,
+      "race_time": "16:28",
+      "arare_prob": 0.8179,
+      "actual_1st": 2,
+      "actual_2nd": 3,
+      "actual_3rd": 4,
+      "trifecta": "2-3-4",
+      "kimarite": "まくり",
+      "payout_yen": 5060,
+      "ev_bets": [
+        {
+          "combo": "3-4-1",
+          "prob": 0.101776,
+          "odds": 125.4,
+          "ev": 11.7627,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.05301,
+          "odds": 214.9,
+          "ev": 10.3918,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-6-5",
+          "prob": 0.031991,
+          "odds": 334.4,
+          "ev": 9.6977,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "13",
+      "venue_name": "尼崎",
+      "race_no": 3,
+      "race_time": "11:43",
+      "arare_prob": 0.6081,
+      "actual_1st": 4,
+      "actual_2nd": 2,
+      "actual_3rd": 1,
+      "trifecta": "4-2-1",
+      "kimarite": "まくり",
+      "payout_yen": 5460,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.052403,
+          "odds": 168.4,
+          "ev": 7.8247,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-4-2",
+          "prob": 0.019337,
+          "odds": 400.1,
+          "ev": 6.7367,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-3-4",
+          "prob": 0.028514,
+          "odds": 228.6,
+          "ev": 5.5183,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "05",
+      "venue_name": "多摩川",
+      "race_no": 6,
+      "race_time": "14:20",
+      "arare_prob": 0.8179,
+      "actual_1st": 4,
+      "actual_2nd": 3,
+      "actual_3rd": 2,
+      "trifecta": "4-3-2",
+      "kimarite": "まくり",
+      "payout_yen": 9360,
+      "ev_bets": [
+        {
+          "combo": "5-4-2",
+          "prob": 0.030761,
+          "odds": 2670.0,
+          "ev": 81.1307,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.049298,
+          "odds": 1099.0,
+          "ev": 53.1784,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-5-2",
+          "prob": 0.028253,
+          "odds": 1586.0,
+          "ev": 43.8085,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "13",
+      "venue_name": "尼崎",
+      "race_no": 8,
+      "race_time": "14:07",
+      "arare_prob": 0.6573,
+      "actual_1st": 4,
+      "actual_2nd": 5,
+      "actual_3rd": 1,
+      "trifecta": "4-5-1",
+      "kimarite": "まくり差し",
+      "payout_yen": 3070,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.056643,
+          "odds": 909.9,
+          "ev": 50.5394,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-2-1",
+          "prob": 0.057409,
+          "odds": 371.1,
+          "ev": 20.3043,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.028824,
+          "odds": 680.8,
+          "ev": 18.6237,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "01",
+      "venue_name": "桐生",
+      "race_no": 1,
+      "race_time": "15:24",
+      "arare_prob": 0.6397,
+      "actual_1st": 6,
+      "actual_2nd": 3,
+      "actual_3rd": 1,
+      "trifecta": "6-3-1",
+      "kimarite": "まくり差し",
+      "payout_yen": 4150,
+      "ev_bets": [
+        {
+          "combo": "2-1-5",
+          "prob": 0.051192,
+          "odds": 970.2,
+          "ev": 48.666,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.057009,
+          "odds": 721.7,
+          "ev": 40.1433,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-2-6",
+          "prob": 0.009847,
+          "odds": 3481.0,
+          "ev": 33.2768,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 5,
+      "race_time": "10:30",
+      "arare_prob": 0.69,
+      "actual_1st": 2,
+      "actual_2nd": 4,
+      "actual_3rd": 3,
+      "trifecta": "2-4-3",
+      "kimarite": "差し",
+      "payout_yen": 2000,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.047048,
+          "odds": 1066.0,
+          "ev": 49.1534,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.031718,
+          "odds": 891.9,
+          "ev": 27.2891,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.063189,
+          "odds": 417.5,
+          "ev": 25.3815,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 6,
+      "race_time": "10:49",
+      "arare_prob": 0.7297,
+      "actual_1st": 2,
+      "actual_2nd": 3,
+      "actual_3rd": 1,
+      "trifecta": "2-3-1",
+      "kimarite": "まくり",
+      "payout_yen": 2140,
+      "ev_bets": [
+        {
+          "combo": "6-3-4",
+          "prob": 0.021646,
+          "odds": 3986.0,
+          "ev": 85.2799,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.073745,
+          "odds": 1120.0,
+          "ev": 81.5943,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.029503,
+          "odds": 2222.0,
+          "ev": 64.5557,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "03",
+      "venue_name": "江戸川",
+      "race_no": 7,
+      "race_time": "13:56",
+      "arare_prob": 0.7848,
+      "actual_1st": 4,
+      "actual_2nd": 2,
+      "actual_3rd": 5,
+      "trifecta": "4-2-5",
+      "kimarite": "まくり",
+      "payout_yen": 6700,
+      "ev_bets": [
+        {
+          "combo": "5-6-3",
+          "prob": 0.024513,
+          "odds": 815.7,
+          "ev": 18.9954,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-6",
+          "prob": 0.047634,
+          "odds": 327.2,
+          "ev": 14.5858,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-5",
+          "prob": 0.055795,
+          "odds": 183.4,
+          "ev": 9.2328,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "05",
+      "venue_name": "多摩川",
+      "race_no": 4,
+      "race_time": "13:21",
+      "arare_prob": 0.6476,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 6,
+      "trifecta": "1-3-6",
+      "kimarite": "逃げ",
+      "payout_yen": 930,
+      "ev_bets": [
+        {
+          "combo": "5-4-2",
+          "prob": 0.024356,
+          "odds": 3175.0,
+          "ev": 76.3294,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-3-5",
+          "prob": 0.021481,
+          "odds": 1503.0,
+          "ev": 31.286,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-5-6",
+          "prob": 0.020502,
+          "odds": 1519.0,
+          "ev": 30.1431,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "09",
+      "venue_name": "津",
+      "race_no": 6,
+      "race_time": "12:58",
+      "arare_prob": 0.6761,
+      "actual_1st": 3,
+      "actual_2nd": 4,
+      "actual_3rd": 1,
+      "trifecta": "3-4-1",
+      "kimarite": "まくり",
+      "payout_yen": 1520,
+      "ev_bets": [
+        {
+          "combo": "2-1-5",
+          "prob": 0.048283,
+          "odds": 835.1,
+          "ev": 39.321,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-6",
+          "prob": 0.019736,
+          "odds": 1506.0,
+          "ev": 28.7231,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-3-2",
+          "prob": 0.011759,
+          "odds": 2134.0,
+          "ev": 24.0931,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "12",
+      "venue_name": "住之江",
+      "race_no": 4,
+      "race_time": "17:10",
+      "arare_prob": 0.6029,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 6,
+      "trifecta": "1-3-6",
+      "kimarite": "逃げ",
+      "payout_yen": 770,
+      "ev_bets": [
+        {
+          "combo": "4-2-5",
+          "prob": 0.019884,
+          "odds": 1347.0,
+          "ev": 25.7838,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-4",
+          "prob": 0.045436,
+          "odds": 376.3,
+          "ev": 16.0976,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-2-3",
+          "prob": 0.02622,
+          "odds": 609.4,
+          "ev": 14.9786,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 8,
+      "race_time": "11:48",
+      "arare_prob": 0.6799,
+      "actual_1st": 2,
+      "actual_2nd": 4,
+      "actual_3rd": 3,
+      "trifecta": "2-4-3",
+      "kimarite": "まくり",
+      "payout_yen": 6340,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.02749,
+          "odds": 437.7,
+          "ev": 11.0322,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-3",
+          "prob": 0.08662,
+          "odds": 75.2,
+          "ev": 5.5138,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-3-4",
+          "prob": 0.020168,
+          "odds": 321.0,
+          "ev": 5.4741,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "13",
+      "venue_name": "尼崎",
+      "race_no": 4,
+      "race_time": "12:12",
+      "arare_prob": 0.6397,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "payout_yen": 840,
+      "ev_bets": [
+        {
+          "combo": "6-3-4",
+          "prob": 0.029996,
+          "odds": 2915.0,
+          "ev": 86.4372,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.028053,
+          "odds": 891.6,
+          "ev": 24.0117,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-2-4",
+          "prob": 0.007787,
+          "odds": 2568.0,
+          "ev": 18.996,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "01",
+      "venue_name": "桐生",
+      "race_no": 4,
+      "race_time": "17:15",
+      "arare_prob": 0.7261,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 5,
+      "trifecta": "1-2-5",
+      "kimarite": "逃げ",
+      "payout_yen": 11420,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.064709,
+          "odds": 739.1,
+          "ev": 46.8262,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-5-3",
+          "prob": 0.012027,
+          "odds": 3252.0,
+          "ev": 38.1109,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-3-4",
+          "prob": 0.015103,
+          "odds": 1784.0,
+          "ev": 25.9435,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "01",
+      "venue_name": "桐生",
+      "race_no": 2,
+      "race_time": "15:57",
+      "arare_prob": 0.7683,
+      "actual_1st": 3,
+      "actual_2nd": 2,
+      "actual_3rd": 4,
+      "trifecta": "3-2-4",
+      "kimarite": "まくり差し",
+      "payout_yen": 4680,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.068469,
+          "odds": 833.1,
+          "ev": 56.0419,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-3-4",
+          "prob": 0.015981,
+          "odds": 1685.0,
+          "ev": 25.9273,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-5-3",
+          "prob": 0.012726,
+          "odds": 1528.0,
+          "ev": 18.4449,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "05",
+      "venue_name": "多摩川",
+      "race_no": 7,
+      "race_time": "14:56",
+      "arare_prob": 0.8498,
+      "actual_1st": 2,
+      "actual_2nd": 5,
+      "actual_3rd": 4,
+      "trifecta": "2-5-4",
+      "kimarite": "まくり",
+      "payout_yen": 1430,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.043629,
+          "odds": 1346.0,
+          "ev": 57.7252,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.051221,
+          "odds": 525.1,
+          "ev": 25.896,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-5-2",
+          "prob": 0.029354,
+          "odds": 553.2,
+          "ev": 15.2389,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 7,
+      "race_time": "11:32",
+      "arare_prob": 0.6114,
+      "actual_1st": 3,
+      "actual_2nd": 5,
+      "actual_3rd": 1,
+      "trifecta": "3-5-1",
+      "kimarite": "差し",
+      "payout_yen": 2280,
+      "ev_bets": [
+        {
+          "combo": "4-6-5",
+          "prob": 0.014227,
+          "odds": 1638.0,
+          "ev": 22.3042,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-6-2",
+          "prob": 0.013767,
+          "odds": 1540.0,
+          "ev": 20.2019,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-5-6",
+          "prob": 0.012242,
+          "odds": 1540.0,
+          "ev": 17.8529,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 10,
+      "race_time": "13:07",
+      "arare_prob": 0.7395,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 6,
+      "trifecta": "1-4-6",
+      "kimarite": "逃げ",
+      "payout_yen": 1300,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.050423,
+          "odds": 749.5,
+          "ev": 36.7924,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-2-1",
+          "prob": 0.099944,
+          "odds": 300.1,
+          "ev": 28.9932,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.033993,
+          "odds": 629.6,
+          "ev": 20.4021,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 4,
+      "race_time": "12:14",
+      "arare_prob": 0.791,
+      "actual_1st": 3,
+      "actual_2nd": 4,
+      "actual_3rd": 2,
+      "trifecta": "3-4-2",
+      "kimarite": "まくり",
+      "payout_yen": 3130,
+      "ev_bets": [
+        {
+          "combo": "2-1-5",
+          "prob": 0.050859,
+          "odds": 923.6,
+          "ev": 45.9733,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.048314,
+          "odds": 860.2,
+          "ev": 40.5599,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-6-2",
+          "prob": 0.010956,
+          "odds": 2991.0,
+          "ev": 31.7695,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "03",
+      "venue_name": "江戸川",
+      "race_no": 8,
+      "race_time": "14:24",
+      "arare_prob": 0.6234,
+      "actual_1st": 4,
+      "actual_2nd": 5,
+      "actual_3rd": 6,
+      "trifecta": "4-5-6",
+      "kimarite": "恵まれ",
+      "payout_yen": 150,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.03712,
+          "odds": 862.9,
+          "ev": 31.0307,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-4-2",
+          "prob": 0.011057,
+          "odds": 2288.0,
+          "ev": 24.2985,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-6-3",
+          "prob": 0.019472,
+          "odds": 1196.0,
+          "ev": 22.2883,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "13",
+      "venue_name": "尼崎",
+      "race_no": 2,
+      "race_time": "11:09",
+      "arare_prob": 0.6573,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 5,
+      "trifecta": "1-2-5",
+      "kimarite": "逃げ",
+      "payout_yen": 940,
+      "ev_bets": [
+        {
+          "combo": "6-3-4",
+          "prob": 0.030821,
+          "odds": 2546.0,
+          "ev": 77.4699,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.028824,
+          "odds": 1655.0,
+          "ev": 46.7045,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.050546,
+          "odds": 486.8,
+          "ev": 23.6059,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 11,
+      "race_time": "13:38",
+      "arare_prob": 0.6476,
+      "actual_1st": 2,
+      "actual_2nd": 6,
+      "actual_3rd": 1,
+      "trifecta": "2-6-1",
+      "kimarite": "差し",
+      "payout_yen": 39610,
+      "ev_bets": [
+        {
+          "combo": "2-1-4",
+          "prob": 0.089012,
+          "odds": 271.5,
+          "ev": 23.1667,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-6-2",
+          "prob": 0.014583,
+          "odds": 1084.0,
+          "ev": 14.8076,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-2-3",
+          "prob": 0.019252,
+          "odds": 673.9,
+          "ev": 11.9739,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "11",
+      "venue_name": "びわこ",
+      "race_no": 1,
+      "race_time": "10:32",
+      "arare_prob": 0.7653,
+      "actual_1st": 2,
+      "actual_2nd": 3,
+      "actual_3rd": 4,
+      "trifecta": "2-3-4",
+      "kimarite": "差し",
+      "payout_yen": 2930,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.080111,
+          "odds": 299.8,
+          "ev": 23.0172,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-6-4",
+          "prob": 0.021248,
+          "odds": 899.4,
+          "ev": 18.1105,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.100354,
+          "odds": 170.9,
+          "ev": 16.1504,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "05",
+      "venue_name": "多摩川",
+      "race_no": 5,
+      "race_time": "13:51",
+      "arare_prob": 0.7305,
+      "actual_1st": 6,
+      "actual_2nd": 4,
+      "actual_3rd": 5,
+      "trifecta": "6-4-5",
+      "kimarite": "まくり差し",
+      "payout_yen": 36520,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.04403,
+          "odds": 555.3,
+          "ev": 23.4499,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-4-2",
+          "prob": 0.027474,
+          "odds": 494.5,
+          "ev": 12.5857,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-3-5",
+          "prob": 0.024231,
+          "odds": 536.7,
+          "ev": 12.0047,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 5,
+      "race_time": "12:44",
+      "arare_prob": 0.7105,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "payout_yen": 3070,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.051305,
+          "odds": 716.1,
+          "ev": 35.7396,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-2-4",
+          "prob": 0.01012,
+          "odds": 3196.0,
+          "ev": 31.3447,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.052243,
+          "odds": 251.5,
+          "ev": 12.1392,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "03",
+      "venue_name": "江戸川",
+      "race_no": 2,
+      "race_time": "11:41",
+      "arare_prob": 0.6688,
+      "actual_1st": 4,
+      "actual_2nd": 1,
+      "actual_3rd": 2,
+      "trifecta": "4-1-2",
+      "kimarite": "まくり",
+      "payout_yen": 3270,
+      "ev_bets": [
+        {
+          "combo": "5-6-3",
+          "prob": 0.02089,
+          "odds": 580.8,
+          "ev": 11.1329,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-4-2",
+          "prob": 0.011862,
+          "odds": 871.3,
+          "ev": 9.3356,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.039823,
+          "odds": 205.0,
+          "ev": 7.1637,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 7,
+      "race_time": "13:45",
+      "arare_prob": 0.6397,
+      "actual_1st": 4,
+      "actual_2nd": 1,
+      "actual_3rd": 6,
+      "trifecta": "4-1-6",
+      "kimarite": "まくり",
+      "payout_yen": 1370,
+      "ev_bets": [
+        {
+          "combo": "2-1-5",
+          "prob": 0.041131,
+          "odds": 652.7,
+          "ev": 25.846,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-2-1",
+          "prob": 0.084093,
+          "odds": 246.1,
+          "ev": 19.6954,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-6-2",
+          "prob": 0.00886,
+          "odds": 1909.0,
+          "ev": 15.9145,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 10,
+      "race_time": "15:21",
+      "arare_prob": 0.7093,
+      "actual_1st": 4,
+      "actual_2nd": 1,
+      "actual_3rd": 3,
+      "trifecta": "4-1-3",
+      "kimarite": "まくり差し",
+      "payout_yen": 15070,
+      "ev_bets": [
+        {
+          "combo": "6-2-4",
+          "prob": 0.010103,
+          "odds": 2204.0,
+          "ev": 21.2677,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-4-5",
+          "prob": 0.007651,
+          "odds": 2116.0,
+          "ev": 15.1895,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-6-2",
+          "prob": 0.009824,
+          "odds": 1169.0,
+          "ev": 10.4848,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "01",
+      "venue_name": "桐生",
+      "race_no": 3,
+      "race_time": "16:37",
+      "arare_prob": 0.7214,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 2,
+      "trifecta": "1-4-2",
+      "kimarite": "逃げ",
+      "payout_yen": 1370,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.06429,
+          "odds": 243.6,
+          "ev": 14.661,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.052557,
+          "odds": 207.7,
+          "ev": 9.9162,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-2-1",
+          "prob": 0.081683,
+          "odds": 72.8,
+          "ev": 4.9465,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "14",
+      "venue_name": "鳴門",
+      "race_no": 6,
+      "race_time": "11:03",
+      "arare_prob": 0.6081,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 3,
+      "trifecta": "1-4-3",
+      "kimarite": "逃げ",
+      "payout_yen": 3700,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.027953,
+          "odds": 4156.0,
+          "ev": 115.1727,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-3-5",
+          "prob": 0.009027,
+          "odds": 6828.0,
+          "ev": 60.6349,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-3-4",
+          "prob": 0.005101,
+          "odds": 5310.0,
+          "ev": 26.0875,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 9,
+      "race_time": "12:20",
+      "arare_prob": 0.7009,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 2,
+      "trifecta": "1-4-2",
+      "kimarite": "逃げ",
+      "payout_yen": 5600,
+      "ev_bets": [
+        {
+          "combo": "6-3-4",
+          "prob": 0.020791,
+          "odds": 1870.0,
+          "ev": 37.8799,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-3-5",
+          "prob": 0.010906,
+          "odds": 1809.0,
+          "ev": 18.7291,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.070834,
+          "odds": 272.8,
+          "ev": 18.3236,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "07",
+      "venue_name": "蒲郡",
+      "race_no": 10,
+      "race_time": "19:53",
+      "arare_prob": 0.6476,
+      "actual_1st": 2,
+      "actual_2nd": 1,
+      "actual_3rd": 3,
+      "trifecta": "2-1-3",
+      "kimarite": "差し",
+      "payout_yen": 2230,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.045251,
+          "odds": 928.8,
+          "ev": 41.0289,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-3-2",
+          "prob": 0.009475,
+          "odds": 2048.0,
+          "ev": 18.4045,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.03969,
+          "odds": 479.3,
+          "ev": 18.0234,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "03",
+      "venue_name": "江戸川",
+      "race_no": 3,
+      "race_time": "12:08",
+      "arare_prob": 0.7112,
+      "actual_1st": 1,
+      "actual_2nd": 4,
+      "actual_3rd": 6,
+      "trifecta": "1-4-6",
+      "kimarite": "逃げ",
+      "payout_yen": 2850,
+      "ev_bets": [
+        {
+          "combo": "5-6-3",
+          "prob": 0.022214,
+          "odds": 1855.0,
+          "ev": 40.2075,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.05152,
+          "odds": 717.5,
+          "ev": 35.9654,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-3-4",
+          "prob": 0.008476,
+          "odds": 2094.0,
+          "ev": 16.7492,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "09",
+      "venue_name": "津",
+      "race_no": 4,
+      "race_time": "11:59",
+      "arare_prob": 0.6397,
+      "actual_1st": 3,
+      "actual_2nd": 1,
+      "actual_3rd": 6,
+      "trifecta": "3-1-6",
+      "kimarite": "まくり差し",
+      "payout_yen": 9180,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.061954,
+          "odds": 146.8,
+          "ev": 8.0948,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.053009,
+          "odds": 141.5,
+          "ev": 6.5007,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-5",
+          "prob": 0.045683,
+          "odds": 123.8,
+          "ev": 4.6556,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "08",
+      "venue_name": "常滑",
+      "race_no": 2,
+      "race_time": "11:06",
+      "arare_prob": 0.6229,
+      "actual_1st": 1,
+      "actual_2nd": 5,
+      "actual_3rd": 3,
+      "trifecta": "1-5-3",
+      "kimarite": "逃げ",
+      "payout_yen": 660,
+      "ev_bets": [
+        {
+          "combo": "4-2-6",
+          "prob": 0.022441,
+          "odds": 3882.0,
+          "ev": 86.1156,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.043843,
+          "odds": 1536.0,
+          "ev": 66.343,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-6-5",
+          "prob": 0.017127,
+          "odds": 2543.0,
+          "ev": 42.5529,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "05",
+      "venue_name": "多摩川",
+      "race_no": 1,
+      "race_time": "11:55",
+      "arare_prob": 0.6761,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "payout_yen": 1120,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.034712,
+          "odds": 661.3,
+          "ev": 21.9547,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-5-2",
+          "prob": 0.023354,
+          "odds": 832.8,
+          "ev": 18.4495,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-6-3",
+          "prob": 0.015479,
+          "odds": 977.6,
+          "ev": 14.1321,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "09",
+      "venue_name": "津",
+      "race_no": 2,
+      "race_time": "11:00",
+      "arare_prob": 0.6408,
+      "actual_1st": 1,
+      "actual_2nd": 5,
+      "actual_3rd": 4,
+      "trifecta": "1-5-4",
+      "kimarite": "抜き",
+      "payout_yen": 65140,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.06206,
+          "odds": 567.7,
+          "ev": 34.2315,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-5",
+          "prob": 0.045762,
+          "odds": 526.6,
+          "ev": 23.0982,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-3-2",
+          "prob": 0.016153,
+          "odds": 1375.0,
+          "ev": 21.2098,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "05",
+      "venue_name": "多摩川",
+      "race_no": 3,
+      "race_time": "12:52",
+      "arare_prob": 0.7669,
+      "actual_1st": 2,
+      "actual_2nd": 6,
+      "actual_3rd": 4,
+      "trifecta": "2-6-4",
+      "kimarite": "まくり",
+      "payout_yen": 820,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.046224,
+          "odds": 1450.0,
+          "ev": 66.0248,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.037873,
+          "odds": 1091.0,
+          "ev": 40.3199,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.039373,
+          "odds": 994.0,
+          "ev": 38.137,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "08",
+      "venue_name": "常滑",
+      "race_no": 3,
+      "race_time": "11:41",
+      "arare_prob": 0.8142,
+      "actual_1st": 5,
+      "actual_2nd": 4,
+      "actual_3rd": 6,
+      "trifecta": "5-4-6",
+      "kimarite": "まくり差し",
+      "payout_yen": 8140,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.083396,
+          "odds": 363.9,
+          "ev": 29.3479,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.04597,
+          "odds": 454.8,
+          "ev": 19.9071,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.057308,
+          "odds": 303.2,
+          "ev": 16.3757,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "11",
+      "venue_name": "びわこ",
+      "race_no": 6,
+      "race_time": "12:59",
+      "arare_prob": 0.753,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 5,
+      "trifecta": "1-2-5",
+      "kimarite": "逃げ",
+      "payout_yen": 5990,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.078823,
+          "odds": 398.4,
+          "ev": 30.4031,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.098741,
+          "odds": 278.1,
+          "ev": 26.4598,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.051505,
+          "odds": 138.3,
+          "ev": 6.1231,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 10,
+      "race_time": "13:01",
+      "arare_prob": 0.6839,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 4,
+      "trifecta": "1-3-4",
+      "kimarite": "逃げ",
+      "payout_yen": 1240,
+      "ev_bets": [
+        {
+          "combo": "6-3-5",
+          "prob": 0.012274,
+          "odds": 3744.0,
+          "ev": 44.9534,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.04322,
+          "odds": 848.1,
+          "ev": 35.6552,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-5-4",
+          "prob": 0.009109,
+          "odds": 3488.0,
+          "ev": 30.7713,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "05",
+      "venue_name": "多摩川",
+      "race_no": 2,
+      "race_time": "12:23",
+      "arare_prob": 0.7948,
+      "actual_1st": 2,
+      "actual_2nd": 4,
+      "actual_3rd": 3,
+      "trifecta": "2-4-3",
+      "kimarite": "まくり",
+      "payout_yen": 3870,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.040806,
+          "odds": 1033.0,
+          "ev": 41.1522,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-5-2",
+          "prob": 0.027455,
+          "odds": 1125.0,
+          "ev": 29.8864,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-2-1",
+          "prob": 0.057928,
+          "odds": 157.1,
+          "ev": 8.1005,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 6,
+      "race_time": "13:14",
+      "arare_prob": 0.7563,
+      "actual_1st": 4,
+      "actual_2nd": 5,
+      "actual_3rd": 2,
+      "trifecta": "4-5-2",
+      "kimarite": "差し",
+      "payout_yen": 5850,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.054612,
+          "odds": 225.5,
+          "ev": 11.3151,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-2-1",
+          "prob": 0.099421,
+          "odds": 83.1,
+          "ev": 7.2619,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-6-2",
+          "prob": 0.010475,
+          "odds": 547.5,
+          "ev": 4.7353,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 7,
+      "race_time": "11:25",
+      "arare_prob": 0.7226,
+      "actual_1st": 2,
+      "actual_2nd": 1,
+      "actual_3rd": 4,
+      "trifecta": "2-1-4",
+      "kimarite": "差し",
+      "payout_yen": 3120,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.045666,
+          "odds": 2014.0,
+          "ev": 90.9714,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-3-5",
+          "prob": 0.012968,
+          "odds": 3290.0,
+          "ev": 41.6661,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-5-4",
+          "prob": 0.009624,
+          "odds": 3464.0,
+          "ev": 32.3381,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "09",
+      "venue_name": "津",
+      "race_no": 3,
+      "race_time": "11:29",
+      "arare_prob": 0.6627,
+      "actual_1st": 3,
+      "actual_2nd": 5,
+      "actual_3rd": 4,
+      "trifecta": "3-5-4",
+      "kimarite": "まくり",
+      "payout_yen": 7650,
+      "ev_bets": [
+        {
+          "combo": "3-2-1",
+          "prob": 0.055031,
+          "odds": 303.1,
+          "ev": 15.6799,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-3",
+          "prob": 0.044658,
+          "odds": 198.7,
+          "ev": 7.8736,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.054915,
+          "odds": 156.1,
+          "ev": 7.5722,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "11",
+      "venue_name": "びわこ",
+      "race_no": 5,
+      "race_time": "12:30",
+      "arare_prob": 0.77,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 5,
+      "trifecta": "1-3-5",
+      "kimarite": "逃げ",
+      "payout_yen": 4900,
+      "ev_bets": [
+        {
+          "combo": "4-6-2",
+          "prob": 0.023922,
+          "odds": 1965.0,
+          "ev": 46.0075,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-5-2",
+          "prob": 0.014118,
+          "odds": 2391.0,
+          "ev": 32.7563,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.052668,
+          "odds": 605.9,
+          "ev": 30.9114,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "23",
+      "venue_name": "唐津",
+      "race_no": 7,
+      "race_time": "11:19",
+      "arare_prob": 0.6081,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 5,
+      "trifecta": "1-3-5",
+      "kimarite": "逃げ",
+      "payout_yen": 2720,
+      "ev_bets": [
+        {
+          "combo": "6-3-4",
+          "prob": 0.018039,
+          "odds": 2847.0,
+          "ev": 50.3559,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.061456,
+          "odds": 628.5,
+          "ev": 37.625,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.024587,
+          "odds": 1146.0,
+          "ev": 27.1762,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 9,
+      "race_time": "14:48",
+      "arare_prob": 0.6523,
+      "actual_1st": 1,
+      "actual_2nd": 2,
+      "actual_3rd": 3,
+      "trifecta": "1-2-3",
+      "kimarite": "逃げ",
+      "payout_yen": 1220,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.047102,
+          "odds": 1032.0,
+          "ev": 47.6098,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "6-2-4",
+          "prob": 0.009291,
+          "odds": 2461.0,
+          "ev": 21.8661,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-6",
+          "prob": 0.034792,
+          "odds": 510.3,
+          "ev": 16.7542,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "15",
+      "venue_name": "丸亀",
+      "race_no": 3,
+      "race_time": "16:22",
+      "arare_prob": 0.6421,
+      "actual_1st": 5,
+      "actual_2nd": 1,
+      "actual_3rd": 2,
+      "trifecta": "5-1-2",
+      "kimarite": "まくり差し",
+      "payout_yen": 8230,
+      "ev_bets": [
+        {
+          "combo": "6-5-4",
+          "prob": 0.010231,
+          "odds": 501.2,
+          "ev": 4.1279,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-3",
+          "prob": 0.071785,
+          "odds": 69.4,
+          "ev": 3.9819,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-2-1",
+          "prob": 0.057832,
+          "odds": 77.9,
+          "ev": 3.5051,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "02",
+      "venue_name": "戸田",
+      "race_no": 8,
+      "race_time": "14:16",
+      "arare_prob": 0.7838,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 6,
+      "trifecta": "1-3-6",
+      "kimarite": "逃げ",
+      "payout_yen": 2320,
+      "ev_bets": [
+        {
+          "combo": "3-6-1",
+          "prob": 0.056598,
+          "odds": 106.2,
+          "ev": 5.0107,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-5-1",
+          "prob": 0.047874,
+          "odds": 112.1,
+          "ev": 4.3667,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "5-3-4",
+          "prob": 0.021017,
+          "odds": 141.2,
+          "ev": 1.9676,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "08",
+      "venue_name": "常滑",
+      "race_no": 4,
+      "race_time": "12:09",
+      "arare_prob": 0.7702,
+      "actual_1st": 2,
+      "actual_2nd": 5,
+      "actual_3rd": 6,
+      "trifecta": "2-5-6",
+      "kimarite": "差し",
+      "payout_yen": 770,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.078889,
+          "odds": 338.6,
+          "ev": 25.7119,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-4-1",
+          "prob": 0.054211,
+          "odds": 483.4,
+          "ev": 25.2055,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "3-6-1",
+          "prob": 0.043486,
+          "odds": 449.6,
+          "ev": 18.5511,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    },
+    {
+      "jcd": "18",
+      "venue_name": "徳山",
+      "race_no": 8,
+      "race_time": "11:57",
+      "arare_prob": 0.6854,
+      "actual_1st": 1,
+      "actual_2nd": 3,
+      "actual_3rd": 6,
+      "trifecta": "1-3-6",
+      "kimarite": "抜き",
+      "payout_yen": 1910,
+      "ev_bets": [
+        {
+          "combo": "3-5-1",
+          "prob": 0.057117,
+          "odds": 456.2,
+          "ev": 25.0568,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "4-2-5",
+          "prob": 0.017618,
+          "odds": 663.6,
+          "ev": 10.6914,
+          "hit": false,
+          "payout": 0
+        },
+        {
+          "combo": "2-1-5",
+          "prob": 0.0413,
+          "odds": 214.6,
+          "ev": 7.863,
+          "hit": false,
+          "payout": 0
+        }
+      ],
+      "had_odds": true
+    }
+  ]
+}
