@@ -1,8 +1,6 @@
 name: makuri Morning Batch
 
 on:
-  schedule:
-    - cron: '0 21 * * *'   # 06:00 JST (UTC 21:00)
   workflow_dispatch:
     inputs:
       date:
