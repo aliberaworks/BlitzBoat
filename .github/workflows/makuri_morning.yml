@@ -1,0 +1,51 @@
+name: makuri Morning Batch
+
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 06:00 JST (UTC 21:00)
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '日付 YYYYMMDD'
+        required: false
+
+permissions:
+  contents: write
+
+env:
+  PYTHONIOENCODING: utf-8
+
+jobs:
+  morning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml numpy scikit-learn python-dotenv
+
+      - name: Run morning batch
+        env:
+          LINE_CHANNEL_ACCESS_TOKEN: ${{ secrets.LINE_CHANNEL_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        working-directory: makuri
+        run: |
+          HD="${{ github.event.inputs.date }}"
+          HD="${HD:-$(TZ=Asia/Tokyo date +%Y%m%d)}"
+          echo "朝バッチ: $HD"
+          python morning.py --date "$HD"
+
+      - name: Commit today json
+        run: |
+          git config user.name "makuri Bot"
+          git config user.email "bot@makuri.dev"
+          git add makuri/data/today_*.json || true
+          git diff --staged --quiet || git commit -m "Morning batch $(TZ=Asia/Tokyo date +%Y%m%d)"
+          git push || true
