@@ -79,14 +79,19 @@ def scrape_one_day(hd: str, jcd: str, venue_name: str) -> list[dict]:
                 row[f"b{b}_motor_no"]      = e.get("motor_no", "")
                 row[f"b{b}_motor_2rate"]   = e.get("motor_2rate", "")
 
-            # ST・着順
-            sts = result.get("start_times", {})
+            # ST: [{"boat":1, "st":0.25}, ...] → {艇番: ST}
+            sts_raw = result.get("start_times", [])
+            sts = {str(e["boat"]): e.get("st", "") for e in sts_raw if isinstance(e, dict)}
             for b in range(1, 7):
                 row[f"st{b}"] = sts.get(str(b), "")
 
-            ranks   = result.get("ranks", {})
+            # 着順: [{"rank":1, "boat":3}, ...] → {着順: 艇番}
+            results_raw = result.get("results", [])
+            rank_to_boat = {str(e.get("rank","")): e.get("boat","") for e in results_raw if isinstance(e, dict)}
+            # rank{b} = b号艇の着順
+            boat_to_rank = {str(v): k for k, v in rank_to_boat.items()}
             for b in range(1, 7):
-                row[f"rank{b}"] = ranks.get(str(b), "")
+                row[f"rank{b}"] = boat_to_rank.get(str(b), "")
 
             row["winning_boat"] = result.get("winning_boat", "")
             row["kimarite"]     = result.get("kimarite", "")

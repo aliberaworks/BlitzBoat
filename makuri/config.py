@@ -60,3 +60,11 @@ USER_AGENT      = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 REQUEST_DELAY   = 0.5
 REQUEST_TIMEOUT = 15
 MAX_RETRIES     = 3
+
+# BlitzBoat scraper.py が参照するURL定数（必須）
+BASE_URL         = "https://boatrace.jp/owpc/pc/race"
+URL_RACE_INDEX   = f"{BASE_URL}/raceindex?jcd={{jcd}}&hd={{hd}}"
+URL_RACELIST     = f"{BASE_URL}/racelist?rno={{rno}}&jcd={{jcd}}&hd={{hd}}"
+URL_BEFOREINFO   = f"{BASE_URL}/beforeinfo?rno={{rno}}&jcd={{jcd}}&hd={{hd}}"
+URL_RACE_RESULT  = f"{BASE_URL}/raceresult?rno={{rno}}&jcd={{jcd}}&hd={{hd}}"
+URL_ODDS_3T      = f"{BASE_URL}/odds3t?rno={{rno}}&jcd={{jcd}}&hd={{hd}}"
