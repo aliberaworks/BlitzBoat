@@ -16,9 +16,9 @@ BLITZBOAT_DIR    = os.path.join(BASE_DIR, "..", "BlitzBoat")
 PLAYER_STATS_JSON      = os.path.join(BLITZBOAT_DIR, "data", "player_stats.json")
 MODEL_ARARE_PKL        = os.path.join(BLITZBOAT_DIR, "data", "model_arare.pkl")
 MODEL_ARARE_META_JSON  = os.path.join(BLITZBOAT_DIR, "data", "model_arare_meta.json")
-MODEL_MAKKURI_3_PKL    = os.path.join(BLITZBOAT_DIR, "data", "model_makkuri_3.pkl")
-MODEL_MAKKURI_4_PKL    = os.path.join(BLITZBOAT_DIR, "data", "model_makkuri_4.pkl")
-MODEL_MAKKURI_META_JSON= os.path.join(BLITZBOAT_DIR, "data", "model_makkuri_meta.json")
+MODEL_MAKKURI_3_PKL    = os.path.join(DATA_DIR, "model_makkuri_3_full.pkl")
+MODEL_MAKKURI_4_PKL    = os.path.join(DATA_DIR, "model_makkuri_4_full.pkl")
+MODEL_MAKKURI_META_JSON= os.path.join(DATA_DIR, "model_makkuri_meta_full.json")
 MODEL_META_JSON        = os.path.join(BLITZBOAT_DIR, "data", "model_meta.json")
 
 # makuri独自データ

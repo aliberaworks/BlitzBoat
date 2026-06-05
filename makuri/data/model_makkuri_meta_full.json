@@ -1,0 +1,77 @@
+{
+  "feature_names": [
+    "bt_avg_st",
+    "bt_motor",
+    "bt_national",
+    "bt_local",
+    "bt_grade",
+    "b1_avg_st",
+    "b1_motor",
+    "b1_national",
+    "b1_local",
+    "b1_grade",
+    "st_diff",
+    "motor_diff",
+    "national_diff",
+    "grade_diff",
+    "day_from_start",
+    "series_progress",
+    "exhibit_diff",
+    "bt_makkuri_rate",
+    "bt_attack_rate",
+    "b1_nige_rate",
+    "b1_makuraare_rate",
+    "venue_01",
+    "venue_02",
+    "venue_03",
+    "venue_04",
+    "venue_05",
+    "venue_06",
+    "venue_07",
+    "venue_08",
+    "venue_09",
+    "venue_10",
+    "venue_11",
+    "venue_12",
+    "venue_13",
+    "venue_14",
+    "venue_15",
+    "venue_16",
+    "venue_17",
+    "venue_18",
+    "venue_19",
+    "venue_20",
+    "venue_21",
+    "venue_22",
+    "venue_23",
+    "venue_24"
+  ],
+  "grade_map": {
+    "A1": 4,
+    "A2": 3,
+    "B1": 2,
+    "B2": 1
+  },
+  "models": {
+    "3": {
+      "log_loss": 0.3587,
+      "auc_try": 0.7056,
+      "n_train": 451863,
+      "class_dist": {
+        "0": 401067,
+        "2": 42765,
+        "1": 8031
+      }
+    },
+    "4": {
+      "log_loss": 0.3156,
+      "auc_try": 0.7121,
+      "n_train": 456662,
+      "class_dist": {
+        "0": 414558,
+        "2": 33161,
+        "1": 8943
+      }
+    }
+  }
+}
