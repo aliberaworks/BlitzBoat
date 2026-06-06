@@ -1,10 +1,7 @@
 name: makuri Pre-Race Notify
 
 on:
-  schedule:
-    - cron: '0,30 23 * * *'    # JST 8:00, 8:30
-    - cron: '0,30 0-11 * * *'  # JST 9:00〜20:30
-    - cron: '0,30 12 * * *'    # JST 21:00, 21:30
+  # スケジュール停止: LINE月200通節約。手動実行のみ。
   workflow_dispatch:
     inputs:
       date:
