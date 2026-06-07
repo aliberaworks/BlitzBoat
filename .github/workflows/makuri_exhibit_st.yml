@@ -1,0 +1,53 @@
+name: makuri Exhibit ST Collect
+
+on:
+  schedule:
+    # JST 08:30 (UTC 23:30 前日) - 午前レースの展示ST
+    - cron: '30 23 * * *'
+    # JST 11:30 (UTC 02:30) - 中盤レースの展示ST
+    - cron: '30 2 * * *'
+    # JST 15:30 (UTC 06:30) - 後半レースの展示ST
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '日付 YYYYMMDD (省略で当日)'
+        required: false
+
+permissions:
+  contents: write
+
+env:
+  PYTHONIOENCODING: utf-8
+
+jobs:
+  collect-exhibit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Collect exhibit ST
+        working-directory: makuri
+        run: |
+          HD="${{ github.event.inputs.date }}"
+          HD="${HD:-$(TZ=Asia/Tokyo date +%Y%m%d)}"
+          echo "展示ST収集: $HD"
+          python collect_exhibit.py --date "$HD"
+
+      - name: Commit exhibit ST data
+        run: |
+          git config user.name "makuri Bot"
+          git config user.email "bot@makuri.dev"
+          git add makuri/data/exhibit_st_history.csv || true
+          git diff --staged --quiet || git commit -m "Exhibit ST $(TZ=Asia/Tokyo date +%Y%m%d-%H%M)"
+          git push || true

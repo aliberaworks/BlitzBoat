@@ -6,7 +6,7 @@ makuri - 朝バッチ
   python morning.py
   python morning.py --date 20260601
 """
-import argparse, json, os, sys
+import argparse, csv, json, os, sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date
 
@@ -20,8 +20,31 @@ _scr  = _ilu.module_from_spec(_spec); _spec.loader.exec_module(_scr)
 scrape_today_venues = _scr.scrape_today_venues
 scrape_racelist     = _scr.scrape_racelist
 scrape_race_times   = _scr.scrape_race_times
+scrape_beforeinfo   = _scr.scrape_beforeinfo
 
 MAX_WORKERS = 8
+
+EXHIBIT_CSV = os.path.join(config.DATA_DIR, "exhibit_st_history.csv")
+EXHIBIT_FIELDS = [
+    "date", "venue", "race_no",
+    "b1_exhibit_st", "b2_exhibit_st", "b3_exhibit_st",
+    "b4_exhibit_st", "b5_exhibit_st", "b6_exhibit_st",
+]
+
+
+def save_exhibit_st(hd: str, jcd: str, rno: int, exhibit_sts: dict):
+    """展示STをCSVに追記保存する（重複チェックなし・append）"""
+    if not exhibit_sts:
+        return
+    write_header = not os.path.exists(EXHIBIT_CSV)
+    with open(EXHIBIT_CSV, "a", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=EXHIBIT_FIELDS)
+        if write_header:
+            w.writeheader()
+        row = {"date": hd, "venue": jcd, "race_no": rno}
+        for b in range(1, 7):
+            row[f"b{b}_exhibit_st"] = exhibit_sts.get(b, "")
+        w.writerow(row)
 
 
 def predict_venue(jcd, venue_name, hd, n_races):
@@ -45,7 +68,19 @@ def predict_venue(jcd, venue_name, hd, n_races):
                     "reg_no":        e.get("toban", ""),
                 }
 
-            sr = scenario.score_race(jcd, boat_data)
+            # 展示ST取得（取れた分だけ使う・取れなければ exhibit_diff=0 で動く）
+            beforeinfo = scrape_beforeinfo(jcd, hd, rno)
+            exhibit_sts = {}
+            if beforeinfo:
+                for entry in beforeinfo:
+                    b  = entry.get("boat")
+                    st = entry.get("exhibit_st")
+                    if b and st is not None and 1 <= b <= 6:
+                        exhibit_sts[b] = st
+                if exhibit_sts:
+                    save_exhibit_st(hd, jcd, rno, exhibit_sts)
+
+            sr = scenario.score_race(jcd, boat_data, exhibit_sts=exhibit_sts if exhibit_sts else None)
             results.append({
                 "jcd":         jcd,
                 "venue_name":  venue_name,
